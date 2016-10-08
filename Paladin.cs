@@ -68,9 +68,9 @@ namespace Paladin
 
         public override void ShutDown()
         {
-            Lua.Events.DetachEvent("PLAYER_REGEN_DISABLED", OnCombatStarted);
+            /*Lua.Events.DetachEvent("PLAYER_REGEN_DISABLED", OnCombatStarted);
             Lua.Events.DetachEvent("UPDATE_BATTLEFIELD_STATUS", BGArena);
-            Talents.Detach();
+            Talents.Detach();*/
         }
 
         public override void Pulse()
