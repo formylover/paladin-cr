@@ -38,6 +38,8 @@ namespace Paladin.Settings.Forms
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             LoadSettings();
+
+            versionLabel.Text = string.Format("Local Version: {0}, Remote: {1}", Helpers.Version.CurrentLocalVersion(), Helpers.Version.CurrentRemoteVersion());
         }
 
         #region Settings Loading

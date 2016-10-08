@@ -54,6 +54,7 @@
             this.burstOnCooldownCheckbox = new System.Windows.Forms.CheckBox();
             this.useBurstCheckbox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.autoAcceptQueuePopCheckbox = new System.Windows.Forms.CheckBox();
             this.autoFocusCheckbox = new System.Windows.Forms.CheckBox();
             this.autoTargetCheckbox = new System.Windows.Forms.CheckBox();
             this.autoAttackCheckbox = new System.Windows.Forms.CheckBox();
@@ -135,7 +136,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label3 = new System.Windows.Forms.Label();
-            this.autoAcceptQueuePopCheckbox = new System.Windows.Forms.CheckBox();
+            this.versionLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox14.SuspendLayout();
@@ -463,6 +464,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Automation";
+            // 
+            // autoAcceptQueuePopCheckbox
+            // 
+            this.autoAcceptQueuePopCheckbox.AutoSize = true;
+            this.autoAcceptQueuePopCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.autoAcceptQueuePopCheckbox.Location = new System.Drawing.Point(6, 112);
+            this.autoAcceptQueuePopCheckbox.Name = "autoAcceptQueuePopCheckbox";
+            this.autoAcceptQueuePopCheckbox.Size = new System.Drawing.Size(140, 17);
+            this.autoAcceptQueuePopCheckbox.TabIndex = 5;
+            this.autoAcceptQueuePopCheckbox.Text = "Auto Accept Queue Pop";
+            this.autoAcceptQueuePopCheckbox.UseVisualStyleBackColor = true;
             // 
             // autoFocusCheckbox
             // 
@@ -1317,16 +1329,14 @@
             this.label3.Text = "Glorious Gaming - Wrathful Paladin";
             this.toolTip1.SetToolTip(this.label3, "GGWP!");
             // 
-            // autoAcceptQueuePopCheckbox
+            // versionLabel
             // 
-            this.autoAcceptQueuePopCheckbox.AutoSize = true;
-            this.autoAcceptQueuePopCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.autoAcceptQueuePopCheckbox.Location = new System.Drawing.Point(6, 112);
-            this.autoAcceptQueuePopCheckbox.Name = "autoAcceptQueuePopCheckbox";
-            this.autoAcceptQueuePopCheckbox.Size = new System.Drawing.Size(140, 17);
-            this.autoAcceptQueuePopCheckbox.TabIndex = 5;
-            this.autoAcceptQueuePopCheckbox.Text = "Auto Accept Queue Pop";
-            this.autoAcceptQueuePopCheckbox.UseVisualStyleBackColor = true;
+            this.versionLabel.AutoSize = true;
+            this.versionLabel.Location = new System.Drawing.Point(13, 408);
+            this.versionLabel.Name = "versionLabel";
+            this.versionLabel.Size = new System.Drawing.Size(48, 13);
+            this.versionLabel.TabIndex = 5;
+            this.versionLabel.Text = "Version: ";
             // 
             // SettingsForm
             // 
@@ -1334,6 +1344,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 438);
             this.ControlBox = false;
+            this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -1512,5 +1523,6 @@
         private System.Windows.Forms.ComboBox hammerOfJusticeHealerModifierSelect;
         private System.Windows.Forms.CheckBox useBlessingOfProtectionOnBurstCheckbox;
         private System.Windows.Forms.CheckBox autoAcceptQueuePopCheckbox;
+        private System.Windows.Forms.Label versionLabel;
     }
 }

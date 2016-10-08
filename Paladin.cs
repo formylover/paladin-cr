@@ -23,7 +23,7 @@ namespace Paladin
     public class PaladinCR : CombatRoutine
     {
         #region Version
-        private Version CurrentVersion = new Version(0, 1, 0);
+        private Version CurrentVersion = Helpers.Version.CurrentLocalVersion();
         #endregion
 
         public bool LatestVersion = true;
@@ -49,7 +49,7 @@ namespace Paladin
 
         public override void Initialize()
         {
-            LatestVersion = Helpers.Version.CheckVersion(CurrentVersion);
+            LatestVersion = Helpers.Version.CheckVersion();
 
             HotkeysManager.Initialize(StyxWoW.Memory.Process.MainWindowHandle);
             PaladinSettings.Instance.Load();
