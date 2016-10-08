@@ -1,0 +1,5 @@
+bin/
+obj/
+.vs/
+Paladin.csproj
+Paladin.sln
