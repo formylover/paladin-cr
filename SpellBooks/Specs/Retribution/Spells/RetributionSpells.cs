@@ -245,7 +245,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
                 if (_shieldOfVengeance == null)
                 {
                     int _id = 184662;
-                    _shieldOfVengeance = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                    _shieldOfVengeance = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.OffGlobalCooldown };
                 }
                 return _shieldOfVengeance;
             }

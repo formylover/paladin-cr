@@ -7,6 +7,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
         public async Task<bool> BladeOfWrathMethod()
         {
             if (Helpers.Globals.CurrentTarget == null) return false;
+            if (BladeOfWrath.CRSpell.Cooldown) return false;
 
             if (!Styx.StyxWoW.Me.IsFacing(Helpers.Globals.CurrentTarget)) return false;
 

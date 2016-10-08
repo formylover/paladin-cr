@@ -16,6 +16,7 @@ namespace Paladin.SpellBooks
         public string LocalName { get; set; }
         private WoWSpell _crSpell;
         public SpellFlags SpellFlags { get; set; }
+        public bool OffGlobalCooldown { get; set; }
         public WoWSpell CRSpell
         {
             get
@@ -34,8 +35,9 @@ namespace Paladin.SpellBooks
 
         public async Task<bool> Cast(WoWUnit target = null)
         {
-            var _target = target ?? StyxWoW.Me.CurrentTarget;
+            if (SpellManager.GlobalCooldown && SpellFlags != SpellFlags.OffGlobalCooldown) return false;
 
+            var _target = target ?? Helpers.Globals.CurrentTarget;
             if (_target == null || !_target.IsValid)
                 return false;
 
@@ -79,12 +81,6 @@ namespace Paladin.SpellBooks
 
     public enum SpellFlags
     {
-        None = 0,
-        Facing = 1,
-        Buff = 2,
-        Heal = 3,
-        Defensive = 4,
-        Cooldown = 5,
-        Artifact = 6,
+        None, Facing, OffGlobalCooldown
     }
  }

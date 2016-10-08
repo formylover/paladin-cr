@@ -1,3 +1,10 @@
+# 0.2.2
+
+- Rewordked caching of all unit caches to be alot faster
+- Fixed consecration and divine hammer pre checks
+- Added Talent Cache which refreshes on talent change
+- Only pulse heal ones per rotation
+
 # 0.2.1
 
 - Divine Storm will now check for Players around in PvP to ignore pets

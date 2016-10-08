@@ -27,7 +27,10 @@ namespace Paladin.Helpers
             }
         }
 
-        public static Stopwatch CombatTime = new Stopwatch();
+        public static Stopwatch UpdateScanner = new Stopwatch();
+        private static int UpdateScanInterval = 500;
+        public static Stopwatch AuraScanner = new Stopwatch();
+        private static int AuraScanInterval = 250;
 
         // Hotkeys
         public static WoWUnit HoJTarget;
@@ -57,35 +60,46 @@ namespace Paladin.Helpers
 
         public static void Update()
         {
-            using (StyxWoW.Memory.TemporaryCacheState(true))
+            if (!AuraScanner.IsRunning) AuraScanner.Restart();
+            if (AuraScanner.ElapsedMilliseconds >= AuraScanInterval) Auras.ResetAuraCache = true;
+
+            if (!UpdateScanner.IsRunning) UpdateScanner.Restart();
+            if (UpdateScanner.ElapsedMilliseconds >= UpdateScanInterval)
             {
-                MyHp = StyxWoW.Me.HealthPercent;
-                CurrentTarget = StyxWoW.Me.CurrentTarget;
-
-                EnemiesInRange = StyxWoW.Me.GotTarget
-                    ? Unit.EnemiesInRange(8 + (int)StyxWoW.Me.CurrentTarget.CombatReach)
-                    : EnemiesInRange = Unit.EnemiesInRange(8);
-
-                MeleeRange = StyxWoW.Me.GotTarget
-                    ? Math.Max(4f, StyxWoW.Me.CombatReach + 1.3333334f + StyxWoW.Me.CurrentTarget.CombatReach)
-                    : 4f;
-
-                HolyPower = StyxWoW.Me.CurrentHolyPower;
-                Forbearance = StyxWoW.Me.HasAura(25771);
-                InParty = StyxWoW.Me.GroupInfo.IsInRaid || StyxWoW.Me.GroupInfo.IsInParty;
-                Pvp = StyxWoW.Me.IsInArena || StyxWoW.Me.GroupInfo.IsInBattlegroundParty;
-
-
-                // If we're not in Pvp stop
-                if (!Pvp) return;
-
-                // If we're not using the focusing settings, stop
-                if (!Paladin.Settings.PaladinSettings.Instance.AutoFocusUse) return;
-
-                HasFocus = StyxWoW.Me.FocusedUnit != null;
-
-                // Crowd Control
+                Managers.Healing.ResetHealList = true;
+                Unit.ResetUnfriendlyUnits = true;
+                Unit.ResetUnfriendlyPlayers = true;
+                Unit.ResetGroupMembers = true;
+                UpdateScanner.Restart();
+                //Helpers.Logger.DiagnosticLog("Current FPS: {0}", StyxWoW.WoWClient.Fps);
             }
+            
+            MyHp = StyxWoW.Me.HealthPercent;
+            CurrentTarget = StyxWoW.Me.CurrentTarget;
+
+            EnemiesInRange = StyxWoW.Me.GotTarget
+                ? Unit.EnemiesInRange(8 + (int)StyxWoW.Me.CurrentTarget.CombatReach)
+                : EnemiesInRange = Unit.EnemiesInRange(8);
+
+            MeleeRange = StyxWoW.Me.GotTarget
+                ? Math.Max(4f, StyxWoW.Me.CombatReach + 1.3333334f + StyxWoW.Me.CurrentTarget.CombatReach)
+                : 4f;
+
+            HolyPower = StyxWoW.Me.CurrentHolyPower;
+            Forbearance = StyxWoW.Me.HasAura(25771);
+            InParty = StyxWoW.Me.GroupInfo.IsInRaid || StyxWoW.Me.GroupInfo.IsInParty;
+            Pvp = StyxWoW.Me.IsInArena || StyxWoW.Me.GroupInfo.IsInBattlegroundParty;
+
+
+            // If we're not in Pvp stop
+            if (!Pvp) return;
+
+            // If we're not using the focusing settings, stop
+            if (!Paladin.Settings.PaladinSettings.Instance.AutoFocusUse) return;
+
+            HasFocus = StyxWoW.Me.FocusedUnit != null;
+
+            // Crowd Control
         }
 
         public static bool HasDivinePurpose

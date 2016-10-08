@@ -8,6 +8,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
     {
         public async Task<bool> HammerOfReckoningMethod()
         {
+            if (!Styx.CommonBot.SpellManager.HasSpell(HammerOfReckoning.ID)) return false;
             if (Globals.CurrentTarget == null) return false;
 
             if (PaladinSettings.Instance.BurstUse && !Cooldowns)

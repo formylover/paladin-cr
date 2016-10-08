@@ -11,19 +11,23 @@ namespace Paladin.Managers
 {
     public static class Healing
     {
-        private static IEnumerable<WoWPlayer> HealList
+        public static bool ResetHealList = false;
+        private static IEnumerable<WoWPlayer> _healList;
+        public static IEnumerable<WoWPlayer> HealList
         {
             get
             {
-                using (StyxWoW.Memory.AcquireFrame(true))
+                if (_healList == null || ResetHealList)
                 {
-                    var list = Unit.GroupMembers.Where(u => !u.IsDead && u.Distance < 40 && u.InLineOfSpellSight).OrderBy(u => u.HealthPercent).ToList();
+                    var list = Unit.GroupMembers.Where(u => !u.IsDead && u.InLineOfSpellSight).OrderBy(u => u.HealthPercent).ToList();
 
                     if (list.Contains(StyxWoW.Me))
                         list.Remove(StyxWoW.Me);
 
-                    return list;
+                    _healList = list;
                 }
+
+                return _healList;
             }
         }
 
@@ -98,11 +102,8 @@ namespace Paladin.Managers
             // If we don't have a target return null
             if (healtarget == null)
                 return null;
-
-            using (StyxWoW.Memory.AcquireFrame(true))
-            {
-                return Unit.UnfriendlyUnits.FirstOrDefault(u => !u.IsCrowdControlled() && StyxWoW.Me.IsFacing(u) && u.Location.DistanceSquared(healtarget.Location) <= 15);
-            }
+            
+            return Unit.UnfriendlyUnits.FirstOrDefault(u => !u.IsCrowdControlled() && StyxWoW.Me.IsFacing(u) && u.Location.DistanceSquared(healtarget.Location) <= 15);
         }
     }
 }

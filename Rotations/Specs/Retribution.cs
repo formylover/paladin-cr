@@ -53,8 +53,6 @@ namespace Paladin.Rotations.Specs
 
         public async override Task<bool> Heal()
         {
-            Globals.HealPulsed = true;
-            
             Globals.Update();
 
             if (await MySpells.DivineShieldMethod()) return true;
@@ -82,7 +80,7 @@ namespace Paladin.Rotations.Specs
             if (await MySpells.BlessingOfFreedomMethod()) return true;
 
             if (await MySpells.SealOfLightMethod()) return true;
-            
+
             /*if (Settings.UseCleanse && await MySpells.CleanseMethod()) return true;*/
 
             return false;
@@ -90,14 +88,6 @@ namespace Paladin.Rotations.Specs
 
         public async override Task<bool> CombatBuff()
         {
-            if (!Globals.HealPulsed)
-            {
-                await Heal();
-
-                if (Globals.HealPulsed)
-                    Globals.HealPulsed = false;
-            }
-
             // Auto Focus in PVP
             if (Globals.Pvp && PaladinSettings.Instance.AutoFocusUse && SpellBooks.Global.AutoFocus.AutoFocusMethod()) return true;
             
@@ -123,7 +113,7 @@ namespace Paladin.Rotations.Specs
             
             if (await MySpells.RacialsMethod()) return true;
 
-            if (await MySpells.TotemStompMethod()) return true;
+            //if (await MySpells.TotemStompMethod()) return true;
 
             if (Globals.Pvp && await MySpells.PvpChecksMethod()) return true;
 

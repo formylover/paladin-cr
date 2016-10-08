@@ -19,7 +19,9 @@ namespace Paladin.Helpers
             get
             {
                 if (_localVersion == null)
-                    _localVersion = new System.Version(0, 2, 1);
+                {
+                    _localVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                }
 
                 return _localVersion;
             }

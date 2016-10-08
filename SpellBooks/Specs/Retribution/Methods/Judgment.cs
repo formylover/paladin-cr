@@ -9,6 +9,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
         public async Task<bool> JudgmentMethod()
         {
             if (Globals.CurrentTarget == null) return false;
+            if (Judgment.CRSpell.Cooldown) return false;
 
             if (!await Judgment.Cast(Globals.CurrentTarget))
                 return false;

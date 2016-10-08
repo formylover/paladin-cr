@@ -7,6 +7,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
     {
         public async Task<bool> ConsecrationMethod()
         {
+            if (!MyTalents.Consecration.IsActive()) return false;
             if (Globals.CurrentTarget == null || Globals.CurrentTarget.Distance > 6) return false;
 
             if (!await Consecration.Cast()) return false;

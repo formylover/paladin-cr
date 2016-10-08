@@ -51,14 +51,6 @@ namespace Paladin.Rotations.Specs
 
         public async override Task<bool> CombatBuff()
         {
-            if (!Globals.HealPulsed)
-            {
-                await Heal();
-
-                if (Globals.HealPulsed)
-                    Globals.HealPulsed = false;
-            }
-
             // Auto Focus in PVP
             if (Globals.Pvp && PaladinSettings.Instance.AutoFocusUse && SpellBooks.Global.AutoFocus.AutoFocusMethod()) return true;
 

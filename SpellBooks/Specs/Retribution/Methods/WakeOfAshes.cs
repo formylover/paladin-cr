@@ -7,6 +7,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
     {
         public async Task<bool> WakeOfAshesMethod()
         {
+            if (WakeOfAshes.CRSpell.Cooldown) return false;
             if (!Globals.CurrentTarget.IsWithinMeleeRange || !Styx.StyxWoW.Me.IsFacing(Globals.CurrentTarget) || !Globals.CurrentTarget.Attackable) return false;
             
             if (!await WakeOfAshes.Cast()) return false;

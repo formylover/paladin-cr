@@ -20,8 +20,9 @@ using Paladin.Managers;
 
 namespace Paladin
 {
-    public class PaladinCR : CombatRoutine
+    public partial class PaladinCR : CombatRoutine
     {
+        private static readonly Version version = Helpers.Version.CurrentLocalVersion;
         public bool LatestVersion = true;
 
         #region Required Overrides
@@ -56,6 +57,7 @@ namespace Paladin
             Lua.Events.AttachEvent("UPDATE_BATTLEFIELD_STATUS", BGArena);
 
             Hotkeys.RegisterHotkeys();
+            Talents.Init();
         }
 
         private void OnCombatStarted(object sender, LuaEventArgs e)
@@ -64,7 +66,12 @@ namespace Paladin
             //Globals.CombatTime.Restart();
         }
 
-        public override void ShutDown() { }
+        public override void ShutDown()
+        {
+            Lua.Events.DetachEvent("PLAYER_REGEN_DISABLED", OnCombatStarted);
+            Lua.Events.DetachEvent("UPDATE_BATTLEFIELD_STATUS", BGArena);
+            Talents.Detach();
+        }
 
         public override void Pulse()
         {

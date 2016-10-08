@@ -12,7 +12,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
     {
         public async Task<bool> TemplarsVerdictMethod()
         {
-            if (Globals.CurrentTarget == null) return false;
+            if (Globals.CurrentTarget == null || !Globals.CurrentTarget.IsWithinMeleeRange) return false;
 
             if (Globals.HasDivinePurpose)
             {
@@ -21,6 +21,8 @@ namespace Paladin.SpellBooks.Specs.Retribution
 
                 return await CastTemplarsVerdict();
             }
+
+            if (Globals.HolyPower < 3) return false;
 
             if (MyTalents.JusticarsVengeance.IsActive() && !MyTalents.DivinePurpose.IsActive())
             {

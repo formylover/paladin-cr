@@ -2,44 +2,88 @@
 using Styx.Common;
 using Styx.WoWInternals;
 using Styx.WoWInternals.WoWObjects;
+
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Paladin.Helpers
 {
     public static class Unit
     {
         #region Units and Groups
+        public static bool ResetUnfriendlyUnits = false;
+        private static IEnumerable<WoWUnit> _unfriendlyUnits;
         public static IEnumerable<WoWUnit> UnfriendlyUnits
         {
             get
             {
-                using (StyxWoW.Memory.AcquireFrame(true))
+                if (_unfriendlyUnits == null || ResetUnfriendlyUnits)
                 {
-                    return ObjectManager.GetObjectsOfTypeFast<WoWUnit>().Where(u => u.ValidAttackUnit() && u.Distance < 40).ToList();
+                     //_unfriendlyUnits = ObjectManager.GetObjectsOfType<WoWUnit>().Where(u => u.ValidAttackUnit() && u.Distance < 40);
+
+                    List<WoWUnit> list = new List<WoWUnit>();
+                    List<WoWObject> objectList = ObjectManager.ObjectList;
+
+                    for (int i = 0; i < objectList.Count; i++)
+                    {
+                        Type type = objectList[i].GetType();
+                        if (type == typeof(WoWUnit) || type == typeof(WoWPlayer))
+                        {
+                            WoWUnit t = objectList[i] as WoWUnit;
+                            if (t != null && t.ValidAttackUnit() && t.Distance < 40)
+                                list.Add(t);
+                        }
+                    }
+
+                    _unfriendlyUnits = list;
+
+                    ResetUnfriendlyUnits = false;
                 }
+
+                return _unfriendlyUnits;
             }
         }
 
+        public static bool ResetUnfriendlyPlayers = false;
+        private static IEnumerable<WoWUnit> _unfriendlyPlayers;
         public static IEnumerable<WoWUnit> UnfriendlyPlayers
         {
             get
             {
-                using (StyxWoW.Memory.AcquireFrame(true))
+                if (_unfriendlyPlayers == null || ResetUnfriendlyPlayers)
                 {
-                    return ObjectManager.GetObjectsOfTypeFast<WoWPlayer>().Where(u => u.IsValid && !u.IsDead && u.Attackable && u.Distance < 40).ToList();
+                    //_unfriendlyPlayers = ObjectManager.GetObjectsOfTypeFast<WoWPlayer>().Where(u => u.IsValid && !u.IsDead && u.Attackable && u.Distance < 40);
+                    _unfriendlyPlayers = UnfriendlyUnits.Where(u => u.IsPlayer);
+
+                    ResetUnfriendlyPlayers = false;
                 }
+
+                return _unfriendlyPlayers;
             }
         }
 
+        public static bool ResetGroupMembers = false;
+        private static IEnumerable<WoWPlayer> _groupMembers;
         public static IEnumerable<WoWPlayer> GroupMembers
         {
             get
             {
-                using (StyxWoW.Memory.AcquireFrame(true))
+                if (_groupMembers == null || ResetGroupMembers)
                 {
-                    return ObjectManager.GetObjectsOfTypeFast<WoWPlayer>().Where(u => u.IsInMyParty || u.IsInMyRaid && u.Distance < 40).ToList();
+                    //_groupMembers = ObjectManager.GetObjectsOfTypeFast<WoWPlayer>().Where(u => (u.IsInMyParty || u.IsInMyRaid) && u.Distance < 40);
+                    HashSet<WoWGuid> guids = new HashSet<WoWGuid>(StyxWoW.Me.GroupInfo.RaidMemberGuids);
+                    List<WoWPlayer> list = ObjectManager.ObjectList
+                        .Where(o => o != null && o.ToUnit() != null && guids.Contains(o.Guid) && o.ToUnit().IsPlayer)
+                        .Select(o => o.ToPlayer())
+                        .ToList();
+
+                    _groupMembers = list;
+
+                    ResetGroupMembers = false;
                 }
+
+                return _groupMembers;
             }
         }
         #endregion
@@ -59,7 +103,7 @@ namespace Paladin.Helpers
             if (p.IsDead)
                 return false;
 
-            if (p.IsTotem)
+            if (p.IsTotem && !p.IsHostile)
                 return false;
 
             if (p.IsNonCombatPet)

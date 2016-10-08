@@ -40,7 +40,7 @@ namespace Paladin.SpellBooks.Specs
                 if (_avengingWrath == null)
                 {
                     int _id = 31884;
-                    _avengingWrath = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                    _avengingWrath = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.OffGlobalCooldown };
                 }
                 return _avengingWrath;
             }
