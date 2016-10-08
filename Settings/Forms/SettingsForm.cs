@@ -39,7 +39,8 @@ namespace Paladin.Settings.Forms
         {
             LoadSettings();
 
-            versionLabel.Text = string.Format("Local Version: {0}, Remote: {1}", Helpers.Version.CurrentLocalVersion(), Helpers.Version.CurrentRemoteVersion());
+            versionLabel.Text = string.Format("Local Version: {0}, Remote: {1}", Helpers.Version.CurrentLocalVersion, Helpers.Version.CurrentRemoteVersion);
+            changelogText.Text = Helpers.Version.Changelog;
         }
 
         #region Settings Loading
@@ -365,7 +366,7 @@ namespace Paladin.Settings.Forms
             if (PaladinCR.CRInterruptsForm == null || PaladinCR.CRInterruptsForm.IsDisposed || PaladinCR.CRInterruptsForm.Disposing)
                 PaladinCR.CRInterruptsForm = new InterruptForm();
 
-            PaladinCR.CRInterruptsForm.ShowDialog();
+            PaladinCR.CRInterruptsForm.Show();
         }
 
         private void cleanseListButton_Click(object sender, EventArgs e)
@@ -373,7 +374,7 @@ namespace Paladin.Settings.Forms
             if (PaladinCR.CRCleansesForm == null || PaladinCR.CRCleansesForm.IsDisposed || PaladinCR.CRCleansesForm.Disposing)
                 PaladinCR.CRCleansesForm = new CleanseForm();
 
-            PaladinCR.CRCleansesForm.ShowDialog();
+            PaladinCR.CRCleansesForm.Show();
         }
     }
 }

@@ -22,10 +22,6 @@ namespace Paladin
 {
     public class PaladinCR : CombatRoutine
     {
-        #region Version
-        private Version CurrentVersion = Helpers.Version.CurrentLocalVersion();
-        #endregion
-
         public bool LatestVersion = true;
 
         #region Required Overrides
@@ -33,7 +29,7 @@ namespace Paladin
         {
             get
             {
-                return "[Glorious Gaming] Wrathful Paladin v" + CurrentVersion;
+                return "[Glorious Gaming] Wrathful Paladin v" + Helpers.Version.CurrentLocalVersion;
             }
         }
 
@@ -50,6 +46,10 @@ namespace Paladin
         public override void Initialize()
         {
             LatestVersion = Helpers.Version.CheckVersion();
+            if (!LatestVersion)
+            {
+                System.Windows.Forms.DialogResult dr = System.Windows.Forms.MessageBox.Show("New Version available, please go to https://github.com/oruna/paladin-cr and download the Update", "New Version available");
+            }
 
             HotkeysManager.Initialize(StyxWoW.Memory.Process.MainWindowHandle);
             PaladinSettings.Instance.Load();
@@ -116,8 +116,6 @@ namespace Paladin
         }
         private IRotation GetRotation(WoWSpec spec)
         {
-            if (!LatestVersion) return new None();
-
             switch (spec)
             {
                 case WoWSpec.PaladinProtection:

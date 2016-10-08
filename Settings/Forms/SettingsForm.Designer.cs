@@ -130,7 +130,7 @@
             this.burstKeySelect = new System.Windows.Forms.ComboBox();
             this.burstModifierKeySelect = new System.Windows.Forms.ComboBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.changelogText = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -1264,7 +1264,7 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.richTextBox1);
+            this.tabPage5.Controls.Add(this.changelogText);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -1273,17 +1273,17 @@
             this.tabPage5.Text = "Changelog";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // richTextBox1
+            // changelogText
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.White;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(503, 273);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "Lorem Ipsum Dolor Sit amet";
+            this.changelogText.BackColor = System.Drawing.Color.White;
+            this.changelogText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.changelogText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.changelogText.Location = new System.Drawing.Point(3, 3);
+            this.changelogText.Name = "changelogText";
+            this.changelogText.ReadOnly = true;
+            this.changelogText.Size = new System.Drawing.Size(503, 273);
+            this.changelogText.TabIndex = 0;
+            this.changelogText.Text = "Lorem Ipsum Dolor Sit amet";
             // 
             // button1
             // 
@@ -1489,7 +1489,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown justicarsVengeanceInput;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox changelogText;
         private System.Windows.Forms.GroupBox groupBox14;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown kickMaxInput;
