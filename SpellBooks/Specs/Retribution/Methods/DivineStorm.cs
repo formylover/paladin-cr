@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Paladin.Helpers;
@@ -14,14 +15,15 @@ namespace Paladin.SpellBooks.Specs.Retribution
         {
             if (Globals.EnemiesInRange < 1)
                 return false;
-
-            var finalVerdictTalent = MyTalents.FinalVerdict.IsActive();
-
+            
             // TODO check this if it is needed
             if (Globals.HolyPower < PaladinSettings.Instance.DivineStormHolyPower)
                 return false;
 
-            if (Globals.EnemiesInRange < PaladinSettings.Instance.DivineStormEnemies)
+            // only check players, no pets
+            if (Globals.Pvp && Unit.UnfriendlyPlayers.Count(u => u.Distance < 8) < PaladinSettings.Instance.DivineStormEnemies)
+                return false;
+            else if (Globals.EnemiesInRange < PaladinSettings.Instance.DivineStormEnemies)
                 return false;
 
             if (!await DivineStorm.Cast())

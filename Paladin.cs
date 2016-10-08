@@ -47,9 +47,7 @@ namespace Paladin
         {
             LatestVersion = Helpers.Version.CheckVersion();
             if (!LatestVersion)
-            {
-                System.Windows.Forms.DialogResult dr = System.Windows.Forms.MessageBox.Show("New Version available, please go to https://github.com/oruna/paladin-cr and download the Update", "New Version available");
-            }
+                Helpers.Logger.PrintLog(Colors.Red, "There is a new Version of Wrathful Paladin available, go to https://github.com/oruna/paladin-cr/ and download the latest Version");
 
             HotkeysManager.Initialize(StyxWoW.Memory.Process.MainWindowHandle);
             PaladinSettings.Instance.Load();

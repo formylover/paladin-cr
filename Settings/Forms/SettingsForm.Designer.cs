@@ -252,6 +252,7 @@
             this.interruptListButton.TabIndex = 14;
             this.interruptListButton.Text = "Interrupt List";
             this.interruptListButton.UseVisualStyleBackColor = true;
+            this.interruptListButton.Click += new System.EventHandler(this.interruptListButton_Click_1);
             // 
             // label1
             // 

@@ -208,7 +208,7 @@ namespace Paladin.SpellBooks.Specs
                 if (_rebuke == null)
                 {
                     int _id = 96231;
-                    _rebuke = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                    _rebuke = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
                 }
                 return _rebuke;
             }

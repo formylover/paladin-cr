@@ -361,20 +361,20 @@ namespace Paladin.Settings.Forms
             Close();
         }
 
-        private void interruptListButton_Click(object sender, EventArgs e)
-        {
-            if (PaladinCR.CRInterruptsForm == null || PaladinCR.CRInterruptsForm.IsDisposed || PaladinCR.CRInterruptsForm.Disposing)
-                PaladinCR.CRInterruptsForm = new InterruptForm();
-
-            PaladinCR.CRInterruptsForm.Show();
-        }
-
         private void cleanseListButton_Click(object sender, EventArgs e)
         {
             if (PaladinCR.CRCleansesForm == null || PaladinCR.CRCleansesForm.IsDisposed || PaladinCR.CRCleansesForm.Disposing)
                 PaladinCR.CRCleansesForm = new CleanseForm();
 
             PaladinCR.CRCleansesForm.Show();
+        }
+
+        private void interruptListButton_Click_1(object sender, EventArgs e)
+        {
+            if (PaladinCR.CRInterruptsForm == null || PaladinCR.CRInterruptsForm.IsDisposed || PaladinCR.CRInterruptsForm.Disposing)
+                PaladinCR.CRInterruptsForm = new InterruptForm();
+
+            PaladinCR.CRInterruptsForm.Show();
         }
     }
 }

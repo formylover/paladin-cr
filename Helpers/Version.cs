@@ -19,7 +19,7 @@ namespace Paladin.Helpers
             get
             {
                 if (_localVersion == null)
-                    _localVersion = new System.Version(0, 2, 0);
+                    _localVersion = new System.Version(0, 2, 1);
 
                 return _localVersion;
             }

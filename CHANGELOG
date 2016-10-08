@@ -1,3 +1,9 @@
+# 0.2.1
+
+- Divine Storm will now check for Players around in PvP to ignore pets
+- Update notice will now longer popup a message box
+- Interrupt Button is now working as he should
+
 # 0.2.0
 
 - Initial Version with working Retribution Spec

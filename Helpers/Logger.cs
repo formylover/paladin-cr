@@ -22,6 +22,11 @@ namespace Paladin.Helpers
             Write(LogLevel.Diagnostic, Colors.MediumPurple, message, args);
         }
 
+        public static void PrintLog(Color color, string message, params object[] args)
+        {
+            Write(LogLevel.Normal, color, message, args);
+        }
+
         public static void PrintLog(string message, params object[] args)
         {
             Write(LogLevel.Normal, Colors.DodgerBlue, message, args);
