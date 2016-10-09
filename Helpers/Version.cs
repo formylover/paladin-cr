@@ -34,19 +34,19 @@ namespace Paladin.Helpers
             {
                 if (_remoteVersion == null)
                 {
-                    WebResponse resp = GetResponseNoCache("https://raw.githubusercontent.com/oruna/paladin-cr/master/Helpers/Version.cs");
+                    WebResponse resp = GetResponseNoCache("https://raw.githubusercontent.com/oruna/paladin-cr/master/Properties/AssemblyInfo.cs");
                     if (resp == null) return new System.Version(0,0,0);
                     StreamReader sr = new StreamReader(resp.GetResponseStream());
 
                     string line;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        Regex regex = new Regex(@"new System\.Version\((.*)\)");
+                        Regex regex = new Regex(@"AssemblyVersion\((.*)\)");
                         Match match = regex.Match(line);
 
                         if (match.Success && match.Groups.Count >= 2)
                         {
-                            _remoteVersion = new System.Version(match.Groups[1].Value.Replace(",", ".").Replace(" ", ""));
+                            _remoteVersion = new System.Version(match.Groups[1].Value.Replace("\"", ""));
                             break;
                         }
                     }

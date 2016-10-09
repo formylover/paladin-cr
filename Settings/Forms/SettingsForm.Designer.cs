@@ -1367,7 +1367,7 @@
             // 
             // hammerOfReckoningInput
             // 
-            this.hammerOfReckoningInput.Location = new System.Drawing.Point(156, 16);
+            this.hammerOfReckoningInput.Location = new System.Drawing.Point(156, 17);
             this.hammerOfReckoningInput.Name = "hammerOfReckoningInput";
             this.hammerOfReckoningInput.Size = new System.Drawing.Size(46, 20);
             this.hammerOfReckoningInput.TabIndex = 11;
