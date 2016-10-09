@@ -137,6 +137,9 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.versionLabel = new System.Windows.Forms.Label();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.hammerOfReckoningInput = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox14.SuspendLayout();
@@ -175,6 +178,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.shieldOfVengeanceHpInput)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hammerOfReckoningInput)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -192,7 +197,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(0, 0);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(517, 305);
+            this.tabControl1.Size = new System.Drawing.Size(517, 337);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -206,7 +211,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(509, 279);
+            this.tabPage1.Size = new System.Drawing.Size(509, 311);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             // 
@@ -393,7 +398,7 @@
             this.groupBox2.Controls.Add(this.useBurstCheckbox);
             this.groupBox2.Location = new System.Drawing.Point(6, 147);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(229, 126);
+            this.groupBox2.Size = new System.Drawing.Size(229, 117);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Burst";
@@ -543,7 +548,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(509, 279);
+            this.tabPage2.Size = new System.Drawing.Size(509, 311);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "All Specs";
             // 
@@ -553,7 +558,7 @@
             this.groupBox15.Controls.Add(this.useBlindingLightCheckbox);
             this.groupBox15.Location = new System.Drawing.Point(7, 149);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(244, 122);
+            this.groupBox15.Size = new System.Drawing.Size(244, 50);
             this.groupBox15.TabIndex = 8;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Talents";
@@ -835,6 +840,7 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.groupBox16);
             this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Controls.Add(this.groupBox13);
             this.tabPage3.Controls.Add(this.groupBox12);
@@ -844,7 +850,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(509, 279);
+            this.tabPage3.Size = new System.Drawing.Size(509, 311);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Retribution";
             // 
@@ -862,7 +868,7 @@
             this.groupBox5.Controls.Add(this.retFlashOfLightOtherInput);
             this.groupBox5.Location = new System.Drawing.Point(6, 78);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(236, 195);
+            this.groupBox5.Size = new System.Drawing.Size(236, 170);
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Retribution Healing";
@@ -1019,7 +1025,7 @@
             this.groupBox11.Controls.Add(this.holyWrathHealthPercentInput);
             this.groupBox11.Location = new System.Drawing.Point(251, 115);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(236, 76);
+            this.groupBox11.Size = new System.Drawing.Size(236, 62);
             this.groupBox11.TabIndex = 15;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Holy Wrath";
@@ -1027,7 +1033,7 @@
             // intelligentHolyWrathUsageCheckbox
             // 
             this.intelligentHolyWrathUsageCheckbox.AutoSize = true;
-            this.intelligentHolyWrathUsageCheckbox.Location = new System.Drawing.Point(9, 47);
+            this.intelligentHolyWrathUsageCheckbox.Location = new System.Drawing.Point(9, 40);
             this.intelligentHolyWrathUsageCheckbox.Name = "intelligentHolyWrathUsageCheckbox";
             this.intelligentHolyWrathUsageCheckbox.Size = new System.Drawing.Size(161, 17);
             this.intelligentHolyWrathUsageCheckbox.TabIndex = 13;
@@ -1037,7 +1043,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 23);
+            this.label10.Location = new System.Drawing.Point(6, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(91, 13);
             this.label10.TabIndex = 12;
@@ -1045,7 +1051,7 @@
             // 
             // holyWrathHealthPercentInput
             // 
-            this.holyWrathHealthPercentInput.Location = new System.Drawing.Point(156, 19);
+            this.holyWrathHealthPercentInput.Location = new System.Drawing.Point(156, 16);
             this.holyWrathHealthPercentInput.Name = "holyWrathHealthPercentInput";
             this.holyWrathHealthPercentInput.Size = new System.Drawing.Size(46, 20);
             this.holyWrathHealthPercentInput.TabIndex = 11;
@@ -1056,9 +1062,9 @@
             this.groupBox10.Controls.Add(this.divineStormHolyPowerInput);
             this.groupBox10.Controls.Add(this.label7);
             this.groupBox10.Controls.Add(this.divineStormEnemyCountInput);
-            this.groupBox10.Location = new System.Drawing.Point(251, 197);
+            this.groupBox10.Location = new System.Drawing.Point(251, 237);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(236, 76);
+            this.groupBox10.Size = new System.Drawing.Size(236, 68);
             this.groupBox10.TabIndex = 14;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Divine Storm";
@@ -1066,7 +1072,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 48);
+            this.label8.Location = new System.Drawing.Point(6, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(124, 13);
             this.label8.TabIndex = 14;
@@ -1075,7 +1081,7 @@
             // 
             // divineStormHolyPowerInput
             // 
-            this.divineStormHolyPowerInput.Location = new System.Drawing.Point(156, 45);
+            this.divineStormHolyPowerInput.Location = new System.Drawing.Point(156, 39);
             this.divineStormHolyPowerInput.Name = "divineStormHolyPowerInput";
             this.divineStormHolyPowerInput.Size = new System.Drawing.Size(46, 20);
             this.divineStormHolyPowerInput.TabIndex = 13;
@@ -1083,7 +1089,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 23);
+            this.label7.Location = new System.Drawing.Point(6, 21);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 13);
             this.label7.TabIndex = 12;
@@ -1091,7 +1097,7 @@
             // 
             // divineStormEnemyCountInput
             // 
-            this.divineStormEnemyCountInput.Location = new System.Drawing.Point(156, 19);
+            this.divineStormEnemyCountInput.Location = new System.Drawing.Point(156, 13);
             this.divineStormEnemyCountInput.Name = "divineStormEnemyCountInput";
             this.divineStormEnemyCountInput.Size = new System.Drawing.Size(46, 20);
             this.divineStormEnemyCountInput.TabIndex = 11;
@@ -1289,7 +1295,7 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(418, 403);
+            this.button1.Location = new System.Drawing.Point(420, 432);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 23);
             this.button1.TabIndex = 1;
@@ -1300,7 +1306,7 @@
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(337, 403);
+            this.button2.Location = new System.Drawing.Point(339, 432);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -1311,7 +1317,7 @@
             // button3
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(256, 403);
+            this.button3.Location = new System.Drawing.Point(258, 432);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 3;
@@ -1333,17 +1339,44 @@
             // versionLabel
             // 
             this.versionLabel.AutoSize = true;
-            this.versionLabel.Location = new System.Drawing.Point(13, 408);
+            this.versionLabel.Location = new System.Drawing.Point(13, 437);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(48, 13);
             this.versionLabel.TabIndex = 5;
             this.versionLabel.Text = "Version: ";
             // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.label13);
+            this.groupBox16.Controls.Add(this.hammerOfReckoningInput);
+            this.groupBox16.Location = new System.Drawing.Point(251, 182);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(236, 49);
+            this.groupBox16.TabIndex = 16;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "PvP Talents";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 20);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(139, 13);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Hammer of Reckoning HP%";
+            // 
+            // hammerOfReckoningInput
+            // 
+            this.hammerOfReckoningInput.Location = new System.Drawing.Point(156, 16);
+            this.hammerOfReckoningInput.Name = "hammerOfReckoningInput";
+            this.hammerOfReckoningInput.Size = new System.Drawing.Size(46, 20);
+            this.hammerOfReckoningInput.TabIndex = 11;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 438);
+            this.ClientSize = new System.Drawing.Size(538, 467);
             this.ControlBox = false;
             this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.label3);
@@ -1410,6 +1443,9 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hammerOfReckoningInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1525,5 +1561,8 @@
         private System.Windows.Forms.CheckBox useBlessingOfProtectionOnBurstCheckbox;
         private System.Windows.Forms.CheckBox autoAcceptQueuePopCheckbox;
         private System.Windows.Forms.Label versionLabel;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown hammerOfReckoningInput;
     }
 }

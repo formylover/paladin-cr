@@ -64,8 +64,6 @@ namespace Paladin.Settings.Forms
             burstOnBossCheckbox.Checked = Settings.BurstOnBoss;
             burstOnTargetBelowCheckbox.Checked = Settings.BurstOnTargetBelow;
             burstHealthBelowInput.Value = Settings.BurstOnTargetBelowHp;
-
-            // TODO hotkeys
             #endregion
             #endregion
 
@@ -129,6 +127,8 @@ namespace Paladin.Settings.Forms
 
             justicarsVengeanceInput.Value = Settings.JusticarsVengeanceLife;
 
+            hammerOfReckoningInput.Value = Settings.HammerOfReckoningHealth;
+
             #region Healing
             retUseFlashOfLightMeCheckbox.Checked = Settings.RetFoLMe;
             retFlashOfLightMeInput.Value = Settings.RetFoLSelfHp;
@@ -176,8 +176,6 @@ namespace Paladin.Settings.Forms
             Settings.BurstOnBoss = burstOnBossCheckbox.Checked;
             Settings.BurstOnTargetBelow = burstOnTargetBelowCheckbox.Checked;
             Settings.BurstOnTargetBelowHp = (int)burstHealthBelowInput.Value;
-
-            // TODO hotkeys
             #endregion
             #endregion
 
@@ -241,6 +239,8 @@ namespace Paladin.Settings.Forms
             Settings.UseHandOfHindrance = handOfHindranceCheckbox.Checked;
 
             Settings.JusticarsVengeanceLife = (int)justicarsVengeanceInput.Value;
+
+            Settings.HammerOfReckoningHealth = (int)hammerOfReckoningInput.Value;
 
             #region Healing
             Settings.RetFoLMe = retUseFlashOfLightMeCheckbox.Checked;

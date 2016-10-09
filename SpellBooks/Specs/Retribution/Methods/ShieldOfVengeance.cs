@@ -10,6 +10,11 @@ namespace Paladin.SpellBooks.Specs.Retribution
     {
         public async Task<bool> ShieldOfVengeanceMethod()
         {
+            if (LastSpell == ShieldOfVengeance) return false;
+
+            if (StyxWoW.Me.HealthPercent <= PaladinSettings.Instance.ShieldOfVengeanceLife)
+                return await CastShieldOfVengeance();
+
             if (PaladinSettings.Instance.ShieldOfVengeanceIncomingDamage && Globals.Pvp)
             {
                 if ((StyxWoW.Me.HealthPercent > 90 && Unit.EnemiesWithBurstAttackingMe >= 2) || (StyxWoW.Me.HealthPercent > 70 && Unit.EnemiesWithBurstAttackingMe >= 1))
@@ -20,10 +25,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
                     return await CastShieldOfVengeance();
             }
 
-            if (StyxWoW.Me.HealthPercent > PaladinSettings.Instance.ShieldOfVengeanceLife)
-                return false;
-
-            return await CastShieldOfVengeance();
+            return false;
         }
 
         public async Task<bool> CastShieldOfVengeance()

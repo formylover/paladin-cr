@@ -11,7 +11,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (!Styx.CommonBot.SpellManager.HasSpell(HammerOfReckoning.ID)) return false;
             if (Globals.CurrentTarget == null) return false;
 
-            if (Globals.CurrentTarget.HealthPercent > 75) return false; // TODO setting
+            if (Globals.CurrentTarget.HealthPercent > PaladinSettings.Instance.HammerOfReckoningHealth) return false;
 
             if (PaladinSettings.Instance.BurstUse && !Cooldowns)
                 return false;

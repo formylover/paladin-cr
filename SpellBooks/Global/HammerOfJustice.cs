@@ -14,8 +14,6 @@ namespace Paladin.SpellBooks.Global
     {
         public static WoWUnit Check(Spell spell)
         {
-            // TODO interrupt logic
-
             if (!PaladinSettings.Instance.HoJUse) return null;
             if (spell.CRSpell.Cooldown) return null;
 
@@ -26,7 +24,7 @@ namespace Paladin.SpellBooks.Global
                     return Globals.CurrentTarget;
             }
 
-            if (!Globals.Pvp) return null; // TODO
+            if (!Globals.Pvp) return null;
 
             int range = 10;
             if (Managers.Talents.HasPassivHonorTalent(204979))
@@ -42,7 +40,7 @@ namespace Paladin.SpellBooks.Global
                                           WoWSpellMechanic.Sapped,
                                           WoWSpellMechanic.Polymorphed,
                                           WoWSpellMechanic.Horrified,
-                                          WoWSpellMechanic.Charmed)).ToList(); // TODO check this perhaps hardcode it to 10 without talent
+                                          WoWSpellMechanic.Charmed)).ToList();
 
             if (PaladinSettings.Instance.HoJInterrupt && Globals.CurrentTarget.HealthPercent < PaladinSettings.Instance.HoJTargetBelow)
             {

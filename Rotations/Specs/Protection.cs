@@ -17,7 +17,7 @@ namespace Paladin.Rotations.Specs
     public class Protection : Rotation<ProtectionSpells>
     {
         #region Behavior Methods
-        //TODO: Implement Behavior Methods
+        
         public async override Task<bool> Death()
         {
             return false;

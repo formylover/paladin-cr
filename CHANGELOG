@@ -1,9 +1,14 @@
+# 0.2.4
+
+- Removed some TODOs
+- Added hammer of reckoning setting
+
 # 0.2.3
 
 - Disabled some skills on open world and battlegrounds because they cause too much lag, they will be used within arena but elsewhere only on self
 - Reenabled Totem Stomp
 - Check for passive pvp talent and increase hammer of justice range in checks
-- FIxed a bug within blessing of sanctuary
+- Fixed a bug within blessing of sanctuary
 
 # 0.2.2
 

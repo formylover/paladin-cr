@@ -223,6 +223,9 @@ namespace Paladin.Settings
         [Setting, DefaultValue(70)]
         public int EyeForAnEyeHP { get; set; }
 
+        [Setting, DefaultValue(70)]
+        public int HammerOfReckoningHealth { get; set; }        
+
         #region Pvp
         [Setting, DefaultValue(true)]
         public bool AutoFocusUse { get; set; }

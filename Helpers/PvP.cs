@@ -90,25 +90,11 @@ namespace Paladin.Helpers
             if (!PaladinSettings.Instance.AutoAcceptQueue) return;
             if (!StyxWoW.IsInGame) return;
             if (InviteIndex > 0) return;
-
-            // TODO
+            
             for (int i = 1; i <= 3; i++)
             {
                 List<string> BGStatus = Lua.GetReturnValues("return GetBattlefieldStatus(" + i + ")");
-
-                //[GGWP] active; Ruins of Lordaeron; 0; 1; 0; ARENASKIRMISH; ; DAMAGER; 0
-                //[GGWP] none; nil; 0; 0; 0; nil; nil; nil; nil
-                /*
-[GGWP] queued; All Arenas; 0; 1; 0; ARENASKIRMISH; ; DAMAGER; 0
-[GGWP] none; nil; 0; 0; 0; nil; nil; nil; nil
-[GGWP] confirm; All Arenas; 0; 1; 0; ARENASKIRMISH; ; DAMAGER; 0
-[GGWP] queued; Random Battleground; 0; 0; 0; BATTLEGROUND; ; DAMAGER; 0
-[GGWP] none; nil; 0; 0; 0; nil; nil; nil; nil
-[GGWP] confirm; Random Battleground; 0; 0; 0; BATTLEGROUND; ; DAMAGER; 0
-*/
-
-                //Helpers.Logger.PrintLog(String.Join("; ", BGStatus));
-
+                
                 if (BGStatus[0] == "confirm")
                 {
                     QueueType = BGStatus[5];

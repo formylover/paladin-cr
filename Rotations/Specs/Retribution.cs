@@ -12,7 +12,7 @@ namespace Paladin.Rotations.Specs
     public class Retribution : Rotation<RetributionSpells>
     {
         #region Behavior Methods
-        //TODO: Implement Behavior Methods
+        
         public async override Task<bool> Death()
         {
             return false;

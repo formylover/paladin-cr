@@ -40,7 +40,7 @@ namespace Paladin
         {
             get
             {
-                return CapabilityFlags.All; // TODO
+                return CapabilityFlags.All;
             }
         }
 

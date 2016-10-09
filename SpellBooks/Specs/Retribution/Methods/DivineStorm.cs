@@ -16,7 +16,6 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (Globals.EnemiesInRange < 1)
                 return false;
             
-            // TODO check this if it is needed
             if (Globals.HolyPower < PaladinSettings.Instance.DivineStormHolyPower)
                 return false;
 
