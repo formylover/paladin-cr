@@ -41,6 +41,8 @@ namespace Paladin.Helpers
                     string line;
                     while ((line = sr.ReadLine()) != null)
                     {
+                        if (line.Length < 10 || line.Substring(0, 2) == "//") continue;
+
                         Regex regex = new Regex(@"AssemblyVersion\((.*)\)");
                         Match match = regex.Match(line);
 
