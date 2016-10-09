@@ -35,7 +35,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
 
         private async Task<bool> CastTemplarsVerdict()
         {
-            if (!await TemplarsVerdict.Cast())
+            if (!await TemplarsVerdict.Cast(Globals.CurrentTarget))
                 return false;
 
             LastSpell = TemplarsVerdict;

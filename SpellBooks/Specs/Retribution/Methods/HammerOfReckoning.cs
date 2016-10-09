@@ -16,7 +16,23 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (PaladinSettings.Instance.BurstUse && !Cooldowns)
                 return false;
 
-            if (!await HammerOfReckoning.Cast())
+            /*if (HammerOfReckoning.CRSpell == null)
+            {
+                Helpers.Logger.DiagnosticLog("No Hok Spell");
+                return false;
+            }
+
+            var chargeInfo = HammerOfReckoning.CRSpell.GetChargeInfo();
+            if (chargeInfo == null)
+            {
+                Helpers.Logger.DiagnosticLog("No Hok Chargeinfo");
+                return false;
+            }
+
+            Helpers.Logger.DiagnosticLog("Hok Charges: {0}", chargeInfo.ChargesLeft);
+            if (HammerOfReckoning.CRSpell.GetChargeInfo().ChargesLeft < 75) return false;*/
+
+            if (!await HammerOfReckoning.Cast(Globals.CurrentTarget))
                 return false;
 
             LastSpell = HammerOfReckoning;

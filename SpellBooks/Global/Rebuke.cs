@@ -1,50 +1,72 @@
-﻿using Paladin.Helpers;
+﻿using System.Linq;
+using Paladin.Helpers;
 using Paladin.Settings;
-using Styx;
+using Styx.WoWInternals;
+using Styx.WoWInternals.WoWObjects;
 
 namespace Paladin.SpellBooks.Global
 {
     public static class Rebuke
     {
-        public static bool RebukeCheck(Spell Rebuke)
+        public static WoWUnit RebukeTarget(Spell Rebuke)
         {
             if (!PaladinSettings.Instance.RebukeUse)
-                return false;
+                return null;
 
             if (Rebuke.CRSpell.Cooldown)
-                return false;
+                return null;
 
-            if (Globals.CurrentTarget == null) return false;
+            if (Globals.Arena && Globals.CurrentTarget != null && Globals.CurrentTarget.HealthPercent < 70)
+            {
+                var target = PlayerToInterrupt();
+                if (target != null && ShouldInterrupt(target)) return target;
+            }
+
+            if (Globals.CurrentTarget == null) return null;
 
             if (Globals.CurrentTarget.IsPet)
-                return false;
+                return null;
 
             if (!Globals.CurrentTarget.IsCasting)
-                return false;
+                return null;
 
             // Get the spell ID our target is casting
+            if (!Globals.Pvp) return Globals.CurrentTarget;
+
+            if (ShouldInterrupt(Globals.CurrentTarget))
+                return Globals.CurrentTarget;
+
+            return null;
+        }
+
+        public static WoWUnit PlayerToInterrupt()
+        {
+            return Unit.UnfriendlyPlayers.FirstOrDefault(u => u.IsWithinMeleeRange && ((u.IsCastingHealingSpell && u.CurrentTarget == Globals.CurrentTarget) || u.IsCastingCCSpell()));
+        }
+
+        public static bool ShouldInterrupt(WoWUnit target)
+        {
             var spell = Globals.CurrentTarget.CastingSpell;
-            if (spell == null) return false;
-
-            if (!Globals.Pvp) return true;
-
             if (!PaladinCR.InterruptDict.ContainsKey(spell.Id))
                 return false;
 
-            var castTime = Globals.CurrentTarget.CastingSpell.CastTime;
-            var timeLeft = Globals.CurrentTarget.CurrentCastTimeLeft.TotalMilliseconds;
-
-            var percentage = 100 - (timeLeft * 100 / castTime);
-
-            if (!spell.IsChanneled && PaladinSettings.Instance.RebukeRandomTimerUse)
+            if (PaladinSettings.Instance.RebukeRandomTimerUse)
             {
-                if (percentage > PaladinSettings.Instance.RebukeRandomTimerMax)
-                    return false;
+                var castTime = Globals.CurrentTarget.CastingSpell.CastTime;
+                var timeLeft = Globals.CurrentTarget.CurrentCastTimeLeft.TotalMilliseconds;
 
-                if (percentage < PaladinSettings.Instance.RebukeRandomTimerMin)
-                    return false;
+                var percentage = 100 - (timeLeft * 100 / castTime);
 
-                return true;
+                if (!spell.IsChanneled)
+                {
+                    if (percentage > PaladinSettings.Instance.RebukeRandomTimerMax)
+                        return false;
+
+                    if (percentage < PaladinSettings.Instance.RebukeRandomTimerMin)
+                        return false;
+
+                    return true;
+                }
             }
 
             return true;

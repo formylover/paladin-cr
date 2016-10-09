@@ -16,7 +16,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (!MyTalents.DivineHammer.IsActive()) return false;
             if (Globals.CurrentTarget == null || Globals.CurrentTarget.Distance > 6) return false;
 
-            if (!await DivineHammer.Cast())
+            if (!await DivineHammer.Cast(Globals.CurrentTarget))
                 return false;
 
             LastSpell = DivineHammer;

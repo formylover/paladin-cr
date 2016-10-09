@@ -19,7 +19,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
 
             if (Globals.CurrentTarget.IsMoving && Globals.CurrentTarget.HealthPercent < 90)
             {
-                if (!await HandOfHindrance.Cast())
+                if (!await HandOfHindrance.Cast(Globals.CurrentTarget))
                     return false;
 
                 LastSpell = HandOfHindrance;

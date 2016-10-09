@@ -29,8 +29,9 @@ namespace Paladin.Helpers
 
         public static Stopwatch UpdateScanner = new Stopwatch();
         private static int UpdateScanInterval = 500;
-        public static Stopwatch AuraScanner = new Stopwatch();
-        private static int AuraScanInterval = 100;
+
+        public static Stopwatch ForceUpdateScanner = new Stopwatch();
+        private static int ForceUpdateScanInterval = 500;
 
         // Hotkeys
         public static WoWUnit HoJTarget;
@@ -40,6 +41,8 @@ namespace Paladin.Helpers
         // Zone
         public static bool Pvp;
         public static bool Arena;
+
+        public static int LastKnownGroupMemberSize = 0;
 
         // Enemies
         public static WoWUnit CurrentTarget;
@@ -59,20 +62,17 @@ namespace Paladin.Helpers
         public static WoWUnit FocusedUnit;
         public static bool HasFocus;
 
+        public static void ForceUpdate()
+        {
+            if (!ForceUpdateScanner.IsRunning) ForceUpdateScanner.Restart();
+            if (ForceUpdateScanner.ElapsedMilliseconds < ForceUpdateScanInterval) return;
+
+            Update();
+        }
+
         public static void Update()
         {
-            if (!AuraScanner.IsRunning) AuraScanner.Restart();
-            if (AuraScanner.ElapsedMilliseconds >= AuraScanInterval) Auras.ResetAuraCache = true;
-
-            if (!UpdateScanner.IsRunning) UpdateScanner.Restart();
-            if (UpdateScanner.ElapsedMilliseconds >= UpdateScanInterval)
-            {
-                Managers.Healing.ResetHealList = true;
-                Unit.ResetUnfriendlyUnits = true;
-                Unit.ResetGroupMembers = true;
-                UpdateScanner.Restart();
-                //Helpers.Logger.DiagnosticLog("Current FPS: {0}", StyxWoW.WoWClient.Fps);
-            }
+            ForceUpdateScanner.Restart();
             
             MyHp = StyxWoW.Me.HealthPercent;
             CurrentTarget = StyxWoW.Me.CurrentTarget;
@@ -89,8 +89,8 @@ namespace Paladin.Helpers
             Forbearance = StyxWoW.Me.HasAura(25771);
             Pvp = StyxWoW.Me.IsInArena || StyxWoW.Me.GroupInfo.IsInBattlegroundParty;
             InParty = StyxWoW.Me.GroupInfo.IsInRaid || StyxWoW.Me.GroupInfo.IsInParty || Pvp;
+            LastKnownGroupMemberSize = StyxWoW.Me.GroupInfo.IsInRaid ? StyxWoW.Me.GroupInfo.NumRaidMembers : StyxWoW.Me.GroupInfo.NumPartyMembers;
             Arena = StyxWoW.Me.IsInArena;
-
 
             // If we're not in Pvp stop
             if (!Pvp) return;
@@ -117,8 +117,8 @@ namespace Paladin.Helpers
         {
             using (StyxWoW.Memory.TemporaryCacheState(true))
             {
-                EyeForAnEye = Auras.GetAura(205191);
-                DivinePurpose = Auras.GetAura(223817);
+                EyeForAnEye = StyxWoW.Me.GetAuraById(205191);
+                DivinePurpose = StyxWoW.Me.GetAuraById(223819);
             }
         }
 

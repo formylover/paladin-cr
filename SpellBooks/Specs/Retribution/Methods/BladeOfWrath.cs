@@ -14,7 +14,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (!MyTalents.BladeOfWrath.IsActive())
                 return false;
 
-            if (!await BladeOfWrath.Cast())
+            if (!await BladeOfWrath.Cast(Helpers.Globals.CurrentTarget))
                 return false;
 
             LastSpell = BladeOfWrath;

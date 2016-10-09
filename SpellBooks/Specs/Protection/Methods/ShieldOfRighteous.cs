@@ -11,7 +11,7 @@ namespace Paladin.SpellBooks.Specs.Protection
             // TODO bastion of light talent
             if (MyTalents.Seraphim.IsActive() && !Seraphim.CRSpell.Cooldown && ShieldOfTheRighteous.CRSpell.GetChargeInfo().ChargesLeft < 3) return false;
 
-            if (!await ShieldOfTheRighteous.Cast()) return false;
+            if (!await ShieldOfTheRighteous.Cast(Helpers.Globals.CurrentTarget)) return false;
 
             LastSpell = ShieldOfTheRighteous;
             return true;

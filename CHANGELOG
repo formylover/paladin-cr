@@ -1,3 +1,8 @@
+# 0.2.5
+
+- Rebuke will now check for close targets which are casting CC or Heals on my target
+- Globals now get updates onces every 500ms even out of combat to gurantee proper settings
+
 # 0.2.4
 
 - Removed some TODOs

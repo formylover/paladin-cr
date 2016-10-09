@@ -29,7 +29,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
 
         public async Task<bool> CastJusticarsVengeance()
         {
-            if (!await JusticarsVengeance.Cast())
+            if (!await JusticarsVengeance.Cast(Globals.CurrentTarget))
                 return false;
 
             LastSpell = JusticarsVengeance;

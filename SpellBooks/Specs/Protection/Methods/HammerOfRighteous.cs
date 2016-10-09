@@ -8,7 +8,7 @@ namespace Paladin.SpellBooks.Specs.Protection
         {
             if (MyTalents.BlessedHammer.IsActive()) return false;
 
-            if (!await HammerOfRighteous.Cast()) return false;
+            if (!await HammerOfRighteous.Cast(Helpers.Globals.CurrentTarget)) return false;
 
             LastSpell = HammerOfRighteous;
             return true;

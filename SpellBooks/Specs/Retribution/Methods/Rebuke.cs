@@ -12,18 +12,13 @@ namespace Paladin.SpellBooks.Specs.Retribution
     {
         public async Task<bool> RebukeMethod()
         {
-            if (SpellBooks.Global.Rebuke.RebukeCheck(Rebuke))
-                return await CastRebuke();
+            var target = SpellBooks.Global.Rebuke.RebukeTarget(Rebuke);
+            if (target == null) return false;
 
-            return false;
-        }
-
-        public async Task<bool> CastRebuke()
-        {
-            if (!await Rebuke.Cast())
+            if (!await Rebuke.Cast(target))
                 return false;
 
-            Helpers.Logger.PrintLog("Interrupting {0}", Globals.CurrentTarget.SafeName);
+            Helpers.Logger.PrintLog("Interrupting {0} on {1}", target.CastingSpell.Name, target.SafeName);
 
             LastSpell = Rebuke;
             return true;

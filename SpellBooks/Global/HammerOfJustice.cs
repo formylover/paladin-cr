@@ -45,13 +45,7 @@ namespace Paladin.SpellBooks.Global
             if (PaladinSettings.Instance.HoJInterrupt && Globals.CurrentTarget.HealthPercent < PaladinSettings.Instance.HoJTargetBelow)
             {
                 var unit = hojList.FirstOrDefault(u => ((PaladinSettings.Instance.HoJInterruptHeal && u.Distance <= range && u.IsCastingHealingSpell)
-                                          || (PaladinSettings.Instance.HoJInterruptCC && u.IsCastingSpellWithEffect(WoWSpellMechanic.Dazed,
-                                          WoWSpellMechanic.Disoriented,
-                                          WoWSpellMechanic.Frozen,
-                                          WoWSpellMechanic.Incapacitated,
-                                          WoWSpellMechanic.Rooted,
-                                          WoWSpellMechanic.Slowed,
-                                          WoWSpellMechanic.Snared))));
+                                          || (PaladinSettings.Instance.HoJInterruptCC && u.IsCastingCCSpell())));
 
                 return unit;
             }

@@ -20,6 +20,20 @@ namespace Paladin.Helpers
             return false;
         }
 
+        public static bool IsCastingCCSpell(this WoWUnit unit)
+        {
+            return unit.IsCastingSpellWithEffect(WoWSpellMechanic.Dazed,
+                                          WoWSpellMechanic.Disoriented,
+                                          WoWSpellMechanic.Frozen,
+                                          WoWSpellMechanic.Incapacitated,
+                                          WoWSpellMechanic.Fleeing,
+                                          WoWSpellMechanic.Stunned,
+                                          WoWSpellMechanic.Sapped,
+                                          WoWSpellMechanic.Polymorphed,
+                                          WoWSpellMechanic.Horrified,
+                                          WoWSpellMechanic.Charmed);
+        }
+
         public static bool IsCastingBigDamageSpell(this WoWUnit unit)
         {
             if (!unit.IsCasting) return false;

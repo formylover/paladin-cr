@@ -12,36 +12,25 @@ namespace Paladin.Helpers
     public static class Unit
     {
         #region Units and Groups
-        public static bool ResetUnfriendlyUnits = false;
-        private static IEnumerable<WoWUnit> _unfriendlyUnits;
         public static IEnumerable<WoWUnit> UnfriendlyUnits
         {
             get
             {
-                //if (_unfriendlyUnits == null || ResetUnfriendlyUnits)
-                //{
-                     //_unfriendlyUnits = ObjectManager.GetObjectsOfType<WoWUnit>().Where(u => u.ValidAttackUnit() && u.Distance < 40);
+                List<WoWUnit> list = new List<WoWUnit>();
+                List<WoWObject> objectList = ObjectManager.ObjectList;
 
-                    List<WoWUnit> list = new List<WoWUnit>();
-                    List<WoWObject> objectList = ObjectManager.ObjectList;
-
-                    for (int i = 0; i < objectList.Count; i++)
+                for (int i = 0; i < objectList.Count; i++)
+                {
+                    Type type = objectList[i].GetType();
+                    if (type == typeof(WoWUnit) || type == typeof(WoWPlayer))
                     {
-                        Type type = objectList[i].GetType();
-                        if (type == typeof(WoWUnit) || type == typeof(WoWPlayer))
-                        {
-                            WoWUnit t = objectList[i] as WoWUnit;
-                            if (t != null && t.ValidAttackUnit() && t.Distance < 40)
-                                list.Add(t);
-                        }
+                        WoWUnit t = objectList[i] as WoWUnit;
+                        if (t != null && t.ValidAttackUnit() && t.Distance < 40)
+                            list.Add(t);
                     }
+                }
 
-                    _unfriendlyUnits = list;
-
-                    ResetUnfriendlyUnits = false;
-                //}
-
-                return _unfriendlyUnits;
+                return list;
             }
         }
         
@@ -53,28 +42,18 @@ namespace Paladin.Helpers
                 return UnfriendlyUnits.Where(u => u.IsPlayer);
             }
         }
-
-        public static bool ResetGroupMembers = false;
-        private static IEnumerable<WoWPlayer> _groupMembers;
+        
         public static IEnumerable<WoWPlayer> GroupMembers
         {
             get
             {
-                //if (_groupMembers == null || ResetGroupMembers)
-                //{
-                    //_groupMembers = ObjectManager.GetObjectsOfTypeFast<WoWPlayer>().Where(u => (u.IsInMyParty || u.IsInMyRaid) && u.Distance < 40);
-                    HashSet<WoWGuid> guids = new HashSet<WoWGuid>(StyxWoW.Me.GroupInfo.RaidMemberGuids);
-                    List<WoWPlayer> list = ObjectManager.ObjectList
-                        .Where(o => o != null && o.ToUnit() != null && guids.Contains(o.Guid) && o.ToUnit().IsPlayer)
-                        .Select(o => o.ToPlayer())
-                        .ToList();
+                HashSet<WoWGuid> guids = new HashSet<WoWGuid>(StyxWoW.Me.GroupInfo.RaidMemberGuids);
+                List<WoWPlayer> list = ObjectManager.ObjectList
+                    .Where(o => o != null && o.ToUnit() != null && guids.Contains(o.Guid) && o.ToUnit().IsPlayer)
+                    .Select(o => o.ToPlayer())
+                    .ToList();
 
-                    _groupMembers = list;
-
-                    ResetGroupMembers = false;
-                //}
-
-                return _groupMembers;
+                return list;
             }
         }
         #endregion

@@ -75,6 +75,7 @@ namespace Paladin
 
         public override void Pulse()
         {
+            Helpers.Globals.ForceUpdate();
             CheckSpec();
             Helpers.PvP.AcceptInvite();
             base.Pulse();

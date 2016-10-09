@@ -26,7 +26,7 @@ namespace Paladin.Rotations.Specs
             if (PaladinSettings.Instance.AutoAttack && StyxWoW.Me.GotTarget && StyxWoW.Me.CurrentTarget.Attackable)
             {
                 if (StyxWoW.Me.CurrentTarget.Distance <= 30 && StyxWoW.Me.CurrentTarget.InLineOfSight)
-                    return await MySpells.Judgment.Cast();
+                    return await MySpells.Judgment.Cast(Helpers.Globals.CurrentTarget);
             }
 
             if (!StyxWoW.Me.IsActuallyInCombat)

@@ -12,7 +12,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             {
                 if (Zeal.CRSpell.GetChargeInfo().ChargesLeft == 0) return false;
 
-                if (!await Zeal.Cast()) return false;
+                if (!await Zeal.Cast(Helpers.Globals.CurrentTarget)) return false;
 
                 LastSpell = Zeal;
                 return true;
@@ -20,7 +20,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
 
             if (CrusaderStrike.CRSpell.GetChargeInfo().ChargesLeft == 0) return false;
 
-            if (!await CrusaderStrike.Cast()) return false;
+            if (!await CrusaderStrike.Cast(Helpers.Globals.CurrentTarget)) return false;
             
             LastSpell = CrusaderStrike;
             return true;

@@ -11,23 +11,16 @@ namespace Paladin.Managers
 {
     public static class Healing
     {
-        public static bool ResetHealList = false;
-        private static IEnumerable<WoWPlayer> _healList;
         public static IEnumerable<WoWPlayer> HealList
         {
             get
             {
-                if (_healList == null || ResetHealList)
-                {
-                    var list = Unit.GroupMembers.Where(u => !u.IsDead && u.InLineOfSpellSight).OrderBy(u => u.HealthPercent).ToList();
+                var list = Unit.GroupMembers.Where(u => !u.IsDead && u.InLineOfSpellSight).OrderBy(u => u.HealthPercent).ToList();
 
-                    if (list.Contains(StyxWoW.Me))
-                        list.Remove(StyxWoW.Me);
+                if (list.Contains(StyxWoW.Me))
+                    list.Remove(StyxWoW.Me);
 
-                    _healList = list;
-                }
-
-                return _healList;
+                return list;
             }
         }
 

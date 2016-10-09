@@ -10,7 +10,7 @@ namespace Paladin.SpellBooks.Specs.Protection
         {
             if (!Paladin.Settings.PaladinSettings.Instance.UseEyeOfTyr) return false;
 
-            if (!await EyeOfTyr.Cast())
+            if (!await EyeOfTyr.Cast(StyxWoW.Me))
                 return false;
 
             LastSpell = EyeOfTyr;
