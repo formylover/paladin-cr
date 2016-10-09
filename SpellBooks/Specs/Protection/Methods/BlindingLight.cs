@@ -9,7 +9,7 @@ namespace Paladin.SpellBooks.Specs.Protection
         {
             if (!Global.BlindingLight.Check(BlindingLight, MyTalents.BlindingLight)) return false;
 
-            if (!await BlindingLight.Cast()) return false;
+            if (!await BlindingLight.Cast(Styx.StyxWoW.Me)) return false;
 
             LastSpell = BlindingLight;
             return true;

@@ -19,6 +19,8 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (!await BlessingOfSanctuary.Cast(target))
                 return false;
 
+            Helpers.Logger.PrintLog(System.Windows.Media.Colors.Red, "Blessing of Sanctuary on {1}", target.SafeName);
+
             LastSpell = BlessingOfSanctuary;
             return true;
         }

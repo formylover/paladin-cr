@@ -157,6 +157,8 @@ namespace Paladin.Settings.Forms
             Settings.HoJHealerModifierKey = GetSelectedModifierKey(hammerOfJusticeHealerModifierSelect);
             Settings.HoJHealerHotKey = GetSelectedKey(hammerOfJusticeHealerKeySelect);
 
+            Settings.DivineSteedModifierKey = GetSelectedModifierKey(divineSteedModifierSelect);
+            Settings.DivineSteedHotkey = GetSelectedKey(divineSteedHotkeySelect);
             #endregion
 
             #region General
@@ -276,6 +278,9 @@ namespace Paladin.Settings.Forms
 
             PopulateModifierKeys(burstModifierKeySelect, Settings.BurstModifierKey);
             PopulateHotkeys(burstKeySelect, Settings.BurstHotkey);
+
+            PopulateModifierKeys(divineSteedModifierSelect, Settings.DivineSteedModifierKey);
+            PopulateHotkeys(divineSteedHotkeySelect, Settings.DivineSteedHotkey);
         }
 
         private void PopulateModifierKeys(ComboBox box, ModifierKeys selected)

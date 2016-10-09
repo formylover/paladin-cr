@@ -25,7 +25,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             else if (Globals.EnemiesInRange < PaladinSettings.Instance.DivineStormEnemies)
                 return false;
 
-            if (!await DivineStorm.Cast())
+            if (!await DivineStorm.Cast(Styx.StyxWoW.Me))
                 return false;
 
             LastSpell = DivineStorm;

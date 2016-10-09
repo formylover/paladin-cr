@@ -10,7 +10,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (!MyTalents.Consecration.IsActive()) return false;
             if (Globals.CurrentTarget == null || Globals.CurrentTarget.Distance > 6) return false;
 
-            if (!await Consecration.Cast()) return false;
+            if (!await Consecration.Cast(Styx.StyxWoW.Me)) return false;
 
             LastSpell = BlindingLight;
             return true;

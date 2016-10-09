@@ -23,6 +23,14 @@ namespace Paladin.SpellBooks.Specs.Protection
                 return await BurstMethod();
             }
 
+            if (Globals.ActivateDivineSteed)
+            {
+                if (SpellManager.GlobalCooldown) return true;
+
+                Globals.ActivateDivineSteed = false;
+                return await DivineSteed.Cast(StyxWoW.Me);
+            }
+
             if (SpellBooks.Global.Hotkeys.HoJCheck(HammerOfJustice))
             {
                 if (SpellManager.GlobalCooldown) return true;

@@ -38,7 +38,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
 
         private async Task<bool> WordOfGloryCast()
         {
-            if (!await WordOfGlory.Cast())
+            if (!await WordOfGlory.Cast(Styx.StyxWoW.Me))
                 return false;
 
             Helpers.Logger.PrintLog("Using Word Of Glory on {0} at {1}%", StyxWoW.Me.SafeName, StyxWoW.Me.HealthPercent);

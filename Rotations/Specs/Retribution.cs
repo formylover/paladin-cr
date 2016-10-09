@@ -28,6 +28,12 @@ namespace Paladin.Rotations.Specs
                 if (StyxWoW.Me.CurrentTarget.Distance <= 30 && StyxWoW.Me.CurrentTarget.InLineOfSight)
                     return await MySpells.Judgment.Cast();
             }
+
+            if (!StyxWoW.Me.IsActuallyInCombat)
+            {
+                // allow hotkeys out of combat
+                if (await MySpells.HotkeysMethod()) return true;
+            }
             
             return await MySpells.BlessingsMethod();
         }

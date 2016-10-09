@@ -13,7 +13,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
 
             if (Styx.StyxWoW.Me.AuraTimeLeft(SealOfLight.ID) > TimeSpan.FromSeconds(2)) return false;
 
-            if (!await SealOfLight.Cast())
+            if (!await SealOfLight.Cast(Styx.StyxWoW.Me))
                 return false;
 
             LastSpell = SealOfLight;

@@ -10,7 +10,7 @@ namespace Paladin.SpellBooks.Specs.Protection
             if (!MyTalents.BlessedHammer.IsActive()) return false;
             if (Globals.CurrentTarget == null || Globals.CurrentTarget.Distance > 6) return false;
 
-            if (!await BlessedHammer.Cast()) return false;
+            if (!await BlessedHammer.Cast(Styx.StyxWoW.Me)) return false;
 
             LastSpell = BlessedHammer;
             return true;

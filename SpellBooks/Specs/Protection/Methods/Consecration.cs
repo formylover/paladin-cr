@@ -9,7 +9,7 @@ namespace Paladin.SpellBooks.Specs.Protection
         {
             if (Globals.CurrentTarget == null || Globals.CurrentTarget.Distance > 6) return false;
 
-            if (!await Consecration.Cast()) return false;
+            if (!await Consecration.Cast(Styx.StyxWoW.Me)) return false;
 
             LastSpell = BlindingLight;
             return true;

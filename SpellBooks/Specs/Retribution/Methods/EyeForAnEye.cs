@@ -11,7 +11,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (!MyTalents.EyeForAnEye.IsActive())
                 return false;
 
-            if (!await EyeForAnEye.Cast())
+            if (!await EyeForAnEye.Cast(Styx.StyxWoW.Me))
                 return false;
 
             LastSpell = EyeForAnEye;

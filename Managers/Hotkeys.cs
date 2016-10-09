@@ -26,7 +26,7 @@ namespace Paladin.Managers
                 HotkeysManager.Register("GGWPHoJ", PaladinSettings.Instance.HoJHotKey, PaladinSettings.Instance.HoJModifierKey, x =>
                 {
                     Helpers.Logger.PrintLog("HoJ Hotkey Detected");
-                    Globals.HoJTarget = Globals.CurrentTarget;
+                    Globals.HoJTarget = Globals.CurrentTarget != null ? Globals.CurrentTarget : StyxWoW.Me.CurrentTarget;
                 });
             }
 
@@ -36,6 +36,15 @@ namespace Paladin.Managers
                 {
                     Helpers.Logger.PrintLog("HoJ Healer Hotkey Detected");
                     Globals.HoJTarget = Unit.UnfriendlyPlayers.Where(u => u.IsHealer()).OrderBy(u => u.Distance).FirstOrDefault();
+                });
+            }
+
+            if (PaladinSettings.Instance.DivineSteedHotkey != System.Windows.Forms.Keys.None)
+            {
+                HotkeysManager.Register("GGWPDivineSteedHealer", PaladinSettings.Instance.DivineSteedHotkey, PaladinSettings.Instance.DivineSteedModifierKey, x =>
+                {
+                    Helpers.Logger.PrintLog("Divine Steed Hotkey Detected");
+                    Globals.ActivateDivineSteed = true;
                 });
             }
         }

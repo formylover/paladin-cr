@@ -14,7 +14,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (Styx.StyxWoW.Me.HealthPercent > PaladinSettings.Instance.HolyWrathLife) return false;
             if (Globals.CurrentTarget.Distance > 9) return false;
 
-            if (!await HolyWrath.Cast()) return false;
+            if (!await HolyWrath.Cast(Styx.StyxWoW.Me)) return false;
 
             LastSpell = HolyWrath;
             return true;

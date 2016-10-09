@@ -88,6 +88,9 @@
             this.blessingOfProtectionCheckbox = new System.Windows.Forms.CheckBox();
             this.blessingOfProtectionMeCheckbox = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.hammerOfReckoningInput = new System.Windows.Forms.NumericUpDown();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.eyeForAnEyeInput = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
@@ -120,6 +123,9 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.divineSteedHotkeySelect = new System.Windows.Forms.ComboBox();
+            this.divineSteedModifierSelect = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.hammerOfJusticeHealerKeySelect = new System.Windows.Forms.ComboBox();
             this.hammerOfJusticeHealerModifierSelect = new System.Windows.Forms.ComboBox();
@@ -137,9 +143,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.versionLabel = new System.Windows.Forms.Label();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.hammerOfReckoningInput = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox14.SuspendLayout();
@@ -161,6 +164,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.divineShieldHpInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blessingOfProtectionHpInput)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hammerOfReckoningInput)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eyeForAnEyeInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.retLayOnHandsHpInput)).BeginInit();
@@ -178,8 +183,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.shieldOfVengeanceHpInput)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.groupBox16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hammerOfReckoningInput)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -854,6 +857,33 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Retribution";
             // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.label13);
+            this.groupBox16.Controls.Add(this.hammerOfReckoningInput);
+            this.groupBox16.Location = new System.Drawing.Point(251, 182);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(236, 49);
+            this.groupBox16.TabIndex = 16;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "PvP Talents";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 20);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(139, 13);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Hammer of Reckoning HP%";
+            // 
+            // hammerOfReckoningInput
+            // 
+            this.hammerOfReckoningInput.Location = new System.Drawing.Point(156, 17);
+            this.hammerOfReckoningInput.Name = "hammerOfReckoningInput";
+            this.hammerOfReckoningInput.Size = new System.Drawing.Size(46, 20);
+            this.hammerOfReckoningInput.TabIndex = 11;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.eyeForAnEyeInput);
@@ -1149,7 +1179,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(509, 279);
+            this.tabPage6.Size = new System.Drawing.Size(509, 311);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Protection";
             // 
@@ -1159,13 +1189,16 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(509, 279);
+            this.tabPage7.Size = new System.Drawing.Size(509, 311);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Holy";
             // 
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.White;
+            this.tabPage4.Controls.Add(this.label14);
+            this.tabPage4.Controls.Add(this.divineSteedHotkeySelect);
+            this.tabPage4.Controls.Add(this.divineSteedModifierSelect);
             this.tabPage4.Controls.Add(this.label12);
             this.tabPage4.Controls.Add(this.hammerOfJusticeHealerKeySelect);
             this.tabPage4.Controls.Add(this.hammerOfJusticeHealerModifierSelect);
@@ -1178,9 +1211,38 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(509, 279);
+            this.tabPage4.Size = new System.Drawing.Size(509, 311);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Hotkeys";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(3, 123);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(68, 13);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Divine Steed";
+            // 
+            // divineSteedHotkeySelect
+            // 
+            this.divineSteedHotkeySelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.divineSteedHotkeySelect.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.divineSteedHotkeySelect.FormattingEnabled = true;
+            this.divineSteedHotkeySelect.Location = new System.Drawing.Point(92, 139);
+            this.divineSteedHotkeySelect.Name = "divineSteedHotkeySelect";
+            this.divineSteedHotkeySelect.Size = new System.Drawing.Size(80, 21);
+            this.divineSteedHotkeySelect.TabIndex = 29;
+            // 
+            // divineSteedModifierSelect
+            // 
+            this.divineSteedModifierSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.divineSteedModifierSelect.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.divineSteedModifierSelect.FormattingEnabled = true;
+            this.divineSteedModifierSelect.Location = new System.Drawing.Point(6, 139);
+            this.divineSteedModifierSelect.Name = "divineSteedModifierSelect";
+            this.divineSteedModifierSelect.Size = new System.Drawing.Size(80, 21);
+            this.divineSteedModifierSelect.TabIndex = 28;
             // 
             // label12
             // 
@@ -1275,7 +1337,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(509, 279);
+            this.tabPage5.Size = new System.Drawing.Size(509, 311);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Changelog";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1288,7 +1350,7 @@
             this.changelogText.Location = new System.Drawing.Point(3, 3);
             this.changelogText.Name = "changelogText";
             this.changelogText.ReadOnly = true;
-            this.changelogText.Size = new System.Drawing.Size(503, 273);
+            this.changelogText.Size = new System.Drawing.Size(503, 305);
             this.changelogText.TabIndex = 0;
             this.changelogText.Text = "Lorem Ipsum Dolor Sit amet";
             // 
@@ -1345,39 +1407,11 @@
             this.versionLabel.TabIndex = 5;
             this.versionLabel.Text = "Version: ";
             // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.label13);
-            this.groupBox16.Controls.Add(this.hammerOfReckoningInput);
-            this.groupBox16.Location = new System.Drawing.Point(251, 182);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(236, 49);
-            this.groupBox16.TabIndex = 16;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "PvP Talents";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 20);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(139, 13);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Hammer of Reckoning HP%";
-            // 
-            // hammerOfReckoningInput
-            // 
-            this.hammerOfReckoningInput.Location = new System.Drawing.Point(156, 17);
-            this.hammerOfReckoningInput.Name = "hammerOfReckoningInput";
-            this.hammerOfReckoningInput.Size = new System.Drawing.Size(46, 20);
-            this.hammerOfReckoningInput.TabIndex = 11;
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 467);
-            this.ControlBox = false;
             this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
@@ -1419,6 +1453,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.divineShieldHpInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blessingOfProtectionHpInput)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hammerOfReckoningInput)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eyeForAnEyeInput)).EndInit();
@@ -1443,9 +1480,6 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hammerOfReckoningInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1564,5 +1598,8 @@
         private System.Windows.Forms.GroupBox groupBox16;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown hammerOfReckoningInput;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox divineSteedHotkeySelect;
+        private System.Windows.Forms.ComboBox divineSteedModifierSelect;
     }
 }

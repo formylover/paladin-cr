@@ -30,7 +30,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
 
         public async Task<bool> CastShieldOfVengeance()
         {
-            if (!await ShieldOfVengeance.Cast())
+            if (!await ShieldOfVengeance.Cast(Styx.StyxWoW.Me))
                 return false;
 
             LastSpell = ShieldOfVengeance;

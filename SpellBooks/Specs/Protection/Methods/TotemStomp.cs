@@ -22,7 +22,7 @@ namespace Paladin.SpellBooks.Specs.Protection
             if (totem == null)
                 return false;
 
-            Helpers.Logger.PrintLog("Totem Stomp on " + totem.Name);
+            Helpers.Logger.PrintLog(Colors.Red, "Totem Stomp on {1}", totem.Name);
 
             if (SpellManager.CanCast(Judgment.CRSpell, totem, true))
                 return await Judgment.Cast(totem);

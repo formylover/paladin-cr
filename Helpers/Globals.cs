@@ -35,7 +35,7 @@ namespace Paladin.Helpers
         // Hotkeys
         public static WoWUnit HoJTarget;
         public static bool ActivateBurst;
-
+        public static bool ActivateDivineSteed;
 
         // Zone
         public static bool Pvp;

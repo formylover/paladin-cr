@@ -49,6 +49,14 @@ namespace Paladin.Settings
         public ModifierKeys BurstModifierKey { get; set; }
         #endregion
 
+        #region Hotkeys
+        [Setting, DefaultValue(Keys.None)]
+        public Keys DivineSteedHotkey { get; set; }
+
+        [Setting, DefaultValue(ModifierKeys.NoRepeat)]
+        public ModifierKeys DivineSteedModifierKey { get; set; }
+        #endregion
+
         #region Cleanse
         [Setting, DefaultValue(true)]
         public bool UseCleanse { get; set; }
