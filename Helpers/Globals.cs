@@ -30,7 +30,7 @@ namespace Paladin.Helpers
         public static Stopwatch UpdateScanner = new Stopwatch();
         private static int UpdateScanInterval = 500;
         public static Stopwatch AuraScanner = new Stopwatch();
-        private static int AuraScanInterval = 250;
+        private static int AuraScanInterval = 100;
 
         // Hotkeys
         public static WoWUnit HoJTarget;
@@ -39,6 +39,7 @@ namespace Paladin.Helpers
 
         // Zone
         public static bool Pvp;
+        public static bool Arena;
 
         // Enemies
         public static WoWUnit CurrentTarget;
@@ -68,7 +69,6 @@ namespace Paladin.Helpers
             {
                 Managers.Healing.ResetHealList = true;
                 Unit.ResetUnfriendlyUnits = true;
-                Unit.ResetUnfriendlyPlayers = true;
                 Unit.ResetGroupMembers = true;
                 UpdateScanner.Restart();
                 //Helpers.Logger.DiagnosticLog("Current FPS: {0}", StyxWoW.WoWClient.Fps);
@@ -87,8 +87,9 @@ namespace Paladin.Helpers
 
             HolyPower = StyxWoW.Me.CurrentHolyPower;
             Forbearance = StyxWoW.Me.HasAura(25771);
-            InParty = StyxWoW.Me.GroupInfo.IsInRaid || StyxWoW.Me.GroupInfo.IsInParty;
             Pvp = StyxWoW.Me.IsInArena || StyxWoW.Me.GroupInfo.IsInBattlegroundParty;
+            InParty = StyxWoW.Me.GroupInfo.IsInRaid || StyxWoW.Me.GroupInfo.IsInParty || Pvp;
+            Arena = StyxWoW.Me.IsInArena;
 
 
             // If we're not in Pvp stop

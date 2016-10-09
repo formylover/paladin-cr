@@ -107,7 +107,7 @@ namespace Paladin.Helpers
 [GGWP] confirm; Random Battleground; 0; 0; 0; BATTLEGROUND; ; DAMAGER; 0
 */
 
-                Helpers.Logger.PrintLog(String.Join("; ", BGStatus));
+                //Helpers.Logger.PrintLog(String.Join("; ", BGStatus));
 
                 if (BGStatus[0] == "confirm")
                 {

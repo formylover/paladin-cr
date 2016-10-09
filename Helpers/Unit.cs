@@ -18,8 +18,8 @@ namespace Paladin.Helpers
         {
             get
             {
-                if (_unfriendlyUnits == null || ResetUnfriendlyUnits)
-                {
+                //if (_unfriendlyUnits == null || ResetUnfriendlyUnits)
+                //{
                      //_unfriendlyUnits = ObjectManager.GetObjectsOfType<WoWUnit>().Where(u => u.ValidAttackUnit() && u.Distance < 40);
 
                     List<WoWUnit> list = new List<WoWUnit>();
@@ -39,27 +39,18 @@ namespace Paladin.Helpers
                     _unfriendlyUnits = list;
 
                     ResetUnfriendlyUnits = false;
-                }
+                //}
 
                 return _unfriendlyUnits;
             }
         }
-
-        public static bool ResetUnfriendlyPlayers = false;
-        private static IEnumerable<WoWUnit> _unfriendlyPlayers;
+        
         public static IEnumerable<WoWUnit> UnfriendlyPlayers
         {
             get
             {
-                if (_unfriendlyPlayers == null || ResetUnfriendlyPlayers)
-                {
-                    //_unfriendlyPlayers = ObjectManager.GetObjectsOfTypeFast<WoWPlayer>().Where(u => u.IsValid && !u.IsDead && u.Attackable && u.Distance < 40);
-                    _unfriendlyPlayers = UnfriendlyUnits.Where(u => u.IsPlayer);
-
-                    ResetUnfriendlyPlayers = false;
-                }
-
-                return _unfriendlyPlayers;
+                //_unfriendlyPlayers = ObjectManager.GetObjectsOfTypeFast<WoWPlayer>().Where(u => u.IsValid && !u.IsDead && u.Attackable && u.Distance < 40);
+                return UnfriendlyUnits.Where(u => u.IsPlayer);
             }
         }
 
@@ -69,8 +60,8 @@ namespace Paladin.Helpers
         {
             get
             {
-                if (_groupMembers == null || ResetGroupMembers)
-                {
+                //if (_groupMembers == null || ResetGroupMembers)
+                //{
                     //_groupMembers = ObjectManager.GetObjectsOfTypeFast<WoWPlayer>().Where(u => (u.IsInMyParty || u.IsInMyRaid) && u.Distance < 40);
                     HashSet<WoWGuid> guids = new HashSet<WoWGuid>(StyxWoW.Me.GroupInfo.RaidMemberGuids);
                     List<WoWPlayer> list = ObjectManager.ObjectList
@@ -81,7 +72,7 @@ namespace Paladin.Helpers
                     _groupMembers = list;
 
                     ResetGroupMembers = false;
-                }
+                //}
 
                 return _groupMembers;
             }

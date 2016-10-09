@@ -24,7 +24,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (StyxWoW.Me.HealthPercent <= PaladinSettings.Instance.RetFoLSelfHp)
                 return await FlashOfLightCast(StyxWoW.Me);
 
-            if (!Globals.Pvp) return false;
+            if (!Globals.Arena) return false;
 
             if (!PaladinSettings.Instance.RetFoLOther || !Globals.InParty)
                 return false;

@@ -113,7 +113,7 @@ namespace Paladin.Rotations.Specs
             
             if (await MySpells.RacialsMethod()) return true;
 
-            //if (await MySpells.TotemStompMethod()) return true;
+            if (await MySpells.TotemStompMethod()) return true;
 
             if (Globals.Pvp && await MySpells.PvpChecksMethod()) return true;
 

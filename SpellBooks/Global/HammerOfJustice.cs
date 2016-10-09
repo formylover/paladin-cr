@@ -28,8 +28,12 @@ namespace Paladin.SpellBooks.Global
 
             if (!Globals.Pvp) return null; // TODO
 
+            int range = 10;
+            if (Managers.Talents.HasPassivHonorTalent(204979))
+                range = 20;
+
             // Create a list of targets we can use HoJ on
-            var hojList = Unit.UnfriendlyUnits.Where(u => u.InLineOfSpellSight && u.Distance <= spell.CRSpell.MaxRange && !u.HasAuraWithMechanic(WoWSpellMechanic.Dazed,
+            var hojList = Unit.UnfriendlyUnits.Where(u => u.InLineOfSpellSight && u.Distance <= range && !u.HasAuraWithMechanic(WoWSpellMechanic.Dazed,
                                           WoWSpellMechanic.Disoriented,
                                           WoWSpellMechanic.Frozen,
                                           WoWSpellMechanic.Incapacitated,
@@ -42,7 +46,7 @@ namespace Paladin.SpellBooks.Global
 
             if (PaladinSettings.Instance.HoJInterrupt && Globals.CurrentTarget.HealthPercent < PaladinSettings.Instance.HoJTargetBelow)
             {
-                var unit = hojList.FirstOrDefault(u => ((PaladinSettings.Instance.HoJInterruptHeal && u.IsCastingHealingSpell)
+                var unit = hojList.FirstOrDefault(u => ((PaladinSettings.Instance.HoJInterruptHeal && u.Distance <= range && u.IsCastingHealingSpell)
                                           || (PaladinSettings.Instance.HoJInterruptCC && u.IsCastingSpellWithEffect(WoWSpellMechanic.Dazed,
                                           WoWSpellMechanic.Disoriented,
                                           WoWSpellMechanic.Frozen,

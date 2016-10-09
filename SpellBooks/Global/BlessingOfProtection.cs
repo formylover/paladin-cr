@@ -20,7 +20,7 @@ namespace Paladin.SpellBooks.Global
             if (divine.CRSpell.Cooldown && StyxWoW.Me.HasAura(122470) && !StyxWoW.Me.HasForbearance())
                 return StyxWoW.Me;
 
-            if (!Globals.InParty) return null;
+            if (!Globals.Arena) return null;
             
             var target = Managers.Healing.HandOfProtectionTarget(PaladinSettings.Instance.UseBoPHp);
             return target;

@@ -76,7 +76,7 @@ namespace Paladin.Managers
 
             // If we're in a BG we pick the first target available
             // Can't use Lay on Hands in an arena
-            if ((StyxWoW.Me.GroupInfo.IsInBattlegroundParty))
+            if (StyxWoW.Me.GroupInfo.IsInBattlegroundParty)
                 return HealList.FirstOrDefault(u => !u.HasForbearance() && !u.HasDefensiveBuff() && u.HealthPercent <= hp && u.Class != WoWClass.Paladin);
 
             // At this point we don't want to use HoP on a tank

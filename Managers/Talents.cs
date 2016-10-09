@@ -51,5 +51,10 @@ namespace Paladin.Managers
             TalentCache[key] = Lua.GetReturnVal<bool>(string.Format("local t = select(4, GetTalentInfo({0}, {1}, GetActiveSpecGroup())) if t then return 1 end return nil", row, column), 0);
             return TalentCache[key];
         }
+
+        public static bool HasPassivHonorTalent(int talentId)
+        {
+            return StyxWoW.Me.PassiveAuras.Values.Select(a => a.SpellId).Contains(talentId);
+        }
     }
 }

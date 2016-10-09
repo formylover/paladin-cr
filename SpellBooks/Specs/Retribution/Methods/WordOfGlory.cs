@@ -23,12 +23,9 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (Globals.MyHp <= PaladinSettings.Instance.WoGHealth)
                 return await WordOfGloryCast();
 
-            if (!PaladinSettings.Instance.WoGHealParty)
+            if (!PaladinSettings.Instance.WoGHealParty || !Globals.Arena)
                 return false;
-
-            if (!Globals.InParty)
-                return false;
-
+            
             // Find a group target
             var target = Healing.HealTarget(PaladinSettings.Instance.WoGPartyHealth);
             if (target == null || target.IsDead)

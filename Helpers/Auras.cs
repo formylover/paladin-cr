@@ -13,7 +13,8 @@ namespace Paladin.Helpers
         private static Dictionary<WoWGuid, WoWAuraCollection> _auraCache;
         public static WoWAuraCollection AuraCache(this WoWUnit unit)
         {
-            if (_auraCache == null || ResetAuraCache)
+            return unit.GetAllAuras();
+            /*if (_auraCache == null || ResetAuraCache)
             {
                 _auraCache = new Dictionary<WoWGuid, WoWAuraCollection>();
             }
@@ -22,7 +23,7 @@ namespace Paladin.Helpers
                 return _auraCache[unit.Guid];
 
             _auraCache[unit.Guid] = unit.GetAllAuras();
-            return _auraCache[unit.Guid];
+            return _auraCache[unit.Guid];*/
         }
 
         public static bool HasAnyAura(this WoWUnit unit, IEnumerable<int> ids)

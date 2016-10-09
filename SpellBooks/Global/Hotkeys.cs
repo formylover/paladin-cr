@@ -21,8 +21,12 @@ namespace Paladin.SpellBooks.Global
                 return false;
             }
 
+            int range = 10;
+            if (Managers.Talents.HasPassivHonorTalent(204979))
+                range = 20;
+
             // Out of range, reset bool and return false to continue
-            if (target.Distance > spell.CRSpell.MaxRange || !target.InLineOfSpellSight)
+            if (target.Distance > range || !target.InLineOfSpellSight)
             {
                 Globals.HoJTarget = null;
                 Helpers.Logger.PrintLog("Target is out of range or spell LOS");

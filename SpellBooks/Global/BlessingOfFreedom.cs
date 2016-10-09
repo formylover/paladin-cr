@@ -22,6 +22,8 @@ namespace Paladin.SpellBooks.Global
                 return StyxWoW.Me;
             }
 
+            if (!Globals.Arena) return null;
+
             if (PaladinSettings.Instance.UseBoFGroup && Globals.InParty)
             {
                 if (!Unit.GroupMembers.Any(x => x.IsAlive && x.Distance <= 40 && x.InLineOfSpellSight && x != StyxWoW.Me)) return null;
