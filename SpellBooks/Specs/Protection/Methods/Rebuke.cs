@@ -15,10 +15,10 @@ namespace Paladin.SpellBooks.Specs.Protection
             var target = SpellBooks.Global.Rebuke.RebukeTarget(Rebuke);
             if (target == null) return false;
 
+            Helpers.Logger.PrintLog("Interrupting {0} on {1}", target.CastingSpell.Name, target.SafeName);
+
             if (!await Rebuke.Cast(target))
                 return false;
-
-            Helpers.Logger.PrintLog("Interrupting {0} on {1}", target.CastingSpell.Name, target.SafeName);
 
             LastSpell = Rebuke;
             return true;

@@ -26,10 +26,7 @@ namespace Paladin.Helpers
                        (me.Mounted || me.InVehicle);
             }
         }
-
-        public static Stopwatch UpdateScanner = new Stopwatch();
-        private static int UpdateScanInterval = 500;
-
+        
         public static Stopwatch ForceUpdateScanner = new Stopwatch();
         private static int ForceUpdateScanInterval = 500;
 
@@ -74,6 +71,9 @@ namespace Paladin.Helpers
         {
             ForceUpdateScanner.Restart();
             
+            Unit.ResetUnfriendlyUnits = true;
+            Unit.ResetGroupMembers = true;
+
             MyHp = StyxWoW.Me.HealthPercent;
             CurrentTarget = StyxWoW.Me.CurrentTarget;
 

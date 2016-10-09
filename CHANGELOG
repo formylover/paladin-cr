@@ -1,7 +1,14 @@
+# 0.2.6
+
+- some fps drop reduces
+- fixed some exceptions which occur sometimes
+
 # 0.2.5
 
 - Rebuke will now check for close targets which are casting CC or Heals on my target
 - Globals now get updates onces every 500ms even out of combat to gurantee proper settings
+- removed caching fully
+- Rebuke will now check around you for kick on targets which are castsing cc or heal
 
 # 0.2.4
 
