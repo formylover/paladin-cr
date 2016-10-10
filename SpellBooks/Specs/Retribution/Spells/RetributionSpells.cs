@@ -129,7 +129,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
                 if (_divineHammer == null)
                 {
                     int _id = 198034;
-                    _divineHammer = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                    _divineHammer = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
                 }
                 return _divineHammer;
             }
@@ -157,7 +157,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
                 if (_executionSentence == null)
                 {
                     int _id = 213757;
-                    _executionSentence = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                    _executionSentence = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
                 }
                 return _executionSentence;
             }
@@ -185,7 +185,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
                 if (_handOfHindrance == null)
                 {
                     int _id = 183218;
-                    _handOfHindrance = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                    _handOfHindrance = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
                 }
                 return _handOfHindrance;
             }
@@ -213,7 +213,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
                 if (_justcarsVengeance == null)
                 {
                     int _id = 215661;
-                    _justcarsVengeance = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                    _justcarsVengeance = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
                 }
                 return _justcarsVengeance;
             }
@@ -301,7 +301,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
                 if (_zeal == null)
                 {
                     int _id = 217020;
-                    _zeal = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                    _zeal = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
                 }
                 return _zeal;
             }

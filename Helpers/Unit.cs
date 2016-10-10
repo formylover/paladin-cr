@@ -20,25 +20,11 @@ namespace Paladin.Helpers
             {
                 if (_unfriendlyUnits == null || ResetUnfriendlyUnits)
                 {
-                     //_unfriendlyUnits = ObjectManager.GetObjectsOfType<WoWUnit>().Where(u => u.ValidAttackUnit() && u.Distance < 40);
-
-                    List<WoWUnit> list = new List<WoWUnit>();
-                    List<WoWObject> objectList = ObjectManager.ObjectList;
-
-                    for (int i = 0; i < objectList.Count; i++)
+                    using (StyxWoW.Memory.AcquireFrame(true))
                     {
-                        Type type = objectList[i].GetType();
-                        if (type == typeof(WoWUnit) || type == typeof(WoWPlayer))
-                        {
-                            WoWUnit t = objectList[i] as WoWUnit;
-                            if (t != null && t.ValidAttackUnit() && t.Distance < 40)
-                                list.Add(t);
-                        }
+                        _unfriendlyUnits = ObjectManager.GetObjectsOfType<WoWUnit>().Where(u => u.ValidAttackUnit() && u.Distance < 40);
+                        ResetUnfriendlyUnits = false;
                     }
-
-                    _unfriendlyUnits = list;
-
-                    ResetUnfriendlyUnits = false;
                 }
 
                 return _unfriendlyUnits.Where(u => u.IsValid);
@@ -62,16 +48,11 @@ namespace Paladin.Helpers
             {
                 if (_groupMembers == null || ResetGroupMembers)
                 {
-                    //_groupMembers = ObjectManager.GetObjectsOfTypeFast<WoWPlayer>().Where(u => (u.IsInMyParty || u.IsInMyRaid) && u.Distance < 40);
-                    HashSet<WoWGuid> guids = new HashSet<WoWGuid>(StyxWoW.Me.GroupInfo.RaidMemberGuids);
-                    List<WoWPlayer> list = ObjectManager.ObjectList
-                        .Where(o => o != null && o.ToUnit() != null && guids.Contains(o.Guid) && o.ToUnit().IsPlayer)
-                        .Select(o => o.ToPlayer())
-                        .ToList();
-
-                    _groupMembers = list;
-
-                    ResetUnfriendlyUnits = true;
+                    using (StyxWoW.Memory.AcquireFrame(true))
+                    {
+                        _groupMembers = ObjectManager.GetObjectsOfTypeFast<WoWPlayer>().Where(u => (u.IsInMyParty || u.IsInMyRaid) && u.Distance < 40);
+                        ResetUnfriendlyUnits = true;
+                    }
                 }
 
                 return _groupMembers.Where(u => u.IsValid);
