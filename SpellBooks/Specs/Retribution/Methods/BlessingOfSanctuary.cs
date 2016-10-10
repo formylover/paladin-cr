@@ -7,6 +7,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
     {
         public async Task<bool> BlessingOfSanctuaryMethod()
         {
+            // TODO focus target
             if (!Helpers.Globals.Arena) return false;
 
             if (!Styx.CommonBot.SpellManager.HasSpell(BlessingOfSanctuary.ID))

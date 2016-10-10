@@ -31,9 +31,23 @@ namespace Paladin.SpellBooks.Specs.Retribution
                 if (_bladeOfWrath == null)
                 {
                     int _id = 202270;
-                    _bladeOfWrath = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                    _bladeOfWrath = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
                 }
                 return _bladeOfWrath;
+            }
+        }
+
+        private Spell _bladeOfJustice;
+        public Spell BladeOfJustice
+        {
+            get
+            {
+                if (_bladeOfJustice == null)
+                {
+                    int _id = 184575;
+                    _bladeOfJustice = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
+                }
+                return _bladeOfJustice;
             }
         }
 

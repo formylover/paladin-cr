@@ -7,17 +7,17 @@ namespace Paladin.SpellBooks.Specs.Retribution
         public async Task<bool> BladeOfWrathMethod()
         {
             if (Helpers.Globals.CurrentTarget == null) return false;
-            if (BladeOfWrath.CRSpell.Cooldown) return false;
 
-            if (!Styx.StyxWoW.Me.IsFacing(Helpers.Globals.CurrentTarget)) return false;
+            var spell = BladeOfJustice;
+            if (MyTalents.BladeOfWrath.IsActive())
+                spell = BladeOfWrath;
 
-            if (!MyTalents.BladeOfWrath.IsActive())
+            if (spell.CRSpell.Cooldown) return false;
+
+            if (!await spell.Cast(Helpers.Globals.CurrentTarget))
                 return false;
 
-            if (!await BladeOfWrath.Cast(Helpers.Globals.CurrentTarget))
-                return false;
-
-            LastSpell = BladeOfWrath;
+            LastSpell = spell;
             return true;
         }
     }

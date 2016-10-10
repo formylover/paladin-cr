@@ -1,3 +1,11 @@
+# 0.3.0
+
+- added working protection spec
+-- some honor talents still missing
+- extracted pvp check in a singular method
+- added blade of justice if no blade of wrath is specced
+- wake of ashes now checks for 8 yard
+
 # 0.2.7
 
 - corrected several spells

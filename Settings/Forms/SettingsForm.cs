@@ -143,6 +143,28 @@ namespace Paladin.Settings.Forms
             eyeForAnEyeInput.Value = Settings.EyeForAnEyeHP;
             #endregion
             #endregion
+
+            #region Protection
+            ardentDefenderInput.Value = Settings.ArdentDefender;
+            guardianOfAncientKingsInput.Value = Settings.GuardianOfAncientKings;
+            useEyeOfTyrCheckbox.Checked = Settings.UseEyeOfTyr;
+            eyeOfTyrHPInput.Value = Settings.EyeOfTyrHP;
+
+            #region Healing
+            protUseFlashOfLightMeCheckbox.Checked = Settings.ProtFoLMe;
+            protFlashOfLightMeInput.Value = Settings.ProtFoLSelfHp;
+            protUseFlashOfLightOtherCheckbox.Checked = Settings.ProtFoLOther;
+            protFlashOfLightOtherInput.Value = Settings.ProtFoLOtherHp;
+
+            protLayOnHandsHpInput.Value = Settings.ProtLoHUseHp;
+            protUseLayOnHandsCheckbox.Checked = Settings.ProtLoHUseOnSelf;
+            protUseLayOnHandsOnGroupCheckbox.Checked = Settings.ProtLoHUse;
+
+            lightOfTheProtectorInput.Value = Settings.LightOfTheProtector;
+            lightOfTheProtectorOtherInput.Value = Settings.LightOfTheProtectorOther;
+            useLightOfTheProtectorCheckbox.Checked = Settings.UseLightOfTheProtector;
+            #endregion
+            #endregion
         }
 
         private void SaveSettings()
@@ -256,6 +278,28 @@ namespace Paladin.Settings.Forms
 
             Settings.WoGUse = useWordOfGloryCheckbox.Checked;
             Settings.EyeForAnEyeHP = (int)eyeForAnEyeInput.Value;
+            #endregion
+            #endregion
+
+            #region Protection
+            Settings.ArdentDefender = (int)ardentDefenderInput.Value;
+            Settings.GuardianOfAncientKings = (int)guardianOfAncientKingsInput.Value;
+            Settings.UseEyeOfTyr = useEyeOfTyrCheckbox.Checked;
+            Settings.EyeOfTyrHP = (int)eyeOfTyrHPInput.Value;
+
+            #region Healing
+            Settings.ProtFoLMe = protUseFlashOfLightMeCheckbox.Checked;
+            Settings.ProtFoLSelfHp = (int)protFlashOfLightMeInput.Value;
+            Settings.ProtFoLOther = protUseFlashOfLightOtherCheckbox.Checked;
+            Settings.ProtFoLOtherHp = (int)protFlashOfLightOtherInput.Value;
+
+            Settings.ProtLoHUseHp = (int)protLayOnHandsHpInput.Value;
+            Settings.ProtLoHUseOnSelf = protUseLayOnHandsCheckbox.Checked;
+            Settings.ProtLoHUse = protUseLayOnHandsOnGroupCheckbox.Checked;
+
+            Settings.LightOfTheProtector = (int)lightOfTheProtectorInput.Value;
+            Settings.LightOfTheProtectorOther = (int)lightOfTheProtectorOtherInput.Value;
+            Settings.UseLightOfTheProtector = useLightOfTheProtectorCheckbox.Checked;
             #endregion
             #endregion
 

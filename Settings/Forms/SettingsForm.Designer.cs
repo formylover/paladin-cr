@@ -143,6 +143,27 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.versionLabel = new System.Windows.Forms.Label();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.protUseLayOnHandsOnGroupCheckbox = new System.Windows.Forms.CheckBox();
+            this.protLayOnHandsHpInput = new System.Windows.Forms.NumericUpDown();
+            this.protUseLayOnHandsCheckbox = new System.Windows.Forms.CheckBox();
+            this.protUseFlashOfLightMeCheckbox = new System.Windows.Forms.CheckBox();
+            this.protUseFlashOfLightOtherCheckbox = new System.Windows.Forms.CheckBox();
+            this.protFlashOfLightMeInput = new System.Windows.Forms.NumericUpDown();
+            this.protFlashOfLightOtherInput = new System.Windows.Forms.NumericUpDown();
+            this.lightOfTheProtectorInput = new System.Windows.Forms.NumericUpDown();
+            this.useLightOfTheProtectorCheckbox = new System.Windows.Forms.CheckBox();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.guardianOfAncientKingsInput = new System.Windows.Forms.NumericUpDown();
+            this.ardentDefenderInput = new System.Windows.Forms.NumericUpDown();
+            this.lightOfTheProtectorOtherInput = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.useEyeOfTyrCheckbox = new System.Windows.Forms.CheckBox();
+            this.eyeOfTyrHPInput = new System.Windows.Forms.NumericUpDown();
+            this.label19 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox14.SuspendLayout();
@@ -181,8 +202,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.divineStormEnemyCountInput)).BeginInit();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shieldOfVengeanceHpInput)).BeginInit();
+            this.tabPage6.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.protLayOnHandsHpInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.protFlashOfLightMeInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.protFlashOfLightOtherInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lightOfTheProtectorInput)).BeginInit();
+            this.groupBox18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guardianOfAncientKingsInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ardentDefenderInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lightOfTheProtectorOtherInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eyeOfTyrHPInput)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1176,6 +1208,8 @@
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.Color.White;
+            this.tabPage6.Controls.Add(this.groupBox18);
+            this.tabPage6.Controls.Add(this.groupBox17);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -1407,6 +1441,213 @@
             this.versionLabel.TabIndex = 5;
             this.versionLabel.Text = "Version: ";
             // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.label18);
+            this.groupBox17.Controls.Add(this.label17);
+            this.groupBox17.Controls.Add(this.lightOfTheProtectorOtherInput);
+            this.groupBox17.Controls.Add(this.lightOfTheProtectorInput);
+            this.groupBox17.Controls.Add(this.useLightOfTheProtectorCheckbox);
+            this.groupBox17.Controls.Add(this.protUseLayOnHandsOnGroupCheckbox);
+            this.groupBox17.Controls.Add(this.protLayOnHandsHpInput);
+            this.groupBox17.Controls.Add(this.protUseLayOnHandsCheckbox);
+            this.groupBox17.Controls.Add(this.protUseFlashOfLightMeCheckbox);
+            this.groupBox17.Controls.Add(this.protUseFlashOfLightOtherCheckbox);
+            this.groupBox17.Controls.Add(this.protFlashOfLightMeInput);
+            this.groupBox17.Controls.Add(this.protFlashOfLightOtherInput);
+            this.groupBox17.Location = new System.Drawing.Point(8, 6);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(236, 193);
+            this.groupBox17.TabIndex = 18;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Protection Healing";
+            // 
+            // protUseLayOnHandsOnGroupCheckbox
+            // 
+            this.protUseLayOnHandsOnGroupCheckbox.AutoSize = true;
+            this.protUseLayOnHandsOnGroupCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.protUseLayOnHandsOnGroupCheckbox.Location = new System.Drawing.Point(9, 94);
+            this.protUseLayOnHandsOnGroupCheckbox.Name = "protUseLayOnHandsOnGroupCheckbox";
+            this.protUseLayOnHandsOnGroupCheckbox.Size = new System.Drawing.Size(158, 17);
+            this.protUseLayOnHandsOnGroupCheckbox.TabIndex = 18;
+            this.protUseLayOnHandsOnGroupCheckbox.Text = "Use Lay on Hands on Group";
+            this.protUseLayOnHandsOnGroupCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // protLayOnHandsHpInput
+            // 
+            this.protLayOnHandsHpInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.protLayOnHandsHpInput.Location = new System.Drawing.Point(180, 71);
+            this.protLayOnHandsHpInput.Name = "protLayOnHandsHpInput";
+            this.protLayOnHandsHpInput.Size = new System.Drawing.Size(50, 20);
+            this.protLayOnHandsHpInput.TabIndex = 17;
+            // 
+            // protUseLayOnHandsCheckbox
+            // 
+            this.protUseLayOnHandsCheckbox.AutoSize = true;
+            this.protUseLayOnHandsCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.protUseLayOnHandsCheckbox.Location = new System.Drawing.Point(9, 71);
+            this.protUseLayOnHandsCheckbox.Name = "protUseLayOnHandsCheckbox";
+            this.protUseLayOnHandsCheckbox.Size = new System.Drawing.Size(111, 17);
+            this.protUseLayOnHandsCheckbox.TabIndex = 16;
+            this.protUseLayOnHandsCheckbox.Text = "Use Lay on Hands";
+            this.protUseLayOnHandsCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // protUseFlashOfLightMeCheckbox
+            // 
+            this.protUseFlashOfLightMeCheckbox.AutoSize = true;
+            this.protUseFlashOfLightMeCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.protUseFlashOfLightMeCheckbox.Location = new System.Drawing.Point(9, 20);
+            this.protUseFlashOfLightMeCheckbox.Name = "protUseFlashOfLightMeCheckbox";
+            this.protUseFlashOfLightMeCheckbox.Size = new System.Drawing.Size(104, 17);
+            this.protUseFlashOfLightMeCheckbox.TabIndex = 10;
+            this.protUseFlashOfLightMeCheckbox.Text = "Flash of Light Me";
+            this.protUseFlashOfLightMeCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // protUseFlashOfLightOtherCheckbox
+            // 
+            this.protUseFlashOfLightOtherCheckbox.AutoSize = true;
+            this.protUseFlashOfLightOtherCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.protUseFlashOfLightOtherCheckbox.Location = new System.Drawing.Point(9, 47);
+            this.protUseFlashOfLightOtherCheckbox.Name = "protUseFlashOfLightOtherCheckbox";
+            this.protUseFlashOfLightOtherCheckbox.Size = new System.Drawing.Size(115, 17);
+            this.protUseFlashOfLightOtherCheckbox.TabIndex = 11;
+            this.protUseFlashOfLightOtherCheckbox.Text = "Flash of Light Other";
+            this.protUseFlashOfLightOtherCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // protFlashOfLightMeInput
+            // 
+            this.protFlashOfLightMeInput.Location = new System.Drawing.Point(180, 17);
+            this.protFlashOfLightMeInput.Name = "protFlashOfLightMeInput";
+            this.protFlashOfLightMeInput.Size = new System.Drawing.Size(50, 20);
+            this.protFlashOfLightMeInput.TabIndex = 13;
+            // 
+            // protFlashOfLightOtherInput
+            // 
+            this.protFlashOfLightOtherInput.Location = new System.Drawing.Point(180, 44);
+            this.protFlashOfLightOtherInput.Name = "protFlashOfLightOtherInput";
+            this.protFlashOfLightOtherInput.Size = new System.Drawing.Size(50, 20);
+            this.protFlashOfLightOtherInput.TabIndex = 12;
+            // 
+            // lightOfTheProtectorInput
+            // 
+            this.lightOfTheProtectorInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lightOfTheProtectorInput.Location = new System.Drawing.Point(180, 141);
+            this.lightOfTheProtectorInput.Name = "lightOfTheProtectorInput";
+            this.lightOfTheProtectorInput.Size = new System.Drawing.Size(50, 20);
+            this.lightOfTheProtectorInput.TabIndex = 20;
+            // 
+            // useLightOfTheProtectorCheckbox
+            // 
+            this.useLightOfTheProtectorCheckbox.AutoSize = true;
+            this.useLightOfTheProtectorCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.useLightOfTheProtectorCheckbox.Location = new System.Drawing.Point(9, 119);
+            this.useLightOfTheProtectorCheckbox.Name = "useLightOfTheProtectorCheckbox";
+            this.useLightOfTheProtectorCheckbox.Size = new System.Drawing.Size(144, 17);
+            this.useLightOfTheProtectorCheckbox.TabIndex = 19;
+            this.useLightOfTheProtectorCheckbox.Text = "Use Light of the Protector";
+            this.useLightOfTheProtectorCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.label19);
+            this.groupBox18.Controls.Add(this.useEyeOfTyrCheckbox);
+            this.groupBox18.Controls.Add(this.eyeOfTyrHPInput);
+            this.groupBox18.Controls.Add(this.ardentDefenderInput);
+            this.groupBox18.Controls.Add(this.guardianOfAncientKingsInput);
+            this.groupBox18.Controls.Add(this.label16);
+            this.groupBox18.Controls.Add(this.label15);
+            this.groupBox18.Location = new System.Drawing.Point(250, 6);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(236, 123);
+            this.groupBox18.TabIndex = 19;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "Defensive";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(9, 20);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(148, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Guardian of the Ancient Kings";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(9, 46);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(85, 13);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Ardent Defender";
+            // 
+            // guardianOfAncientKingsInput
+            // 
+            this.guardianOfAncientKingsInput.Location = new System.Drawing.Point(163, 18);
+            this.guardianOfAncientKingsInput.Name = "guardianOfAncientKingsInput";
+            this.guardianOfAncientKingsInput.Size = new System.Drawing.Size(50, 20);
+            this.guardianOfAncientKingsInput.TabIndex = 21;
+            // 
+            // ardentDefenderInput
+            // 
+            this.ardentDefenderInput.Location = new System.Drawing.Point(162, 44);
+            this.ardentDefenderInput.Name = "ardentDefenderInput";
+            this.ardentDefenderInput.Size = new System.Drawing.Size(50, 20);
+            this.ardentDefenderInput.TabIndex = 22;
+            // 
+            // lightOfTheProtectorOtherInput
+            // 
+            this.lightOfTheProtectorOtherInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lightOfTheProtectorOtherInput.Location = new System.Drawing.Point(180, 167);
+            this.lightOfTheProtectorOtherInput.Name = "lightOfTheProtectorOtherInput";
+            this.lightOfTheProtectorOtherInput.Size = new System.Drawing.Size(50, 20);
+            this.lightOfTheProtectorOtherInput.TabIndex = 22;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(7, 147);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(70, 13);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "My HP below";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(7, 172);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(82, 13);
+            this.label18.TabIndex = 24;
+            this.label18.Text = "Other HP below";
+            // 
+            // useEyeOfTyrCheckbox
+            // 
+            this.useEyeOfTyrCheckbox.AutoSize = true;
+            this.useEyeOfTyrCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.useEyeOfTyrCheckbox.Location = new System.Drawing.Point(12, 71);
+            this.useEyeOfTyrCheckbox.Name = "useEyeOfTyrCheckbox";
+            this.useEyeOfTyrCheckbox.Size = new System.Drawing.Size(71, 17);
+            this.useEyeOfTyrCheckbox.TabIndex = 25;
+            this.useEyeOfTyrCheckbox.Text = "Eye of Tyr";
+            this.useEyeOfTyrCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // eyeOfTyrHPInput
+            // 
+            this.eyeOfTyrHPInput.Location = new System.Drawing.Point(162, 95);
+            this.eyeOfTyrHPInput.Name = "eyeOfTyrHPInput";
+            this.eyeOfTyrHPInput.Size = new System.Drawing.Size(50, 20);
+            this.eyeOfTyrHPInput.TabIndex = 26;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(9, 97);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(70, 13);
+            this.label19.TabIndex = 25;
+            this.label19.Text = "My HP below";
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1477,9 +1718,22 @@
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shieldOfVengeanceHpInput)).EndInit();
+            this.tabPage6.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.protLayOnHandsHpInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.protFlashOfLightMeInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.protFlashOfLightOtherInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lightOfTheProtectorInput)).EndInit();
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guardianOfAncientKingsInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ardentDefenderInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lightOfTheProtectorOtherInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eyeOfTyrHPInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1601,5 +1855,26 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox divineSteedHotkeySelect;
         private System.Windows.Forms.ComboBox divineSteedModifierSelect;
+        private System.Windows.Forms.GroupBox groupBox17;
+        private System.Windows.Forms.CheckBox protUseLayOnHandsOnGroupCheckbox;
+        private System.Windows.Forms.NumericUpDown protLayOnHandsHpInput;
+        private System.Windows.Forms.CheckBox protUseLayOnHandsCheckbox;
+        private System.Windows.Forms.CheckBox protUseFlashOfLightMeCheckbox;
+        private System.Windows.Forms.CheckBox protUseFlashOfLightOtherCheckbox;
+        private System.Windows.Forms.NumericUpDown protFlashOfLightMeInput;
+        private System.Windows.Forms.NumericUpDown protFlashOfLightOtherInput;
+        private System.Windows.Forms.NumericUpDown lightOfTheProtectorInput;
+        private System.Windows.Forms.CheckBox useLightOfTheProtectorCheckbox;
+        private System.Windows.Forms.GroupBox groupBox18;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.NumericUpDown guardianOfAncientKingsInput;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.NumericUpDown ardentDefenderInput;
+        private System.Windows.Forms.NumericUpDown lightOfTheProtectorOtherInput;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.CheckBox useEyeOfTyrCheckbox;
+        private System.Windows.Forms.NumericUpDown eyeOfTyrHPInput;
+        private System.Windows.Forms.Label label19;
     }
 }

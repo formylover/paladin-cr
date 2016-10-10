@@ -15,20 +15,33 @@ namespace Paladin.SpellBooks.Specs.Protection
             if (Global.Burst.Check(AvengingWrath))
                 return await CastBurst();
 
+            if (StyxWoW.Me.HasAura(AvengingWrath.CRSpell.Id))
+                return await CastBastionOfLight();
+
             return false;
         }
 
         private async Task<bool> CastBurst()
         {
-            if (await AvengingWrath.Cast(StyxWoW.Me))
-            {
-                Helpers.Logger.PrintLog("Activating Burst");
+            if (!await AvengingWrath.Cast(StyxWoW.Me))
+                return false;
+            
+            Helpers.Logger.PrintLog("Activating Burst");
 
-                LastSpell = AvengingWrath;
-                return true;
-            }
+            LastSpell = AvengingWrath;
+            return true;
+        }
 
-            return false;
+        private async Task<bool> CastBastionOfLight()
+        {
+            if (ShieldOfTheRighteous.CRSpell.GetChargeInfo().ChargesLeft > 0)
+                return false;
+
+            if (!await BastionOfLight.Cast(StyxWoW.Me))
+                return false;
+
+            LastSpell = BastionOfLight;
+            return true;
         }
     }
 }

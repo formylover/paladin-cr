@@ -11,6 +11,22 @@ namespace Paladin.Helpers
 {
     public static class PvP
     {
+        public static bool PvPCheck()
+        {
+            // Return true so that the bot stops trying to attack the target
+            if (PaladinSettings.Instance.PvpIgnoreCCTarget)
+            {
+                if (StyxWoW.Me.CurrentTarget.HasAnyAura(Lists.CrowdControlSpellsWeCantAttackThrough))
+                    return true;
+            }
+
+            // ignore target if it has an active karma
+            if (Unit.GroupMembers.Any(p => p.IsAlive && p.HasAura(122470)) && Globals.CurrentTarget.Attackable && Globals.CurrentTarget.HasAura(122470))
+                return true;
+
+            return false;
+        }
+
         public static bool IsCastingSpellWithEffect(this WoWUnit unit, params WoWSpellMechanic[] mechanics)
         {
             if (!unit.IsCasting) return false;

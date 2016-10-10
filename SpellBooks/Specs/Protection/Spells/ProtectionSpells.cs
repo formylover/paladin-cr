@@ -135,6 +135,20 @@ namespace Paladin.SpellBooks.Specs.Protection
             }
         }
 
+        private Spell _guardianOfTheForgottenQueen;
+        public Spell GuardianOfTheForgottenQueen
+        {
+            get
+            {
+                if (_guardianOfTheForgottenQueen == null)
+                {
+                    int _id = 228049;
+                    _guardianOfTheForgottenQueen = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                }
+                return _guardianOfTheForgottenQueen;
+            }
+        }
+
         private Spell _hammerOfRighteous;
         public Spell HammerOfRighteous
         {
@@ -146,6 +160,20 @@ namespace Paladin.SpellBooks.Specs.Protection
                     _hammerOfRighteous = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
                 }
                 return _hammerOfRighteous;
+            }
+        }
+
+        private Spell _lightOfTheProtector;
+        public Spell LightOfTheProtector
+        {
+            get
+            {
+                if (_lightOfTheProtector == null)
+                {
+                    int _id = 184092;
+                    _lightOfTheProtector = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
+                }
+                return _lightOfTheProtector;
             }
         }
 

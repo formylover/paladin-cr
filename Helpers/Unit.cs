@@ -122,6 +122,11 @@ namespace Paladin.Helpers
         {
             return UnfriendlyPlayers.Any(u => u.CurrentTarget == target && u.HasCooldownsRunning());
         }
+
+        public static int EnemiesAttackingTarget(WoWUnit target)
+        {
+            return UnfriendlyPlayers.Count(u => u.CurrentTarget == target);
+        }
         #endregion
 
         #region Specialization checks

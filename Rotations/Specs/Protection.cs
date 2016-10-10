@@ -24,6 +24,27 @@ namespace Paladin.Rotations.Specs
         }
         public async override Task<bool> PreCombatBuff()
         {
+            if (!StyxWoW.Me.IsAlive)
+                return true;
+
+            if (PaladinSettings.Instance.AutoAttack && StyxWoW.Me.GotTarget && StyxWoW.Me.CurrentTarget.Attackable)
+            {
+                if (StyxWoW.Me.CurrentTarget.Distance <= 30 && StyxWoW.Me.CurrentTarget.InLineOfSight)
+                {
+                    if (await MySpells.AvengersShieldMethod()) return true;
+                    if (await MySpells.JudgmentMethod()) return true;
+
+                    return await MySpells.BlessedHammerMethod();
+                }
+
+            }
+
+            if (!StyxWoW.Me.IsActuallyInCombat)
+            {
+                // allow hotkeys out of combat
+                if (await MySpells.HotkeysMethod()) return true;
+            }
+
             return false;
         }
         public async override Task<bool> PullBuff()
@@ -32,19 +53,37 @@ namespace Paladin.Rotations.Specs
         }
         public async override Task<bool> Pull()
         {
-            return false;
+            if (PaladinSettings.Instance.EnableMovement || PaladinSettings.Instance.EnableFacing)
+                await MoveToTarget();
+
+            if (!StyxWoW.Me.GotTarget)
+                return false;
+
+            if (await MySpells.AvengersShieldMethod()) return true;
+            if (await MySpells.JudgmentMethod()) return true;
+
+            return await MySpells.BlessedHammerMethod();
         }
         public async override Task<bool> Heal()
         {
             Globals.Update();
 
-            // FoL / LoH
-
             if (await MySpells.DivineShieldMethod()) return true;
+            if (await MySpells.LayOnHandsMethod()) return true;
+
+            if (await MySpells.HotkeysMethod()) return true;
+
+            if (SpellManager.GlobalCooldown) return false;
+
+            if (await MySpells.FlashOfLightMethod()) return true;
+
             if (await MySpells.BlessingOfProtectionMethod()) return true;
+            if (await MySpells.BlessingOfSacrificeMethod()) return true;
             if (await MySpells.BlessingOfFreedomMethod()) return true;
 
             if (await MySpells.HandOfTheProtectordMethod()) return true;
+
+            /*if (Settings.UseCleanse && await MySpells.CleanseMethod()) return true;*/
 
             return false;
         }
@@ -58,13 +97,11 @@ namespace Paladin.Rotations.Specs
 
             if (await MySpells.BurstMethod()) return true;
 
-            // if (await MySpells.GuardianOfTheForgottenQueen()) return true; // Honor Talent
+            // if (await MySpells.GuardianOfTheForgottenQueenMethod()) return true; // Honor Talent
 
-            // if (await MySpells.GuardianOfAncientKingsMethod()) return true;
+            if (await MySpells.GuardianOfAncientKingsMethod()) return true;
 
-            // if (await MySpells.ArdentDefenderMethod()) return true;
-
-            // if (await MySpells.BastionOfLightMethod()) return true;
+            if (await MySpells.ArdentDefenderMethod()) return true;
 
             return false;
         }
@@ -80,9 +117,13 @@ namespace Paladin.Rotations.Specs
 
             if (!StyxWoW.Me.GotTarget) return false;
 
-            // if (Globals.Pvp && await MySpells.PvpChecksMethod()) return true;
+            if (await MySpells.HotkeysMethod()) return true;
 
-            // if (await MySpells.HotkeysMethod()) return true;
+            if (await MySpells.RacialsMethod()) return true;
+
+            if (await MySpells.TotemStompMethod()) return true;
+
+            if (Globals.Pvp && PvP.PvPCheck()) return true;
 
             if (await MySpells.RacialsMethod()) return true;
 

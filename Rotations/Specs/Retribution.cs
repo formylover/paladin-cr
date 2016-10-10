@@ -26,7 +26,12 @@ namespace Paladin.Rotations.Specs
             if (PaladinSettings.Instance.AutoAttack && StyxWoW.Me.GotTarget && StyxWoW.Me.CurrentTarget.Attackable)
             {
                 if (StyxWoW.Me.CurrentTarget.Distance <= 30 && StyxWoW.Me.CurrentTarget.InLineOfSight)
-                    return await MySpells.Judgment.Cast(Helpers.Globals.CurrentTarget);
+                {
+                    if (await MySpells.BladeOfWrathMethod()) return true;
+                    if (await MySpells.JudgmentMethod()) return true;
+
+                    return await MySpells.CrusaderStrikeMethod();
+                }
             }
 
             if (!StyxWoW.Me.IsActuallyInCombat)
@@ -63,12 +68,11 @@ namespace Paladin.Rotations.Specs
 
             if (await MySpells.DivineShieldMethod()) return true;
             if (await MySpells.ShieldOfVengeanceMethod()) return true;
+            if (await MySpells.LayOnHandsMethod()) return true;
 
             if (await MySpells.HotkeysMethod()) return true;
 
             if (Settings.HealthstoneUse && await Items.Healthstone()) return true;
-
-            if (await MySpells.LayOnHandsMethod()) return true;
 
             // Global Cooldown
             if (SpellManager.GlobalCooldown) return false;
@@ -121,7 +125,7 @@ namespace Paladin.Rotations.Specs
 
             if (await MySpells.TotemStompMethod()) return true;
 
-            if (Globals.Pvp && await MySpells.PvpChecksMethod()) return true;
+            if (Globals.Pvp && PvP.PvPCheck()) return true;
 
             if (await MySpells.RebukeMethod()) return true;
             

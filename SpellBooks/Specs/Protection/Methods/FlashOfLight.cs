@@ -8,29 +8,31 @@ using Styx.CommonBot;
 using Styx.WoWInternals.WoWObjects;
 using Paladin.Settings;
 
-namespace Paladin.SpellBooks.Specs.Retribution
+namespace Paladin.SpellBooks.Specs.Protection
 {
-    public partial class RetributionSpells : PaladinSpells<RetributionTalents>
+    public partial class ProtectionSpells : PaladinSpells<ProtectionTalents>
     {
         public async Task<bool> FlashOfLightMethod()
         {
-            if (!PaladinSettings.Instance.RetFoLMe && !PaladinSettings.Instance.RetFoLOther)
+            // TODO unify
+            if (!PaladinSettings.Instance.ProtFoLMe && !PaladinSettings.Instance.ProtFoLOther)
                 return false;
 
             if (StyxWoW.Me.IsMoving)
                 return false;
 
+            if (Globals.InParty && !Globals.Pvp) return false; // if we are in a pvp party dont heal TODO check if healer is alive
+
             // We check ourself first
-            if (StyxWoW.Me.HealthPercent <= PaladinSettings.Instance.RetFoLSelfHp)
+            if (StyxWoW.Me.HealthPercent <= PaladinSettings.Instance.ProtFoLSelfHp)
                 return await FlashOfLightCast(StyxWoW.Me);
 
             if (!Globals.Arena) return false;
 
-            if (!PaladinSettings.Instance.RetFoLOther || !Globals.InParty)
+            if (!PaladinSettings.Instance.ProtFoLOther || !Globals.InParty)
                 return false;
-
             // Look for a group target TODO
-            var target = Healing.HealTarget(PaladinSettings.Instance.RetFoLOtherHp);
+            var target = Healing.HealTarget(PaladinSettings.Instance.ProtFoLOtherHp);
 
             if (target == null || target.IsDead)
                 return false;

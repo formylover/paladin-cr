@@ -10,23 +10,29 @@ namespace Paladin.SpellBooks.Specs.Protection
     {
         public async Task<bool> HandOfTheProtectordMethod()
         {
-            if (HandOfTheProtector.CRSpell.Cooldown) return false;
+            if (!Paladin.Settings.PaladinSettings.Instance.UseLightOfTheProtector) return false;
 
-            if (Globals.MyHp < Paladin.Settings.PaladinSettings.Instance.HandOfTheProtector)
-                return await CastHandOfTheProtector(StyxWoW.Me);
+            var spell = LightOfTheProtector;
+            if (MyTalents.HandOfTheProtector.IsActive())
+                spell = HandOfTheProtector;
 
-            var target = Healing.HealTarget(Paladin.Settings.PaladinSettings.Instance.HandOfTheProtectorOther);
+            if (spell.CRSpell.Cooldown) return false;
+            
+            if (Globals.MyHp < Paladin.Settings.PaladinSettings.Instance.LightOfTheProtector)
+                return await CastHandOfTheProtector(StyxWoW.Me, spell);
+
+            var target = Healing.HealTarget(Paladin.Settings.PaladinSettings.Instance.LightOfTheProtectorOther);
             if (target == null) return false;
 
-            return await CastHandOfTheProtector(target);
+            return await CastHandOfTheProtector(target, spell);
         }
 
-        public async Task<bool> CastHandOfTheProtector(WoWUnit target)
+        public async Task<bool> CastHandOfTheProtector(WoWUnit target, Spell spell)
         {
-            if (!await HandOfTheProtector.Cast(target))
+            if (!await spell.Cast(target))
                 return false;
 
-            LastSpell = HandOfTheProtector;
+            LastSpell = spell;
             return true;
         }
     }

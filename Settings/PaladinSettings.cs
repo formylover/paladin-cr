@@ -109,10 +109,24 @@ namespace Paladin.Settings
         // Hp percent to use FoL
         [Setting, DefaultValue(60)]
         public int RetFoLOtherHp { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ProtFoLMe { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool ProtFoLOther { get; set; }
+
+        // Hp percent to use FoL
+        [Setting, DefaultValue(60)]
+        public int ProtFoLSelfHp { get; set; }
+
+        // Hp percent to use FoL
+        [Setting, DefaultValue(60)]
+        public int ProtFoLOtherHp { get; set; }
         #endregion
 
         #region LoH
-        [Setting, DefaultValue(true)]
+        [Setting, DefaultValue(false)]
         public bool RetLoHUse { get; set; }
 
         [Setting, DefaultValue(true)]
@@ -120,6 +134,15 @@ namespace Paladin.Settings
 
         [Setting, DefaultValue(20)]
         public int RetLoHUseHp { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool ProtLoHUse { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ProtLoHUseOnSelf { get; set; }
+
+        [Setting, DefaultValue(20)]
+        public int ProtLoHUseHp { get; set; }
         #endregion
 
         #region Blessing of Freedom
@@ -339,11 +362,20 @@ namespace Paladin.Settings
         public bool UseRepentance { get; set; }
 
         #region Protection
-        [Setting, DefaultValue(70)]
-        public int HandOfTheProtector { get; set; }
+        [Setting, DefaultValue(true)]
+        public bool UseLightOfTheProtector { get; set; }
 
         [Setting, DefaultValue(70)]
-        public int HandOfTheProtectorOther { get; set; }
+        public int LightOfTheProtector { get; set; }
+
+        [Setting, DefaultValue(30)]
+        public int GuardianOfAncientKings { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int ArdentDefender { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int LightOfTheProtectorOther { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool UseBlindingLight { get; set; }
@@ -353,6 +385,9 @@ namespace Paladin.Settings
 
         [Setting, DefaultValue(true)]
         public bool UseEyeOfTyr { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int EyeOfTyrHP { get; set; }
         #endregion
     }
 }
