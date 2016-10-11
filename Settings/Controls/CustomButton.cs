@@ -14,40 +14,31 @@ namespace Paladin.Forms.Controls
 
     public class CustomButton : Button
     {
-        private Color m_color1 = Color.LightGreen; // first color
-        private Color m_color2 = Color.DarkBlue;  // second color
-        private int m_color1Transparent = 64; // transparency degree 
-        // (applies to the 1st color)
-        private int m_color2Transparent = 64; // transparency degree 
-        //  (applies to the 2nd color)
-
         public Color Color1
         {
-            get { return m_color1; }
-            set { m_color1 = value; Invalidate(); }
+            get { return Color.FromArgb(60, 60, 60); }
         }
 
         public Color Color2
         {
-            get { return m_color2; }
-            set { m_color2 = value; Invalidate(); }
+            get { return Color.FromArgb(40, 40, 40); }
         }
 
         public int Transparent1
         {
-            get { return m_color1Transparent; }
-            set { m_color1Transparent = value; Invalidate(); }
+            get { return 170; }
         }
 
         public int Transparent2
         {
-            get { return m_color2Transparent; }
-            set { m_color2Transparent = value; Invalidate(); }
+            get { return 100; }
         }
-
 
         public CustomButton()
         {
+            BackColor = Color.FromArgb(69, 69, 69);
+            ForeColor = SystemColors.ActiveCaptionText;
+            FlatStyle = FlatStyle.Flat;
         }
 
 
@@ -56,12 +47,9 @@ namespace Paladin.Forms.Controls
             // Calling the base class OnPaint
             base.OnPaint(pe);
             // Create two semi-transparent colors
-            Color c1 = Color.FromArgb
-                (m_color1Transparent, m_color1);
-            Color c2 = Color.FromArgb
-                (m_color2Transparent, m_color2);
-            Brush b = new System.Drawing.Drawing2D.LinearGradientBrush
-                (ClientRectangle, c1, c2, 10);
+            Color c1 = Color.FromArgb(Transparent1, Color1);
+            Color c2 = Color.FromArgb(Transparent2, Color2);
+            Brush b = new System.Drawing.Drawing2D.LinearGradientBrush(ClientRectangle, c1, c2, 10);
             pe.Graphics.FillRectangle(b, ClientRectangle);
             b.Dispose();
         }

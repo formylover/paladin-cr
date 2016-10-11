@@ -6,6 +6,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
     {
         public async Task<bool> EyeForAnEyeMethod()
         {
+            if (Helpers.Unit.EnemiesAroundTarget(Styx.StyxWoW.Me, 20) <= 0) return false;
             if (Paladin.Helpers.Globals.MyHp > Paladin.Settings.PaladinSettings.Instance.EyeForAnEyeHP) return false;
 
             if (!MyTalents.EyeForAnEye.IsActive())

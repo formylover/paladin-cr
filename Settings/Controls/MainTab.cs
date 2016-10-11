@@ -39,7 +39,7 @@ namespace Paladin.Settings.Forms.Controls
 
             try
             {
-                SelectedTab.Padding = new Padding(3, 3, 3, 3);
+                SelectedTab.Padding = new Padding(10, 10, 10, 10);
                 SelectedTab.Margin = new Padding(3, 3, 3, 3);
                 SelectedTab.BackColor = Color.FromArgb(64, 64, 64);
             }

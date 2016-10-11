@@ -430,5 +430,10 @@ namespace Paladin.Settings.Forms
             SaveSettings();
             Close();
         }
+
+        private void customButton1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.thebuddyforum.com/honorbuddy-forum/combat-routines/paladin/274203-pve-pvp-gg-wrathful-paladin.html");
+        }
     }
 }
