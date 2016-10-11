@@ -31,6 +31,16 @@
             this.components = new System.ComponentModel.Container();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label3 = new System.Windows.Forms.Label();
+            this.useBurstCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
+            this.autoFocusCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
+            this.ignoreCCTargetCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
+            this.useBlessingOfProtectionOnBurstCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
+            this.blessingOfProtectionMeCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
+            this.useDivineShieldCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
+            this.blessingOfProtectionKarmaCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.customButton1 = new Paladin.Forms.Controls.CustomButton();
             this.saveAndCloseButton = new Paladin.Forms.Controls.CustomButton();
             this.saveButton = new Paladin.Forms.Controls.CustomButton();
@@ -40,7 +50,6 @@
             this.mainTab1 = new Paladin.Settings.Forms.Controls.MainTab();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.burstHealthBelowInput = new System.Windows.Forms.NumericUpDown();
-            this.useBurstCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.burstOnTargetBelowCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.burstOnCooldownCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.burstOnBossCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
@@ -49,7 +58,6 @@
             this.autoAttackCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.facingCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.autoTargetCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
-            this.autoFocusCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.movementCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,7 +71,6 @@
             this.useRacialsCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.useHealthstoneCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.usePvpTrinketCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
-            this.ignoreCCTargetCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.useTotemStompCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.tabPage17 = new System.Windows.Forms.TabPage();
             this.useBlessingOfFreedomTankCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
@@ -75,11 +82,7 @@
             this.useBlindingLightCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.divineShieldHpInput = new System.Windows.Forms.NumericUpDown();
             this.blessingOfProtectionHpInput = new System.Windows.Forms.NumericUpDown();
-            this.useBlessingOfProtectionOnBurstCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.blessingOfProtectionCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
-            this.blessingOfProtectionMeCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
-            this.useDivineShieldCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
-            this.blessingOfProtectionKarmaCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.tabPage20 = new System.Windows.Forms.TabPage();
             this.hammerOfJusticeInterruptCCCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.hammerOfJusticeInterruptHealCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
@@ -106,7 +109,6 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.eyeForAnEyeInput = new System.Windows.Forms.NumericUpDown();
             this.useShieldOfVengeanceCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.shieldOfVengeanceIncomingCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.useWordOfGloryCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.blessingsOnMeCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
@@ -119,10 +121,8 @@
             this.retFlashOfLightMeInput = new System.Windows.Forms.NumericUpDown();
             this.retUseFlashOfLightOtherCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.tabPage21 = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
             this.justicarsVengeanceInput = new System.Windows.Forms.NumericUpDown();
             this.handOfHindranceCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.divineStormHolyPowerInput = new System.Windows.Forms.NumericUpDown();
             this.hammerOfReckoningInput = new System.Windows.Forms.NumericUpDown();
@@ -217,6 +217,139 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Glorious Gaming - Wrathful Paladin";
             this.toolTip1.SetToolTip(this.label3, "GGWP!");
+            // 
+            // useBurstCheckbox
+            // 
+            this.useBurstCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.useBurstCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.useBurstCheckbox.ForeColor = System.Drawing.Color.White;
+            this.useBurstCheckbox.Location = new System.Drawing.Point(259, 13);
+            this.useBurstCheckbox.Name = "useBurstCheckbox";
+            this.useBurstCheckbox.Size = new System.Drawing.Size(240, 25);
+            this.useBurstCheckbox.TabIndex = 6;
+            this.useBurstCheckbox.Text = "Use Burst";
+            this.useBurstCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.useBurstCheckbox, "Will use Burst, needs to be enabled for other Options");
+            this.useBurstCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // autoFocusCheckbox
+            // 
+            this.autoFocusCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.autoFocusCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.autoFocusCheckbox.ForeColor = System.Drawing.Color.White;
+            this.autoFocusCheckbox.Location = new System.Drawing.Point(13, 168);
+            this.autoFocusCheckbox.Name = "autoFocusCheckbox";
+            this.autoFocusCheckbox.Size = new System.Drawing.Size(240, 25);
+            this.autoFocusCheckbox.TabIndex = 4;
+            this.autoFocusCheckbox.Text = "Auto set Focus";
+            this.autoFocusCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.autoFocusCheckbox, "Will set the Enemy Healer as Focus, primary use for Arena");
+            this.autoFocusCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // ignoreCCTargetCheckbox
+            // 
+            this.ignoreCCTargetCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ignoreCCTargetCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ignoreCCTargetCheckbox.ForeColor = System.Drawing.Color.White;
+            this.ignoreCCTargetCheckbox.Location = new System.Drawing.Point(13, 137);
+            this.ignoreCCTargetCheckbox.Name = "ignoreCCTargetCheckbox";
+            this.ignoreCCTargetCheckbox.Size = new System.Drawing.Size(240, 25);
+            this.ignoreCCTargetCheckbox.TabIndex = 17;
+            this.ignoreCCTargetCheckbox.Text = "Ignore CC\'d Targets";
+            this.ignoreCCTargetCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.ignoreCCTargetCheckbox, "Won\'t attack targets which have breaking CC on them.");
+            this.ignoreCCTargetCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // useBlessingOfProtectionOnBurstCheckbox
+            // 
+            this.useBlessingOfProtectionOnBurstCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.useBlessingOfProtectionOnBurstCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.useBlessingOfProtectionOnBurstCheckbox.ForeColor = System.Drawing.Color.White;
+            this.useBlessingOfProtectionOnBurstCheckbox.Location = new System.Drawing.Point(13, 137);
+            this.useBlessingOfProtectionOnBurstCheckbox.Name = "useBlessingOfProtectionOnBurstCheckbox";
+            this.useBlessingOfProtectionOnBurstCheckbox.Size = new System.Drawing.Size(240, 25);
+            this.useBlessingOfProtectionOnBurstCheckbox.TabIndex = 8;
+            this.useBlessingOfProtectionOnBurstCheckbox.Text = "Blessing of Protection on Burst";
+            this.useBlessingOfProtectionOnBurstCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.useBlessingOfProtectionOnBurstCheckbox, "Shield any target with BoP if they have Karma on them");
+            this.useBlessingOfProtectionOnBurstCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // blessingOfProtectionMeCheckbox
+            // 
+            this.blessingOfProtectionMeCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.blessingOfProtectionMeCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.blessingOfProtectionMeCheckbox.ForeColor = System.Drawing.Color.White;
+            this.blessingOfProtectionMeCheckbox.Location = new System.Drawing.Point(13, 44);
+            this.blessingOfProtectionMeCheckbox.Name = "blessingOfProtectionMeCheckbox";
+            this.blessingOfProtectionMeCheckbox.Size = new System.Drawing.Size(240, 25);
+            this.blessingOfProtectionMeCheckbox.TabIndex = 0;
+            this.blessingOfProtectionMeCheckbox.Text = "Blessing of Protection on Me";
+            this.blessingOfProtectionMeCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.blessingOfProtectionMeCheckbox, "Will never be used before Divine Shield");
+            this.blessingOfProtectionMeCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // useDivineShieldCheckbox
+            // 
+            this.useDivineShieldCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.useDivineShieldCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.useDivineShieldCheckbox.ForeColor = System.Drawing.Color.White;
+            this.useDivineShieldCheckbox.Location = new System.Drawing.Point(13, 106);
+            this.useDivineShieldCheckbox.Name = "useDivineShieldCheckbox";
+            this.useDivineShieldCheckbox.Size = new System.Drawing.Size(240, 25);
+            this.useDivineShieldCheckbox.TabIndex = 6;
+            this.useDivineShieldCheckbox.Text = "Use Divine Shield";
+            this.useDivineShieldCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.useDivineShieldCheckbox, "Will never be used if Divine Intervention is selected as Talent");
+            this.useDivineShieldCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // blessingOfProtectionKarmaCheckbox
+            // 
+            this.blessingOfProtectionKarmaCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.blessingOfProtectionKarmaCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.blessingOfProtectionKarmaCheckbox.ForeColor = System.Drawing.Color.White;
+            this.blessingOfProtectionKarmaCheckbox.Location = new System.Drawing.Point(13, 75);
+            this.blessingOfProtectionKarmaCheckbox.Name = "blessingOfProtectionKarmaCheckbox";
+            this.blessingOfProtectionKarmaCheckbox.Size = new System.Drawing.Size(240, 25);
+            this.blessingOfProtectionKarmaCheckbox.TabIndex = 4;
+            this.blessingOfProtectionKarmaCheckbox.Text = "Blessing of Protection on Karma";
+            this.blessingOfProtectionKarmaCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.blessingOfProtectionKarmaCheckbox, "Shield any target with BoP if they have Karma on them");
+            this.blessingOfProtectionKarmaCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(13, 264);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(102, 13);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Eye for an Eye HP%";
+            this.toolTip1.SetToolTip(this.label11, "Will be used if HP is below");
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(13, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(132, 13);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Justicars Vengeance HP%";
+            this.toolTip1.SetToolTip(this.label9, "If your life is below this point, the CR will no longer use Templars Verdict and " +
+        "cast only Justicars Vengeance. Only relevant if you dont have Divine Purpose spe" +
+        "ced.");
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(13, 128);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(124, 13);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Divine Storm Holy Power";
+            this.toolTip1.SetToolTip(this.label8, "At how much stacks Holy Power should Divine Storm be used?");
             // 
             // customButton1
             // 
@@ -343,20 +476,6 @@
             this.burstHealthBelowInput.Size = new System.Drawing.Size(44, 20);
             this.burstHealthBelowInput.TabIndex = 10;
             // 
-            // useBurstCheckbox
-            // 
-            this.useBurstCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.useBurstCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.useBurstCheckbox.ForeColor = System.Drawing.Color.White;
-            this.useBurstCheckbox.Location = new System.Drawing.Point(259, 13);
-            this.useBurstCheckbox.Name = "useBurstCheckbox";
-            this.useBurstCheckbox.Size = new System.Drawing.Size(240, 25);
-            this.useBurstCheckbox.TabIndex = 6;
-            this.useBurstCheckbox.Text = "Use Burst";
-            this.useBurstCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.useBurstCheckbox, "Will use Burst, needs to be enabled for other Options");
-            this.useBurstCheckbox.UseVisualStyleBackColor = true;
-            // 
             // burstOnTargetBelowCheckbox
             // 
             this.burstOnTargetBelowCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
@@ -458,20 +577,6 @@
             this.autoTargetCheckbox.Text = "Autotarget";
             this.autoTargetCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.autoTargetCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // autoFocusCheckbox
-            // 
-            this.autoFocusCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.autoFocusCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.autoFocusCheckbox.ForeColor = System.Drawing.Color.White;
-            this.autoFocusCheckbox.Location = new System.Drawing.Point(13, 168);
-            this.autoFocusCheckbox.Name = "autoFocusCheckbox";
-            this.autoFocusCheckbox.Size = new System.Drawing.Size(240, 25);
-            this.autoFocusCheckbox.TabIndex = 4;
-            this.autoFocusCheckbox.Text = "Auto set Focus";
-            this.autoFocusCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.autoFocusCheckbox, "Will set the Enemy Healer as Focus, primary use for Arena");
-            this.autoFocusCheckbox.UseVisualStyleBackColor = true;
             // 
             // movementCheckbox
             // 
@@ -632,20 +737,6 @@
             this.usePvpTrinketCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.usePvpTrinketCheckbox.UseVisualStyleBackColor = true;
             // 
-            // ignoreCCTargetCheckbox
-            // 
-            this.ignoreCCTargetCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.ignoreCCTargetCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ignoreCCTargetCheckbox.ForeColor = System.Drawing.Color.White;
-            this.ignoreCCTargetCheckbox.Location = new System.Drawing.Point(13, 137);
-            this.ignoreCCTargetCheckbox.Name = "ignoreCCTargetCheckbox";
-            this.ignoreCCTargetCheckbox.Size = new System.Drawing.Size(240, 25);
-            this.ignoreCCTargetCheckbox.TabIndex = 17;
-            this.ignoreCCTargetCheckbox.Text = "Ignore CC\'d Targets";
-            this.ignoreCCTargetCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.ignoreCCTargetCheckbox, "Won\'t attack targets which have breaking CC on them.");
-            this.ignoreCCTargetCheckbox.UseVisualStyleBackColor = true;
-            // 
             // useTotemStompCheckbox
             // 
             this.useTotemStompCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
@@ -782,20 +873,6 @@
             this.blessingOfProtectionHpInput.Size = new System.Drawing.Size(52, 20);
             this.blessingOfProtectionHpInput.TabIndex = 5;
             // 
-            // useBlessingOfProtectionOnBurstCheckbox
-            // 
-            this.useBlessingOfProtectionOnBurstCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.useBlessingOfProtectionOnBurstCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.useBlessingOfProtectionOnBurstCheckbox.ForeColor = System.Drawing.Color.White;
-            this.useBlessingOfProtectionOnBurstCheckbox.Location = new System.Drawing.Point(13, 137);
-            this.useBlessingOfProtectionOnBurstCheckbox.Name = "useBlessingOfProtectionOnBurstCheckbox";
-            this.useBlessingOfProtectionOnBurstCheckbox.Size = new System.Drawing.Size(240, 25);
-            this.useBlessingOfProtectionOnBurstCheckbox.TabIndex = 8;
-            this.useBlessingOfProtectionOnBurstCheckbox.Text = "Blessing of Protection on Burst";
-            this.useBlessingOfProtectionOnBurstCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.useBlessingOfProtectionOnBurstCheckbox, "Shield any target with BoP if they have Karma on them");
-            this.useBlessingOfProtectionOnBurstCheckbox.UseVisualStyleBackColor = true;
-            // 
             // blessingOfProtectionCheckbox
             // 
             this.blessingOfProtectionCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
@@ -808,48 +885,6 @@
             this.blessingOfProtectionCheckbox.Text = "Use Blessing of Protection";
             this.blessingOfProtectionCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.blessingOfProtectionCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // blessingOfProtectionMeCheckbox
-            // 
-            this.blessingOfProtectionMeCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.blessingOfProtectionMeCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.blessingOfProtectionMeCheckbox.ForeColor = System.Drawing.Color.White;
-            this.blessingOfProtectionMeCheckbox.Location = new System.Drawing.Point(13, 44);
-            this.blessingOfProtectionMeCheckbox.Name = "blessingOfProtectionMeCheckbox";
-            this.blessingOfProtectionMeCheckbox.Size = new System.Drawing.Size(240, 25);
-            this.blessingOfProtectionMeCheckbox.TabIndex = 0;
-            this.blessingOfProtectionMeCheckbox.Text = "Blessing of Protection on Me";
-            this.blessingOfProtectionMeCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.blessingOfProtectionMeCheckbox, "Will never be used before Divine Shield");
-            this.blessingOfProtectionMeCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // useDivineShieldCheckbox
-            // 
-            this.useDivineShieldCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.useDivineShieldCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.useDivineShieldCheckbox.ForeColor = System.Drawing.Color.White;
-            this.useDivineShieldCheckbox.Location = new System.Drawing.Point(13, 106);
-            this.useDivineShieldCheckbox.Name = "useDivineShieldCheckbox";
-            this.useDivineShieldCheckbox.Size = new System.Drawing.Size(240, 25);
-            this.useDivineShieldCheckbox.TabIndex = 6;
-            this.useDivineShieldCheckbox.Text = "Use Divine Shield";
-            this.useDivineShieldCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.useDivineShieldCheckbox, "Will never be used if Divine Intervention is selected as Talent");
-            this.useDivineShieldCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // blessingOfProtectionKarmaCheckbox
-            // 
-            this.blessingOfProtectionKarmaCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.blessingOfProtectionKarmaCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.blessingOfProtectionKarmaCheckbox.ForeColor = System.Drawing.Color.White;
-            this.blessingOfProtectionKarmaCheckbox.Location = new System.Drawing.Point(13, 75);
-            this.blessingOfProtectionKarmaCheckbox.Name = "blessingOfProtectionKarmaCheckbox";
-            this.blessingOfProtectionKarmaCheckbox.Size = new System.Drawing.Size(240, 25);
-            this.blessingOfProtectionKarmaCheckbox.TabIndex = 4;
-            this.blessingOfProtectionKarmaCheckbox.Text = "Blessing of Protection on Karma";
-            this.blessingOfProtectionKarmaCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.blessingOfProtectionKarmaCheckbox, "Shield any target with BoP if they have Karma on them");
-            this.blessingOfProtectionKarmaCheckbox.UseVisualStyleBackColor = true;
             // 
             // tabPage20
             // 
@@ -924,11 +959,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(16, 80);
+            this.label6.Location = new System.Drawing.Point(38, 80);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(143, 13);
+            this.label6.Size = new System.Drawing.Size(155, 13);
             this.label6.TabIndex = 18;
-            this.label6.Text = "Only Interrupt if Target below";
+            this.label6.Text = "Only Interrupt if my target below";
             // 
             // hammerOfJusticeInterruptCheckbox
             // 
@@ -945,7 +980,7 @@
             // 
             // hammerOfJusticeTargetBelowInput
             // 
-            this.hammerOfJusticeTargetBelowInput.Location = new System.Drawing.Point(196, 80);
+            this.hammerOfJusticeTargetBelowInput.Location = new System.Drawing.Point(208, 78);
             this.hammerOfJusticeTargetBelowInput.Name = "hammerOfJusticeTargetBelowInput";
             this.hammerOfJusticeTargetBelowInput.Size = new System.Drawing.Size(45, 20);
             this.hammerOfJusticeTargetBelowInput.TabIndex = 15;
@@ -1161,17 +1196,6 @@
             this.useShieldOfVengeanceCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.useShieldOfVengeanceCheckbox.UseVisualStyleBackColor = true;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(13, 264);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(102, 13);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Eye for an Eye HP%";
-            this.toolTip1.SetToolTip(this.label11, "Will be used if HP is below");
-            // 
             // shieldOfVengeanceIncomingCheckbox
             // 
             this.shieldOfVengeanceIncomingCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
@@ -1261,7 +1285,7 @@
             this.retUseLayOnHandsCheckbox.Name = "retUseLayOnHandsCheckbox";
             this.retUseLayOnHandsCheckbox.Size = new System.Drawing.Size(240, 25);
             this.retUseLayOnHandsCheckbox.TabIndex = 16;
-            this.retUseLayOnHandsCheckbox.Text = "Use Lay on Hands";
+            this.retUseLayOnHandsCheckbox.Text = "Use Lay on Hands on Me";
             this.retUseLayOnHandsCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.retUseLayOnHandsCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -1314,19 +1338,6 @@
             this.tabPage21.TabIndex = 1;
             this.tabPage21.Text = "Offensive";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(13, 50);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(132, 13);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Justicars Vengeance HP%";
-            this.toolTip1.SetToolTip(this.label9, "If your life is below this point, the CR will no longer use Templars Verdict and " +
-        "cast only Justicars Vengeance. Only relevant if you dont have Divine Purpose spe" +
-        "ced.");
-            // 
             // justicarsVengeanceInput
             // 
             this.justicarsVengeanceInput.Location = new System.Drawing.Point(225, 48);
@@ -1347,22 +1358,11 @@
             this.handOfHindranceCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.handOfHindranceCheckbox.UseVisualStyleBackColor = true;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(13, 180);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 13);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Divine Storm Holy Power";
-            this.toolTip1.SetToolTip(this.label8, "At how much stacks Holy Power should Divine Storm be used?");
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(13, 84);
+            this.label13.Location = new System.Drawing.Point(13, 76);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(139, 13);
             this.label13.TabIndex = 19;
@@ -1370,14 +1370,14 @@
             // 
             // divineStormHolyPowerInput
             // 
-            this.divineStormHolyPowerInput.Location = new System.Drawing.Point(225, 178);
+            this.divineStormHolyPowerInput.Location = new System.Drawing.Point(225, 126);
             this.divineStormHolyPowerInput.Name = "divineStormHolyPowerInput";
             this.divineStormHolyPowerInput.Size = new System.Drawing.Size(46, 20);
             this.divineStormHolyPowerInput.TabIndex = 21;
             // 
             // hammerOfReckoningInput
             // 
-            this.hammerOfReckoningInput.Location = new System.Drawing.Point(225, 82);
+            this.hammerOfReckoningInput.Location = new System.Drawing.Point(225, 74);
             this.hammerOfReckoningInput.Name = "hammerOfReckoningInput";
             this.hammerOfReckoningInput.Size = new System.Drawing.Size(46, 20);
             this.hammerOfReckoningInput.TabIndex = 17;
@@ -1386,7 +1386,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(13, 149);
+            this.label7.Location = new System.Drawing.Point(13, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 13);
             this.label7.TabIndex = 20;
@@ -1394,7 +1394,7 @@
             // 
             // divineStormEnemyCountInput
             // 
-            this.divineStormEnemyCountInput.Location = new System.Drawing.Point(225, 147);
+            this.divineStormEnemyCountInput.Location = new System.Drawing.Point(225, 100);
             this.divineStormEnemyCountInput.Name = "divineStormEnemyCountInput";
             this.divineStormEnemyCountInput.Size = new System.Drawing.Size(46, 20);
             this.divineStormEnemyCountInput.TabIndex = 18;
@@ -1404,7 +1404,7 @@
             this.intelligentHolyWrathUsageCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
             this.intelligentHolyWrathUsageCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.intelligentHolyWrathUsageCheckbox.ForeColor = System.Drawing.Color.White;
-            this.intelligentHolyWrathUsageCheckbox.Location = new System.Drawing.Point(13, 204);
+            this.intelligentHolyWrathUsageCheckbox.Location = new System.Drawing.Point(13, 177);
             this.intelligentHolyWrathUsageCheckbox.Name = "intelligentHolyWrathUsageCheckbox";
             this.intelligentHolyWrathUsageCheckbox.Size = new System.Drawing.Size(240, 25);
             this.intelligentHolyWrathUsageCheckbox.TabIndex = 16;
@@ -1416,7 +1416,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(13, 118);
+            this.label10.Location = new System.Drawing.Point(13, 153);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(91, 13);
             this.label10.TabIndex = 15;
@@ -1424,7 +1424,7 @@
             // 
             // holyWrathHealthPercentInput
             // 
-            this.holyWrathHealthPercentInput.Location = new System.Drawing.Point(225, 116);
+            this.holyWrathHealthPercentInput.Location = new System.Drawing.Point(225, 151);
             this.holyWrathHealthPercentInput.Name = "holyWrathHealthPercentInput";
             this.holyWrathHealthPercentInput.Size = new System.Drawing.Size(46, 20);
             this.holyWrathHealthPercentInput.TabIndex = 14;
@@ -1493,7 +1493,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(13, 298);
+            this.label19.Location = new System.Drawing.Point(39, 298);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(70, 13);
             this.label19.TabIndex = 25;
@@ -1503,7 +1503,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(13, 192);
+            this.label18.Location = new System.Drawing.Point(39, 192);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(82, 13);
             this.label18.TabIndex = 24;
@@ -1526,7 +1526,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(13, 166);
+            this.label17.Location = new System.Drawing.Point(39, 166);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(70, 13);
             this.label17.TabIndex = 23;
