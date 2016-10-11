@@ -14,8 +14,9 @@ namespace Paladin.SpellBooks.Specs.Retribution
 
             if (!Globals.Pvp) return false;
             
-            if (Globals.CurrentTarget.IsWithinMeleeRange)
-                return false;
+            if (Globals.CurrentTarget.IsWithinMeleeRange) return false;
+
+            if (!Globals.CurrentTarget.IsMovingAway()) return false;
 
             if (Globals.CurrentTarget.IsMoving && Globals.CurrentTarget.HealthPercent < 90)
             {

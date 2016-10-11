@@ -51,7 +51,7 @@ namespace Paladin.Helpers
                     using (StyxWoW.Memory.AcquireFrame(true))
                     {
                         _groupMembers = ObjectManager.GetObjectsOfTypeFast<WoWPlayer>().Where(u => (u.IsInMyParty || u.IsInMyRaid) && u.Distance < 40);
-                        ResetUnfriendlyUnits = true;
+                        ResetGroupMembers = false;
                     }
                 }
 
@@ -225,5 +225,10 @@ namespace Paladin.Helpers
             return false;
         }
         #endregion
+
+        public static bool IsMovingAway(this WoWUnit unit)
+        {
+            return unit.IsMoving && !unit.IsWithinMeleeRange && StyxWoW.Me.IsSafelyBehind(unit);
+        }
     }
 }
