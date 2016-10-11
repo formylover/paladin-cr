@@ -399,22 +399,6 @@ namespace Paladin.Settings.Forms
             return (Keys)selected;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SaveSettings();
-            Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            SaveSettings();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void cleanseListButton_Click(object sender, EventArgs e)
         {
             if (PaladinCR.CRCleansesForm == null || PaladinCR.CRCleansesForm.IsDisposed || PaladinCR.CRCleansesForm.Disposing)
@@ -429,6 +413,27 @@ namespace Paladin.Settings.Forms
                 PaladinCR.CRInterruptsForm = new InterruptForm();
 
             PaladinCR.CRInterruptsForm.Show();
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            SaveSettings();
+        }
+
+        private void saveAndCloseButton_Click(object sender, EventArgs e)
+        {
+            SaveSettings();
+            Close();
+        }
+
+        private void customButton1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.thebuddyforum.com/honorbuddy-forum/combat-routines/paladin/274203-pve-pvp-gg-wrathful-paladin.html");
         }
     }
 }

@@ -75,7 +75,7 @@ namespace Paladin.Helpers
             
             Unit.ResetUnfriendlyUnits = true;
             Unit.ResetGroupMembers = true;
-
+            
             InCombat = StyxWoW.Me.IsActuallyInCombat;
 
             MyHp = StyxWoW.Me.HealthPercent;
