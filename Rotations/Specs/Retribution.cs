@@ -34,7 +34,7 @@ namespace Paladin.Rotations.Specs
                 }
             }
 
-            if (!StyxWoW.Me.IsActuallyInCombat)
+            if (!Globals.InCombat)
             {
                 // allow hotkeys out of combat
                 if (await MySpells.HotkeysMethod()) return true;

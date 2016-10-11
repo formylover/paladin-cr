@@ -251,6 +251,9 @@ namespace Paladin.Settings
         [Setting, DefaultValue(true)]
         public bool UseHandOfHindrance { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool AutoCastBlessings { get; set; }
+
         [Setting, DefaultValue(70)]
         public int EyeForAnEyeHP { get; set; }
 

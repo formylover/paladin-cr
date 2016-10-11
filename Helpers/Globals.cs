@@ -30,6 +30,8 @@ namespace Paladin.Helpers
         public static Stopwatch ForceUpdateScanner = new Stopwatch();
         private static int ForceUpdateScanInterval = 500;
 
+        public static bool InCombat;
+
         // Hotkeys
         public static WoWUnit HoJTarget;
         public static bool ActivateBurst;
@@ -73,6 +75,8 @@ namespace Paladin.Helpers
             
             Unit.ResetUnfriendlyUnits = true;
             Unit.ResetGroupMembers = true;
+
+            InCombat = StyxWoW.Me.IsActuallyInCombat;
 
             MyHp = StyxWoW.Me.HealthPercent;
             CurrentTarget = StyxWoW.Me.CurrentTarget;

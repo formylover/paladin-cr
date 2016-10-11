@@ -129,6 +129,8 @@ namespace Paladin.Settings.Forms
 
             hammerOfReckoningInput.Value = Settings.HammerOfReckoningHealth;
 
+            blessingsOnMeCheckbox.Checked = Settings.AutoCastBlessings;
+
             #region Healing
             retUseFlashOfLightMeCheckbox.Checked = Settings.RetFoLMe;
             retFlashOfLightMeInput.Value = Settings.RetFoLSelfHp;
@@ -265,6 +267,8 @@ namespace Paladin.Settings.Forms
             Settings.JusticarsVengeanceLife = (int)justicarsVengeanceInput.Value;
 
             Settings.HammerOfReckoningHealth = (int)hammerOfReckoningInput.Value;
+
+            Settings.AutoCastBlessings = blessingsOnMeCheckbox.Checked;
 
             #region Healing
             Settings.RetFoLMe = retUseFlashOfLightMeCheckbox.Checked;
@@ -403,6 +407,7 @@ namespace Paladin.Settings.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
+            SaveSettings();
         }
 
         private void button3_Click(object sender, EventArgs e)

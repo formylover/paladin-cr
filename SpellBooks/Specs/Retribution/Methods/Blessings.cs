@@ -10,8 +10,8 @@ namespace Paladin.SpellBooks.Specs.Retribution
     {
         public async Task<bool> BlessingsMethod()
         {
-            if (StyxWoW.Me.Mounted)
-                return false;
+            if (!PaladinSettings.Instance.AutoCastBlessings) return false;
+            if (StyxWoW.Me.Mounted) return false;
 
             // TODO blessing of wisdom on arena mate if hammer of reckoning is specced
             foreach (Spell blessing in Blessings()) 
