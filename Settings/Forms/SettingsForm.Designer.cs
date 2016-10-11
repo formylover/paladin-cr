@@ -320,7 +320,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(13, 264);
+            this.label11.Location = new System.Drawing.Point(13, 256);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(102, 13);
             this.label11.TabIndex = 20;
@@ -1178,7 +1178,7 @@
             // eyeForAnEyeInput
             // 
             this.eyeForAnEyeInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.eyeForAnEyeInput.Location = new System.Drawing.Point(259, 260);
+            this.eyeForAnEyeInput.Location = new System.Drawing.Point(259, 252);
             this.eyeForAnEyeInput.Name = "eyeForAnEyeInput";
             this.eyeForAnEyeInput.Size = new System.Drawing.Size(50, 20);
             this.eyeForAnEyeInput.TabIndex = 21;
@@ -1214,7 +1214,7 @@
             this.useWordOfGloryCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
             this.useWordOfGloryCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.useWordOfGloryCheckbox.ForeColor = System.Drawing.Color.White;
-            this.useWordOfGloryCheckbox.Location = new System.Drawing.Point(13, 231);
+            this.useWordOfGloryCheckbox.Location = new System.Drawing.Point(13, 219);
             this.useWordOfGloryCheckbox.Name = "useWordOfGloryCheckbox";
             this.useWordOfGloryCheckbox.Size = new System.Drawing.Size(240, 25);
             this.useWordOfGloryCheckbox.TabIndex = 19;
@@ -1240,7 +1240,7 @@
             this.retUseLayOnHandsOnGroupCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
             this.retUseLayOnHandsOnGroupCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.retUseLayOnHandsOnGroupCheckbox.ForeColor = System.Drawing.Color.White;
-            this.retUseLayOnHandsOnGroupCheckbox.Location = new System.Drawing.Point(13, 200);
+            this.retUseLayOnHandsOnGroupCheckbox.Location = new System.Drawing.Point(13, 188);
             this.retUseLayOnHandsOnGroupCheckbox.Name = "retUseLayOnHandsOnGroupCheckbox";
             this.retUseLayOnHandsOnGroupCheckbox.Size = new System.Drawing.Size(240, 25);
             this.retUseLayOnHandsOnGroupCheckbox.TabIndex = 18;
@@ -1258,7 +1258,7 @@
             // retLayOnHandsHpInput
             // 
             this.retLayOnHandsHpInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.retLayOnHandsHpInput.Location = new System.Drawing.Point(259, 173);
+            this.retLayOnHandsHpInput.Location = new System.Drawing.Point(259, 161);
             this.retLayOnHandsHpInput.Name = "retLayOnHandsHpInput";
             this.retLayOnHandsHpInput.Size = new System.Drawing.Size(50, 20);
             this.retLayOnHandsHpInput.TabIndex = 17;
@@ -1268,7 +1268,7 @@
             this.retUseFlashOfLightMeCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
             this.retUseFlashOfLightMeCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.retUseFlashOfLightMeCheckbox.ForeColor = System.Drawing.Color.White;
-            this.retUseFlashOfLightMeCheckbox.Location = new System.Drawing.Point(13, 108);
+            this.retUseFlashOfLightMeCheckbox.Location = new System.Drawing.Point(13, 105);
             this.retUseFlashOfLightMeCheckbox.Name = "retUseFlashOfLightMeCheckbox";
             this.retUseFlashOfLightMeCheckbox.Size = new System.Drawing.Size(240, 25);
             this.retUseFlashOfLightMeCheckbox.TabIndex = 10;
@@ -1281,7 +1281,7 @@
             this.retUseLayOnHandsCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
             this.retUseLayOnHandsCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.retUseLayOnHandsCheckbox.ForeColor = System.Drawing.Color.White;
-            this.retUseLayOnHandsCheckbox.Location = new System.Drawing.Point(13, 169);
+            this.retUseLayOnHandsCheckbox.Location = new System.Drawing.Point(13, 157);
             this.retUseLayOnHandsCheckbox.Name = "retUseLayOnHandsCheckbox";
             this.retUseLayOnHandsCheckbox.Size = new System.Drawing.Size(240, 25);
             this.retUseLayOnHandsCheckbox.TabIndex = 16;
@@ -1291,14 +1291,14 @@
             // 
             // retFlashOfLightOtherInput
             // 
-            this.retFlashOfLightOtherInput.Location = new System.Drawing.Point(260, 143);
+            this.retFlashOfLightOtherInput.Location = new System.Drawing.Point(259, 135);
             this.retFlashOfLightOtherInput.Name = "retFlashOfLightOtherInput";
             this.retFlashOfLightOtherInput.Size = new System.Drawing.Size(50, 20);
             this.retFlashOfLightOtherInput.TabIndex = 12;
             // 
             // retFlashOfLightMeInput
             // 
-            this.retFlashOfLightMeInput.Location = new System.Drawing.Point(259, 112);
+            this.retFlashOfLightMeInput.Location = new System.Drawing.Point(259, 109);
             this.retFlashOfLightMeInput.Name = "retFlashOfLightMeInput";
             this.retFlashOfLightMeInput.Size = new System.Drawing.Size(50, 20);
             this.retFlashOfLightMeInput.TabIndex = 13;
@@ -1308,7 +1308,7 @@
             this.retUseFlashOfLightOtherCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
             this.retUseFlashOfLightOtherCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.retUseFlashOfLightOtherCheckbox.ForeColor = System.Drawing.Color.White;
-            this.retUseFlashOfLightOtherCheckbox.Location = new System.Drawing.Point(13, 139);
+            this.retUseFlashOfLightOtherCheckbox.Location = new System.Drawing.Point(13, 131);
             this.retUseFlashOfLightOtherCheckbox.Name = "retUseFlashOfLightOtherCheckbox";
             this.retUseFlashOfLightOtherCheckbox.Size = new System.Drawing.Size(240, 25);
             this.retUseFlashOfLightOtherCheckbox.TabIndex = 11;
