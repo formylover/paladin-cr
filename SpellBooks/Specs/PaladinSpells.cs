@@ -74,6 +74,20 @@ namespace Paladin.SpellBooks.Specs
             }
         }
 
+        private Spell _blessingOfSacrifice;
+        public Spell BlessingOfSacrifice
+        {
+            get
+            {
+                if (_blessingOfSacrifice == null)
+                {
+                    int _id = 6940;
+                    _blessingOfSacrifice = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                }
+                return _blessingOfSacrifice;
+            }
+        }
+
         private Spell _blindingLight;
         public Spell BlindingLight
         {
@@ -99,6 +113,34 @@ namespace Paladin.SpellBooks.Specs
                     _cleanseToxins = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
                 }
                 return _cleanseToxins;
+            }
+        }
+
+        private Spell _consecration;
+        public Spell Consecration
+        {
+            get
+            {
+                if (_consecration == null)
+                {
+                    int _id = 26573;
+                    _consecration = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                }
+                return _consecration;
+            }
+        }
+
+        private Spell _crusaderStrike;
+        public Spell CrusaderStrike
+        {
+            get
+            {
+                if (_crusaderStrike == null)
+                {
+                    int _id = 35395;
+                    _crusaderStrike = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
+                }
+                return _crusaderStrike;
             }
         }
 

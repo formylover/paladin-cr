@@ -103,6 +103,8 @@ namespace Paladin.Helpers
             if (!Paladin.Settings.PaladinSettings.Instance.AutoFocusUse) return;
 
             HasFocus = StyxWoW.Me.FocusedUnit != null;
+            if (FocusedUnit == null && HasFocus)
+                FocusedUnit = StyxWoW.Me.FocusedUnit;
 
             // Crowd Control
         }
@@ -131,6 +133,14 @@ namespace Paladin.Helpers
             using (StyxWoW.Memory.TemporaryCacheState(true))
             {
                 ShieldOfRighteous = StyxWoW.Me.GetAuraById(132403);
+            }
+        }
+
+        public static void UpdateCombatHoly()
+        {
+            using (StyxWoW.Memory.TemporaryCacheState(true))
+            {
+                // TODO
             }
         }
     }

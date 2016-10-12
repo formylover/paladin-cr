@@ -27,9 +27,32 @@ namespace Paladin.Managers
             }
         }
 
-        public static WoWPlayer HealTarget(int hp)
+        public static WoWPlayer HealTarget(int hp, bool includeSelf = false)
         {
-            return HealList.FirstOrDefault(u => u.HealthPercent <= hp);
+            if (StyxWoW.Me.Specialization == WoWSpec.PaladinHoly)
+            {
+                if (Globals.CurrentTarget != null && Globals.CurrentTarget.IsFriendly && Globals.CurrentTarget.ToPlayer() != null && Globals.CurrentTarget.HealthPercent < hp && Globals.CurrentTarget.Distance < 40)
+                    return Globals.CurrentTarget.ToPlayer();
+            }
+
+            //return HealList.FirstOrDefault(u => u.HealthPercent <= hp);
+            List<WoWPlayer> list = HealList.ToList();
+            if (includeSelf)
+                list.Add(StyxWoW.Me);
+            
+            return list
+                .Where(t => t.IsAlive && t.HealthPercent < hp && t.SpellDistance() < 40 && t.GetPredictedHealthPercent() < (hp - 5))
+                .OrderBy(k => k.HealthPercent)
+                .FirstOrDefault();
+        }
+
+        public static bool CastLightOfDawn(int hp)
+        {
+            List<WoWPlayer> list = HealList.ToList();
+            list.Add(StyxWoW.Me);
+
+            return list
+                .Count(t => t.IsAlive && t.HealthPercent < hp && t.Distance < 20 && (t == StyxWoW.Me || StyxWoW.Me.IsFacing(t))) > PaladinSettings.Instance.LightOfDawnTargets;
         }
 
         private static bool HasDefensiveBuff(this WoWUnit unit)
@@ -86,20 +109,6 @@ namespace Paladin.Managers
                                           WoWSpellMechanic.Horrified,
                                           WoWSpellMechanic.Fleeing,
                                           WoWSpellMechanic.Stunned));
-        }
-
-        public static WoWUnit HolyPrismTarget(int hp)
-        {
-            // Check if enemies are near someone who needs a heal in our group
-            // This will return the ENEMY we need to use Holy Prism on
-
-            var healtarget = HealTarget(hp);
-
-            // If we don't have a target return null
-            if (healtarget == null)
-                return null;
-            
-            return Unit.UnfriendlyUnits.FirstOrDefault(u => !u.IsCrowdControlled() && StyxWoW.Me.IsFacing(u) && u.Location.DistanceSquared(healtarget.Location) <= 15);
         }
     }
 }

@@ -48,7 +48,7 @@ namespace Paladin
         {
             LatestVersion = Helpers.Version.CheckVersion();
 
-            Helpers.Logger.PrintLog("You are using Version %{0} of GGWP", Helpers.Version.CurrentLocalVersion.ToString());
+            Helpers.Logger.PrintLog("You are using Version {0} of GGWP", Helpers.Version.CurrentLocalVersion.ToString());
 
             if (!LatestVersion)
                 Helpers.Logger.PrintLog(Colors.Red, "There is a new Version of Wrathful Paladin available, go to https://github.com/oruna/paladin-cr/ and download the latest Version");
@@ -130,7 +130,7 @@ namespace Paladin
                 case WoWSpec.PaladinProtection:
                     return new Protection();
                 case WoWSpec.PaladinHoly:
-                    return new Retribution();
+                    return new Holy();
                 case WoWSpec.PaladinRetribution:
                     return new Retribution();
                 default:

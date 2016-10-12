@@ -13,10 +13,7 @@ namespace Paladin.Rotations.Specs
     {
         #region Behavior Methods
         
-        public async override Task<bool> Death()
-        {
-            return false;
-        }
+        public async override Task<bool> Death() { return false; }
 
         public async override Task<bool> PreCombatBuff()
         {
@@ -85,9 +82,9 @@ namespace Paladin.Rotations.Specs
 
             if (await MySpells.WordOfGloryMethod()) return true;
 
-            if (await MySpells.FlashOfLightMethod()) return true;
-            
             if (await MySpells.BlessingOfFreedomMethod()) return true;
+
+            if (await MySpells.FlashOfLightMethod()) return true;
 
             if (await MySpells.SealOfLightMethod()) return true;
 

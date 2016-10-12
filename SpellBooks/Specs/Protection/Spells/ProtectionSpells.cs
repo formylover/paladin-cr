@@ -65,20 +65,6 @@ namespace Paladin.SpellBooks.Specs.Protection
             }
         }
 
-        private Spell _blessingOfSacrifice;
-        public Spell BlessingOfSacrifice
-        {
-            get
-            {
-                if (_blessingOfSacrifice == null)
-                {
-                    int _id = 6940;
-                    _blessingOfSacrifice = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
-                }
-                return _blessingOfSacrifice;
-            }
-        }
-
         private Spell _blessedHammer;
         public Spell BlessedHammer
         {
@@ -90,20 +76,6 @@ namespace Paladin.SpellBooks.Specs.Protection
                     _blessedHammer = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
                 }
                 return _blessedHammer;
-            }
-        }
-
-        private Spell _consecration;
-        public Spell Consecration
-        {
-            get
-            {
-                if (_consecration == null)
-                {
-                    int _id = 26573;
-                    _consecration = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
-                }
-                return _consecration;
             }
         }
 

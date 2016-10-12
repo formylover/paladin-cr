@@ -8,9 +8,9 @@ using Styx;
 using Styx.Common;
 using Styx.WoWInternals.WoWObjects;
 
-namespace Paladin.SpellBooks.Specs.Protection
+namespace Paladin.SpellBooks.Specs.Holy
 {
-    public partial class ProtectionSpells : PaladinSpells<ProtectionTalents>
+    public partial class HolySpells : PaladinSpells<HolyTalents>
     {
         public async Task<bool> BlessingOfSacrificeMethod()
         {
@@ -27,12 +27,12 @@ namespace Paladin.SpellBooks.Specs.Protection
 
         private async Task<bool> BlessingOfSacrificeCast(WoWUnit unit)
         {
-            if (!await BlessingOfProtection.Cast(unit))
+            if (!await BlessingOfSacrifice.Cast(unit))
                 return false;
 
             Helpers.Logger.PrintLog("Cast Hand of Sacrifice on {0} at {1}% health", unit.SafeName, unit.HealthPercent);
 
-            LastSpell = BlessingOfProtection;
+            LastSpell = BlessingOfSacrifice;
             return true;
         }
     }

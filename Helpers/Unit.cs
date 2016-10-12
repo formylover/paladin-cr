@@ -228,7 +228,31 @@ namespace Paladin.Helpers
 
         public static bool IsMovingAway(this WoWUnit unit)
         {
-            return unit.IsMoving && !unit.IsWithinMeleeRange && StyxWoW.Me.IsSafelyBehind(unit);
+            return unit.IsMoving && !unit.IsWithinMeleeRange && StyxWoW.Me.IsBehind(unit);
+        }
+
+        public static float SpellDistance(this WoWUnit unitOrigin, WoWUnit unitTarget = null)
+        {
+            // abort if mob null
+            if (unitOrigin == null)
+                return 0;
+
+            // when called as SomeUnit.SpellDistance()
+            // .. convert to SomeUnit.SpellDistance(Me)
+            if (unitTarget == null)
+                unitTarget = StyxWoW.Me;
+
+            // when called as SomeUnit.SpellDistance(Me) then
+            // .. convert to Me.SpellDistance(SomeUnit)
+            if (unitTarget.IsMe)
+            {
+                unitTarget = unitOrigin;
+                unitOrigin = StyxWoW.Me;
+            }
+
+            // only use CombatReach of destination target 
+            float dist = unitTarget.Location.Distance(unitOrigin.Location) - unitTarget.CombatReach;
+            return Math.Max(0, dist);
         }
     }
 }

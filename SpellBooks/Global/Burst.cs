@@ -23,33 +23,24 @@ namespace Paladin.SpellBooks.Global
             if (Globals.CurrentTarget.Distance > Globals.MeleeRange)
                 return false;
 
-            if (Globals.CurrentTarget.HasAnyAura(Auras.Defensives))
+            if (StyxWoW.Me.Specialization != WoWSpec.PaladinHoly && Globals.CurrentTarget.HasAnyAura(Auras.Defensives))
                 return false;
 
             // Burst on cooldown
             if (PaladinSettings.Instance.BurstOnCooldown)
-            {
                 return true;
-            }
 
             // Burst if our current target is a boss
-            if (PaladinSettings.Instance.BurstOnBoss)
-            {
-                if (!Globals.CurrentTarget.IsBoss || !Globals.CurrentTarget.IsPlayer)
-                    return false;
-
+            if (PaladinSettings.Instance.BurstOnBoss && (Globals.CurrentTarget.IsBoss || Globals.CurrentTarget.IsPlayer))
                 return true;
-            }
 
             // Burst if our target is below a certain amount of hp
-            if (PaladinSettings.Instance.BurstOnTargetBelow)
-            {
-                if (Globals.CurrentTarget.HealthPercent > PaladinSettings.Instance.BurstOnTargetBelowHp)
-                    return false;
-
+            if (PaladinSettings.Instance.BurstOnTargetBelow && Globals.CurrentTarget.HealthPercent < PaladinSettings.Instance.BurstOnTargetBelowHp)
                 return true;
-            }
-            
+
+            /*if (StyxWoW.Me.Specialization == WoWSpec.PaladinHoly && Globals.CurrentTarget.HealthPercent < 50 && Globals.CurrentTarget.IsFriendly)
+                return true;*/
+
             return false;
         }
     }

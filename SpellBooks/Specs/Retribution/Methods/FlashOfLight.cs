@@ -36,12 +36,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
                 return false;
 
             Helpers.Logger.DiagnosticLog("Flash of Light on {0}, Distance: {1}, LOS: {2}", target.SafeName, target.Distance, target.InLineOfSpellSight);
-            Helpers.Logger.PrintLog("Flash Of Light on " + target.SafeName);
-
-            if (!await FlashOfLight.Cast(target))
-                return false;
-
-            LastSpell = FlashOfLight;
+                        
             return await FlashOfLightCast(target);
         }
 
@@ -50,7 +45,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (!await FlashOfLight.Cast(unit))
                 return false;
 
-            Helpers.Logger.PrintLog("Flash Of Light on " + unit.SafeName);
+            Helpers.Logger.PrintLog("Flash Of Light on {0}", unit.SafeName);
 
             LastSpell = FlashOfLight;
             return true;

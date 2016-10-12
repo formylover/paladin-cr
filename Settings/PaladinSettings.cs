@@ -392,5 +392,33 @@ namespace Paladin.Settings
         [Setting, DefaultValue(70)]
         public int EyeOfTyrHP { get; set; }
         #endregion
+
+        #region Holy
+        [Setting, DefaultValue(70)]
+        public int HolyFoL { get; set; }
+
+        [Setting, DefaultValue(20)]
+        public int HolyLoH { get; set; }
+
+        [Setting, DefaultValue(80)]
+        public int HolyShock { get; set; }
+
+        [Setting, DefaultValue(90)]
+        public int HolyLight { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int BestowFaith { get; set; }
+
+        [Setting, DefaultValue(2)]
+        public int LightOfDawnTargets { get; set; }
+
+        [Setting, DefaultValue(80)]
+        public int LightOfDawnHP { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int DivineProtectionHealth { get; set; }
+
+        
+        #endregion
     }
 }

@@ -121,20 +121,6 @@ namespace Paladin.SpellBooks.Specs.Retribution
             }
         }
 
-        private Spell _crusaderStrike;
-        public Spell CrusaderStrike
-        {
-            get
-            {
-                if (_crusaderStrike == null)
-                {
-                    int _id = 35395;
-                    _crusaderStrike = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
-                }
-                return _crusaderStrike;
-            }
-        }
-
         private Spell _divineHammer;
         public Spell DivineHammer
         {

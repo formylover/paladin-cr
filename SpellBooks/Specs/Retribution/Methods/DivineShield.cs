@@ -22,6 +22,8 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (PaladinSettings.Instance.UseDivineShieldHp <= 0 || Globals.MyHp > PaladinSettings.Instance.UseDivineShieldHp)
                 return false;
 
+            if (DivineShield.CRSpell.Cooldown) return false;
+
             Helpers.Logger.DiagnosticLog("Attempting to cast Divine Shield at {0}", Globals.MyHp);
             
             if (!await DivineShield.Cast(StyxWoW.Me))
