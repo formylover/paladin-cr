@@ -139,6 +139,7 @@ namespace Paladin.Rotations.Specs
 
             if (await MySpells.AvengersShieldMethod()) return true;
             if (await MySpells.JudgmentMethod()) return true;
+            if (await MySpells.ConsecrationMethod()) return true;
             if (await MySpells.ShieldOfRighteousMethod()) return true;
             if (await MySpells.BlessedHammerMethod()) return true;
             if (await MySpells.HammerOfRighteousMethod()) return true;
