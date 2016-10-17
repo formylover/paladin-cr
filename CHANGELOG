@@ -1,3 +1,9 @@
+# 0.4.3
+
+- Default rotation is now none to prevent errors with other classes
+- Fixed totemstomp for counterstrike totem
+- Added setting for los checks
+
 # 0.4.2
 
 - Fixed prot consecration
