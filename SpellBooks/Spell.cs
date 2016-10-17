@@ -45,10 +45,10 @@ namespace Paladin.SpellBooks
             {
                 if (Helpers.Globals.CurrentTarget != null && SpellFlags == SpellFlags.Facing && !Styx.StyxWoW.Me.IsFacing(Helpers.Globals.CurrentTarget))
                     return false;
-
-                if (!SpellManager.CanCast(CRSpell, _target, true, true))
-                    return false;
             }
+
+            if (!SpellManager.CanCast(CRSpell, _target, true, true))
+                return false;
 
             if (!SpellManager.Cast(CRSpell, _target))
                 return false;
