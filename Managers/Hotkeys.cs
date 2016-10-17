@@ -41,7 +41,7 @@ namespace Paladin.Managers
 
             if (PaladinSettings.Instance.DivineSteedHotkey != System.Windows.Forms.Keys.None)
             {
-                HotkeysManager.Register("GGWPDivineSteedHealer", PaladinSettings.Instance.DivineSteedHotkey, PaladinSettings.Instance.DivineSteedModifierKey, x =>
+                HotkeysManager.Register("GGWPDivineSteed", PaladinSettings.Instance.DivineSteedHotkey, PaladinSettings.Instance.DivineSteedModifierKey, x =>
                 {
                     Helpers.Logger.PrintLog("Divine Steed Hotkey Detected");
                     Globals.ActivateDivineSteed = true;
@@ -54,6 +54,7 @@ namespace Paladin.Managers
             HotkeysManager.Unregister("GGWPBurst");
             HotkeysManager.Unregister("GGWPHoJ");
             HotkeysManager.Unregister("GGWPHoJHealer");
+            HotkeysManager.Unregister("GGWPDivineSteed"); 
         }
     }        
 }

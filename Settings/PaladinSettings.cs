@@ -24,6 +24,9 @@ namespace Paladin.Settings
 
         [Setting, DefaultValue(true)]
         public bool AutoAcceptQueue { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool LosCheck { get; set; }
         #endregion
 
         #region Burst
@@ -420,5 +423,7 @@ namespace Paladin.Settings
 
         
         #endregion
+
+
     }
 }

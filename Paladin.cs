@@ -134,7 +134,7 @@ namespace Paladin
                 case WoWSpec.PaladinRetribution:
                     return new Retribution();
                 default:
-                    return new Retribution();
+                    return new None();
             }
         }
 

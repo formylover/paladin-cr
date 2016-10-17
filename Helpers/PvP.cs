@@ -97,6 +97,16 @@ namespace Paladin.Helpers
             return unit.HasAnyAura(cooldowns);
         }
 
+        public static HashSet<uint> ImportantTotemIds()
+        {
+           uint[] totemIds = new uint[]
+            {
+                105451, // counterstrike totem
+            };
+
+            return new HashSet<uint>(totemIds);
+        }
+
         public static WoWUnit GetTotemToStomp()
         {
             if (!Globals.Pvp) return null;
@@ -104,16 +114,19 @@ namespace Paladin.Helpers
 
             var totems = Unit.UnfriendlyUnits.Where(u => u.IsTotem && u.Distance < 40).ToList();
 
-            var counterStrike = totems.FirstOrDefault(t => t.SafeName == "Counterstrike Totem");
+            //totems.Where(t => ImportantTotemIds().Contains(t.NativeDisplayId));
+            
+            var counterStrike = totems.FirstOrDefault(t => t.Name == "Counterstrike Totem" || t.CreatedBySpellId == 204331 || t.NativeDisplayId == 105451);
             if (counterStrike != null) return counterStrike;
 
-            return totems.FirstOrDefault(t => t.SafeName == "Earthbind Totem" || t.SafeName == "Windfury Totem");
+            return totems.FirstOrDefault(t => t.Name == "Earthbind Totem" || t.Name == "Windfury Totem");
         }
 
         private static readonly Stopwatch AcceptTimer = new Stopwatch();
         private static int AcceptingTime;
         private static int InviteIndex = -1;
         private static string QueueType;
+        private static bool InviteAccepted = false;
 
         public static void CheckInvite()
         {
@@ -136,10 +149,11 @@ namespace Paladin.Helpers
                         case "ARENASKIRMISH":
                             break;
                     }
-                    int delay = new Random().Next(2000, 10000);
+                    int delay = new Random().Next(2000, 5000);
                     Helpers.Logger.PrintLog("Queue Pop, accepting in " + delay.ToString());
                     AcceptingTime = delay;
                     InviteIndex = i;
+                    InviteAccepted = false;
 
                     if (!AcceptTimer.IsRunning)
                         AcceptTimer.Start();
@@ -155,7 +169,14 @@ namespace Paladin.Helpers
             if (InviteIndex < 0) return;
             if (AcceptTimer.ElapsedMilliseconds < AcceptingTime) return;
 
-            Lua.DoString("AcceptBattlefieldPort(" + InviteIndex + ", 1)");
+            if (!InviteAccepted)
+            {
+                Lua.DoString("AcceptBattlefieldPort(" + InviteIndex + ", 1)");
+                InviteAccepted = true;
+            }
+
+            if (!StyxWoW.IsInGame) return;
+
             switch (QueueType)
             {
                 case "ARENASKIRMISH":

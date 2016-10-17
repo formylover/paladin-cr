@@ -56,6 +56,8 @@ namespace Paladin.Settings.Forms
             autoFocusCheckbox.Checked = Settings.AutoFocusUse;
 
             autoAcceptQueuePopCheckbox.Checked = Settings.AutoAcceptQueue;
+
+            losCheckCheckbox.Checked = Settings.LosCheck;
             #endregion
 
             #region Burst
@@ -194,6 +196,8 @@ namespace Paladin.Settings.Forms
             Settings.AutoFocusUse = autoFocusCheckbox.Checked;
 
             Settings.AutoAcceptQueue = autoAcceptQueuePopCheckbox.Checked;
+
+            Settings.LosCheck = losCheckCheckbox.Checked;
             #endregion
 
             #region Burst

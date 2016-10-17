@@ -159,6 +159,7 @@
             this.customLabel1 = new Paladin.Settings.Forms.Controls.CustomLabel();
             this.tabPage27 = new System.Windows.Forms.TabPage();
             this.changelogText = new System.Windows.Forms.RichTextBox();
+            this.losCheckCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.topTab1.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.mainTab1.SuspendLayout();
@@ -449,6 +450,7 @@
             // tabPage10
             // 
             this.tabPage10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tabPage10.Controls.Add(this.losCheckCheckbox);
             this.tabPage10.Controls.Add(this.burstHealthBelowInput);
             this.tabPage10.Controls.Add(this.useBurstCheckbox);
             this.tabPage10.Controls.Add(this.burstOnTargetBelowCheckbox);
@@ -1738,6 +1740,20 @@
             this.changelogText.TabIndex = 1;
             this.changelogText.Text = "";
             // 
+            // losCheckCheckbox
+            // 
+            this.losCheckCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.losCheckCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.losCheckCheckbox.ForeColor = System.Drawing.Color.Red;
+            this.losCheckCheckbox.Location = new System.Drawing.Point(13, 265);
+            this.losCheckCheckbox.Name = "losCheckCheckbox";
+            this.losCheckCheckbox.Size = new System.Drawing.Size(240, 25);
+            this.losCheckCheckbox.TabIndex = 11;
+            this.losCheckCheckbox.Text = "Execute LOS checks";
+            this.losCheckCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.losCheckCheckbox, "Only disable this if you know what you are doing.");
+            this.losCheckCheckbox.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1945,5 +1961,6 @@
         private Controls.CustomCheckBox useBlessingOfFreedomDpsCheckbox;
         private Controls.CustomLabel customLabel1;
         private Paladin.Forms.Controls.CustomButton customButton1;
+        private Controls.CustomCheckBox losCheckCheckbox;
     }
 }
