@@ -1,3 +1,11 @@
+# 0.4.6
+
+- Wake of Ashes now checks for Facing
+- Wake of Ashes now wont be casted if you have more than 2 holy power
+- Made justicars vengeance a bit more survivable
+- Holy Wrath now checks if the enemy has defensive buffs active
+- Hotkeys wont break the CC anymore
+
 # 0.4.5
 
 - fixed not working spells since 7.1 for now
