@@ -9,8 +9,6 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (Helpers.Globals.CurrentTarget == null) return false;
 
             var spell = BladeOfJustice;
-            if (MyTalents.BladeOfWrath.IsActive())
-                spell = BladeOfWrath;
 
             if (spell.CRSpell.Cooldown) return false;
 
