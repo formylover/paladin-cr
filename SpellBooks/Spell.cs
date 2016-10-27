@@ -40,20 +40,21 @@ namespace Paladin.SpellBooks
             var _target = target ?? Helpers.Globals.CurrentTarget;
             if (_target == null || !_target.IsValid)
                 return false;
-
+            
             if (Paladin.Settings.PaladinSettings.Instance.LosCheck)
             {
                 if (Helpers.Globals.CurrentTarget != null && SpellFlags == SpellFlags.Facing && !Styx.StyxWoW.Me.IsFacing(Helpers.Globals.CurrentTarget))
                     return false;
             }
 
-            if (!SpellManager.CanCast(CRSpell, _target, true, true))
-                return false;
+            /*if (!SpellManager.CanCast(CRSpell, _target, true, true)) return false;*/
+
+            if (!SpellManager.CanCast(CRSpell, _target)) return false;
 
             if (!SpellManager.Cast(CRSpell, _target))
                 return false;
 
-            Helpers.Logger.PrintLog("Casting {0} ({1})", CRSpell.LocalizedName, CRSpell.Name);
+            Helpers.Logger.PrintLog("Casting {0} ({1}) on {2}", CRSpell.LocalizedName, CRSpell.Name, _target.SafeName);
 
             // Seems to run better doing this, as apposed to SleepForLagDuration
             // It is 'hacky', but it also keeps it async.
