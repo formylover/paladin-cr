@@ -26,7 +26,7 @@ namespace Paladin.SpellBooks.Global
                 range = 20;
 
             // Out of range, reset bool and return false to continue
-            if (target.Distance > range || !target.InLineOfSpellSight)
+            if (!target.IsValid || target.IsDead || target.Distance > range || !target.InLineOfSpellSight)
             {
                 Globals.HoJTarget = null;
                 Helpers.Logger.PrintLog("Target is out of range or spell LOS");

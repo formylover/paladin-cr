@@ -71,10 +71,10 @@ namespace Paladin.Rotations.Specs
 
             if (Settings.HealthstoneUse && await Items.Healthstone()) return true;
 
+            if (await MySpells.BlessingOfProtectionMethod()) return true;
+
             // Global Cooldown
             if (SpellManager.GlobalCooldown) return false;
-
-            if (await MySpells.BlessingOfProtectionMethod()) return true;
 
             if (await MySpells.BlessingOfSanctuaryMethod()) return true;
 

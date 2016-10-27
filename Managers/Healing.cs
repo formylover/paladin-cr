@@ -78,17 +78,19 @@ namespace Paladin.Managers
 
         public static WoWPlayer HandOfProtectionTarget(int hp)
         {
+            var list = ObjectManager.GetObjectsOfTypeFast<WoWPlayer>().Where(u => (u.IsInMyParty || u.IsInMyRaid) && u.Distance < 40 && u.IsAlive);
+
             if (PaladinSettings.Instance.UseBoPKarma)
             {
                 // HoP on Monk Karma to ignore it
-                var target = HealList.FirstOrDefault(u => !u.HasDefensiveBuff() && u.HasAura(122470) && u.GetAuraById(122470).IsHarmful && u.Class != WoWClass.Paladin);
+                var target = list.FirstOrDefault(u => !u.HasDefensiveBuff() && u.HasAura(122470) && u.GetAuraById(122470).IsHarmful && u.Class != WoWClass.Paladin);
                 if (target != null)
                     return target;
             }
 
             if (PaladinSettings.Instance.UseBoPBurst)
             {
-                var target = HealList.FirstOrDefault(u => !u.HasDefensiveBuff() && Unit.EnemiesWithBurstAttackingTarget(u) && u.Class != WoWClass.Paladin);
+                var target = list.FirstOrDefault(u => !u.HasDefensiveBuff() && Unit.EnemiesWithBurstAttackingTarget(u) && u.Class != WoWClass.Paladin);
                 if (target != null)
                     return target;
             }
@@ -96,10 +98,10 @@ namespace Paladin.Managers
             // If we're in a BG we pick the first target available
             // Can't use Lay on Hands in an arena
             if (StyxWoW.Me.GroupInfo.IsInBattlegroundParty)
-                return HealList.FirstOrDefault(u => !u.HasForbearance() && !u.HasDefensiveBuff() && u.HealthPercent <= hp && u.Class != WoWClass.Paladin);
+                return list.FirstOrDefault(u => !u.HasForbearance() && !u.HasDefensiveBuff() && u.HealthPercent <= hp && u.Class != WoWClass.Paladin);
 
             // At this point we don't want to use HoP on a tank
-            return HealList.FirstOrDefault(u => !u.HasForbearance() && !u.IsTank() && u.HealthPercent <= hp && u.Class != WoWClass.Paladin);
+            return list.FirstOrDefault(u => !u.HasForbearance() && u.HealthPercent <= hp && u.Class != WoWClass.Paladin);
         }
 
         public static WoWPlayer BlessingOfSanctuaryTarget()

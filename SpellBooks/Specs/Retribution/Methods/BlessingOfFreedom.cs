@@ -23,7 +23,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (!await BlessingOfFreedom.Cast(target))
                 return false;
             
-            Helpers.Logger.PrintLog("Used Hand of Freedom on {0}", target.SafeName);
+            Helpers.Logger.PrintLog("Used Blessing of Freedom on {0}", target.SafeName);
 
             LastSpell = BlessingOfFreedom;
             return true;

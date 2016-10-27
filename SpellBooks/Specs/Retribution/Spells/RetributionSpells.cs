@@ -273,7 +273,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
                 if (_wakeOfAshes == null)
                 {
                     int _id = 205273;
-                    _wakeOfAshes = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                    _wakeOfAshes = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.Facing };
                 }
                 return _wakeOfAshes;
             }

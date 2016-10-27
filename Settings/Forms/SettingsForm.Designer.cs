@@ -41,6 +41,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.losCheckCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.customButton1 = new Paladin.Forms.Controls.CustomButton();
             this.saveAndCloseButton = new Paladin.Forms.Controls.CustomButton();
             this.saveButton = new Paladin.Forms.Controls.CustomButton();
@@ -159,7 +160,6 @@
             this.customLabel1 = new Paladin.Settings.Forms.Controls.CustomLabel();
             this.tabPage27 = new System.Windows.Forms.TabPage();
             this.changelogText = new System.Windows.Forms.RichTextBox();
-            this.losCheckCheckbox = new Paladin.Settings.Forms.Controls.CustomCheckBox();
             this.topTab1.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.mainTab1.SuspendLayout();
@@ -351,6 +351,20 @@
             this.label8.TabIndex = 22;
             this.label8.Text = "Divine Storm Holy Power";
             this.toolTip1.SetToolTip(this.label8, "At how much stacks Holy Power should Divine Storm be used?");
+            // 
+            // losCheckCheckbox
+            // 
+            this.losCheckCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.losCheckCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.losCheckCheckbox.ForeColor = System.Drawing.Color.Red;
+            this.losCheckCheckbox.Location = new System.Drawing.Point(13, 265);
+            this.losCheckCheckbox.Name = "losCheckCheckbox";
+            this.losCheckCheckbox.Size = new System.Drawing.Size(240, 25);
+            this.losCheckCheckbox.TabIndex = 11;
+            this.losCheckCheckbox.Text = "Execute LOS checks";
+            this.losCheckCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.losCheckCheckbox, "Only disable this if you know what you are doing.");
+            this.losCheckCheckbox.UseVisualStyleBackColor = true;
             // 
             // customButton1
             // 
@@ -1739,20 +1753,6 @@
             this.changelogText.Size = new System.Drawing.Size(617, 338);
             this.changelogText.TabIndex = 1;
             this.changelogText.Text = "";
-            // 
-            // losCheckCheckbox
-            // 
-            this.losCheckCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.losCheckCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.losCheckCheckbox.ForeColor = System.Drawing.Color.Red;
-            this.losCheckCheckbox.Location = new System.Drawing.Point(13, 265);
-            this.losCheckCheckbox.Name = "losCheckCheckbox";
-            this.losCheckCheckbox.Size = new System.Drawing.Size(240, 25);
-            this.losCheckCheckbox.TabIndex = 11;
-            this.losCheckCheckbox.Text = "Execute LOS checks";
-            this.losCheckCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.losCheckCheckbox, "Only disable this if you know what you are doing.");
-            this.losCheckCheckbox.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 

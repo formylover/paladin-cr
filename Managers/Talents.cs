@@ -48,7 +48,9 @@ namespace Paladin.Managers
             if (TalentCache.ContainsKey(key))
                 return TalentCache[key];
 
-            TalentCache[key] = Lua.GetReturnVal<bool>(string.Format("local t = select(4, GetTalentInfo({0}, {1}, GetActiveSpecGroup())) if t then return 1 end return nil", row, column), 0);
+            var value = Lua.GetReturnVal<bool>(string.Format("local t = select(4, GetTalentInfo({0}, {1}, GetActiveSpecGroup())) if t then return 1 end return nil", row, column), 0);
+            
+            TalentCache[key] = value;
             return TalentCache[key];
         }
 

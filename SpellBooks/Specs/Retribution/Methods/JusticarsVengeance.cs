@@ -11,16 +11,14 @@ namespace Paladin.SpellBooks.Specs.Retribution
         {
             if (Globals.CurrentTarget == null) return false;
 
-            if (!StyxWoW.Me.IsFacing(Globals.CurrentTarget)) return false;
-
-            if (!MyTalents.DivinePurpose.IsActive() && StyxWoW.Me.HealthPercent > PaladinSettings.Instance.JusticarsVengeanceLife)
-                return false;
-
             if (!MyTalents.JusticarsVengeance.IsActive())
                 return false;
 
             if (Globals.HasDivinePurpose)
                 return await CastJusticarsVengeance();
+
+            if (StyxWoW.Me.HealthPercent > PaladinSettings.Instance.JusticarsVengeanceLife)
+                return false;
             
             if (Globals.HolyPower < 5) return false;
 

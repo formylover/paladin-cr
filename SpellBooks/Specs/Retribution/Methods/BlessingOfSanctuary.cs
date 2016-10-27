@@ -14,8 +14,9 @@ namespace Paladin.SpellBooks.Specs.Retribution
                 return false;
 
             var target = Healing.BlessingOfSanctuaryTarget();
-            if (target == null)
-                return false;
+            if (target == null) return false;
+
+            Helpers.Logger.DiagnosticLog("Blessing of Sanctuary on {0}, Distance: {1}, LOS: {2}", target.SafeName, target.Distance, target.InLineOfSpellSight);
 
             if (!await BlessingOfSanctuary.Cast(target))
                 return false;

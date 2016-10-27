@@ -9,7 +9,8 @@ namespace Paladin.SpellBooks.Specs.Retribution
         {
             if (Globals.CurrentTarget == null)
             if (WakeOfAshes.CRSpell.Cooldown) return false;
-            if (Globals.CurrentTarget.Distance > 8 || !Styx.StyxWoW.Me.IsFacing(Globals.CurrentTarget) || !Globals.CurrentTarget.Attackable) return false;
+            if (Globals.CurrentTarget.Distance > 8 || !Globals.CurrentTarget.Attackable) return false;
+            if (Globals.HolyPower > 2) return false;
             
             if (!await WakeOfAshes.Cast(Styx.StyxWoW.Me)) return false;
 

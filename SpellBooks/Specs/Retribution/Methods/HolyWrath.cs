@@ -13,6 +13,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (!MyTalents.HolyWrath.IsActive()) return false;
             if (Styx.StyxWoW.Me.HealthPercent > PaladinSettings.Instance.HolyWrathLife) return false;
             if (Globals.CurrentTarget.Distance > 9) return false;
+            if (Globals.CurrentTarget.HasAnyAura(Auras.Defensives)) return false;
 
             if (!await HolyWrath.Cast(Styx.StyxWoW.Me)) return false;
 
