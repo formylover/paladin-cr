@@ -7,11 +7,15 @@ namespace Paladin.SpellBooks.Specs.Retribution
     {
         public async Task<bool> BlessingOfProtectionMethod()
         {
-            if (BlessingOfFreedom.CRSpell.Cooldown) return false;
             if (LastSpell == BlessingOfProtection) return false;
-            
             var target = Global.BlessingOfProtection.Check(BlessingOfProtection, DivineShield);
             if (target == null) return false;
+
+            if (Styx.StyxWoW.Me.IsCasting)
+            {
+                Styx.CommonBot.SpellManager.StopCasting();
+                await Buddy.Coroutines.Coroutine.Sleep(250);
+            }
 
             // sleep a short delay if target has karma
             if (target.HasAura(122470))
@@ -31,7 +35,7 @@ namespace Paladin.SpellBooks.Specs.Retribution
             if (!await BlessingOfProtection.Cast(unit))
                 return false;
 
-            Helpers.Logger.PrintLog("Cast Hand of Protection on {0} at {1}% health", unit.SafeName, unit.HealthPercent);
+            Helpers.Logger.PrintLog("Cast Blessing of Protection on {0} at {1}% health", unit.SafeName, unit.HealthPercent);
 
             LastSpell = BlessingOfProtection;
             return true;

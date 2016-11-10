@@ -99,10 +99,11 @@ namespace Paladin.Helpers
             // If we're not in Pvp stop
             if (!Pvp) return;
 
+            HasFocus = StyxWoW.Me.FocusedUnit != null;
+
             // If we're not using the focusing settings, stop
             if (!Paladin.Settings.PaladinSettings.Instance.AutoFocusUse) return;
 
-            HasFocus = StyxWoW.Me.FocusedUnit != null;
             if (FocusedUnit == null && HasFocus)
                 FocusedUnit = StyxWoW.Me.FocusedUnit;
 

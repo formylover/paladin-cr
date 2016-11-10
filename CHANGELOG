@@ -1,3 +1,9 @@
+# 0.4.7
+
+- crusade will now work correctly
+- fixed performance of BoP
+- consecration check optimized
+
 # 0.4.6
 
 - Wake of Ashes now checks for Facing

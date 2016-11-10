@@ -150,9 +150,10 @@ namespace Paladin.Rotations.Specs
 
             if (await MySpells.ConsecrationMethod()) return true;
 
+            if (await MySpells.BladeOfWrathMethod()) return true;
+
             if (await MySpells.JudgmentMethod()) return true;
             if (await MySpells.DivineHammerMethod()) return true;
-            if (await MySpells.BladeOfWrathMethod()) return true;
             if (await MySpells.CrusaderStrikeMethod()) return true;
 
             return false;

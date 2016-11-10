@@ -7,7 +7,7 @@ namespace Paladin.SpellBooks.Specs.Protection
     {
         public async Task<bool> ConsecrationMethod()
         {
-            if (Globals.CurrentTarget == null || Globals.CurrentTarget.Distance > 6 && Globals.CurrentTarget.Attackable) return false;
+            if (Unit.EnemiesAroundTarget(Styx.StyxWoW.Me, 6) < 1) return false;
 
             if (!await Consecration.Cast(Styx.StyxWoW.Me)) return false;
 

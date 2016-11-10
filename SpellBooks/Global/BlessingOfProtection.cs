@@ -9,7 +9,7 @@ namespace Paladin.SpellBooks.Global
     {
         public static WoWPlayer Check(Spell spell, Spell divine)
         {
-            if (spell.CRSpell.Cooldown) return null;
+            if (!Styx.CommonBot.SpellManager.GlobalCooldown && spell.CRSpell.Cooldown) return null;
             if (!PaladinSettings.Instance.UseBoP) return null;
 
             // Unit.UnfriendlyPlayers.Any(u => u.IsMe); // TODO check if only caster are around and return
@@ -19,6 +19,9 @@ namespace Paladin.SpellBooks.Global
 
             if (divine.CRSpell.Cooldown && StyxWoW.Me.HasAura(122470) && !StyxWoW.Me.HasForbearance())
                 return StyxWoW.Me;
+
+            if (Globals.HasFocus && Globals.FocusedUnit.ToPlayer() != null && Globals.FocusedUnit.HealthPercent < PaladinSettings.Instance.UseBoPHp && Globals.FocusedUnit.Distance <= 40)
+                return Globals.FocusedUnit.ToPlayer();
 
             if (!Globals.Arena) return null;
             

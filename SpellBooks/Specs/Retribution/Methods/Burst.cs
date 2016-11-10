@@ -12,18 +12,18 @@ namespace Paladin.SpellBooks.Specs.Retribution
     {
         public async Task<bool> BurstMethod()
         {
-            if (Global.Burst.Check(AvengingWrath))
-                return await CastBurst();
-
-            return false;
-        }
-
-        private async Task<bool> CastBurst()
-        {
             var spell = AvengingWrath;
             if (MyTalents.Crusade.IsActive())
                 spell = Crusade;
 
+            if (Global.Burst.Check(spell))
+                return await CastBurst(spell);
+
+            return false;
+        }
+
+        private async Task<bool> CastBurst(Spell spell)
+        {
             if (await spell.Cast(StyxWoW.Me))
             {
                 Helpers.Logger.PrintLog("Activating Burst");

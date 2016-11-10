@@ -114,8 +114,8 @@ namespace Paladin.SpellBooks.Specs.Retribution
             {
                 if (_crusade == null)
                 {
-                    int _id = 224668;
-                    _crusade = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id) };
+                    int _id = 231895;
+                    _crusade = new Spell() { ID = _id, CRSpell = WoWSpell.FromId(_id), SpellFlags = SpellFlags.OffGlobalCooldown };
                 }
                 return _crusade;
             }
